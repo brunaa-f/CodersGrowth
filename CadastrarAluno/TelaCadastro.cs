@@ -16,5 +16,35 @@ namespace CadastrarAluno
         {
             InitializeComponent();
         }
+
+        private void TelaCadastro_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SubmitFormularioCadastro(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CancelarFormularioCadastro(object sender, EventArgs e)
+        {
+
+        }
     }
 }

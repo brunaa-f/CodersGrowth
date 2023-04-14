@@ -28,96 +28,74 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1=new Label();
-            label2=new Label();
-            label3=new Label();
-            label4=new Label();
-            textBox1=new TextBox();
-            textBox2=new TextBox();
-            textBox3=new TextBox();
-            dateTimePicker1=new DateTimePicker();
+            lbl_nome=new Label();
+            lbl_cpf=new Label();
+            lbl_telefone=new Label();
+            lbl_data_nascimento=new Label();
+            tb_nome_aluno=new TextBox();
+            dtp_data_nascimento=new DateTimePicker();
             btn_cadastrar_aluno=new Button();
             button2=new Button();
+            mtb_telefone=new MaskedTextBox();
+            mtb_cpf=new MaskedTextBox();
             SuspendLayout();
             // 
-            // label1
+            // lbl_nome
             // 
-            label1.AutoSize=true;
-            label1.Location=new Point(26, 30);
-            label1.Name="label1";
-            label1.Size=new Size(40, 15);
-            label1.TabIndex=0;
-            label1.Text="Nome";
-            label1.Click+=lbl_nome;
+            lbl_nome.AutoSize=true;
+            lbl_nome.Location=new Point(26, 30);
+            lbl_nome.Name="lbl_nome";
+            lbl_nome.Size=new Size(40, 15);
+            lbl_nome.TabIndex=0;
+            lbl_nome.Text="Nome";
             // 
-            // label2
+            // lbl_cpf
             // 
-            label2.AutoSize=true;
-            label2.Location=new Point(26, 87);
-            label2.Name="label2";
-            label2.Size=new Size(26, 15);
-            label2.TabIndex=1;
-            label2.Text="Cpf";
-            label2.Click+=lbl_cpf;
+            lbl_cpf.AutoSize=true;
+            lbl_cpf.Location=new Point(26, 87);
+            lbl_cpf.Name="lbl_cpf";
+            lbl_cpf.Size=new Size(26, 15);
+            lbl_cpf.TabIndex=1;
+            lbl_cpf.Text="Cpf";
             // 
-            // label3
+            // lbl_telefone
             // 
-            label3.AutoSize=true;
-            label3.Location=new Point(26, 145);
-            label3.Name="label3";
-            label3.Size=new Size(51, 15);
-            label3.TabIndex=2;
-            label3.Text="Telefone";
-            label3.Click+=lbl_telefone;
+            lbl_telefone.AutoSize=true;
+            lbl_telefone.Location=new Point(26, 145);
+            lbl_telefone.Name="lbl_telefone";
+            lbl_telefone.Size=new Size(51, 15);
+            lbl_telefone.TabIndex=2;
+            lbl_telefone.Text="Telefone";
             // 
-            // label4
+            // lbl_data_nascimento
             // 
-            label4.AutoSize=true;
-            label4.Location=new Point(26, 201);
-            label4.Name="label4";
-            label4.Size=new Size(114, 15);
-            label4.TabIndex=3;
-            label4.Text="Data de Nascimento";
-            label4.Click+=lbl_data_nascimento;
+            lbl_data_nascimento.AutoSize=true;
+            lbl_data_nascimento.Location=new Point(26, 201);
+            lbl_data_nascimento.Name="lbl_data_nascimento";
+            lbl_data_nascimento.Size=new Size(114, 15);
+            lbl_data_nascimento.TabIndex=3;
+            lbl_data_nascimento.Text="Data de Nascimento";
             // 
-            // textBox1
+            // tb_nome_aluno
             // 
-            textBox1.Location=new Point(26, 48);
-            textBox1.Name="textBox1";
-            textBox1.Size=new Size(318, 23);
-            textBox1.TabIndex=4;
-            textBox1.TextChanged+=tb_nome;
+            tb_nome_aluno.Location=new Point(26, 48);
+            tb_nome_aluno.Name="tb_nome_aluno";
+            tb_nome_aluno.Size=new Size(318, 23);
+            tb_nome_aluno.TabIndex=1;
             // 
-            // textBox2
+            // dtp_data_nascimento
             // 
-            textBox2.Location=new Point(26, 106);
-            textBox2.Name="textBox2";
-            textBox2.Size=new Size(318, 23);
-            textBox2.TabIndex=5;
-            textBox2.TextChanged+=tb_cpf;
-            // 
-            // textBox3
-            // 
-            textBox3.Location=new Point(26, 164);
-            textBox3.Name="textBox3";
-            textBox3.Size=new Size(318, 23);
-            textBox3.TabIndex=6;
-            textBox3.TextChanged+=tb_telefone;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location=new Point(26, 221);
-            dateTimePicker1.Name="dateTimePicker1";
-            dateTimePicker1.Size=new Size(318, 23);
-            dateTimePicker1.TabIndex=7;
-            dateTimePicker1.ValueChanged+=dtp_data_nascimento;
+            dtp_data_nascimento.Location=new Point(26, 221);
+            dtp_data_nascimento.Name="dtp_data_nascimento";
+            dtp_data_nascimento.Size=new Size(318, 23);
+            dtp_data_nascimento.TabIndex=4;
             // 
             // btn_cadastrar_aluno
             // 
             btn_cadastrar_aluno.Location=new Point(26, 401);
             btn_cadastrar_aluno.Name="btn_cadastrar_aluno";
             btn_cadastrar_aluno.Size=new Size(114, 23);
-            btn_cadastrar_aluno.TabIndex=8;
+            btn_cadastrar_aluno.TabIndex=5;
             btn_cadastrar_aluno.Text="Cadastrar Aluno";
             btn_cadastrar_aluno.UseVisualStyleBackColor=true;
             btn_cadastrar_aluno.Click+=SubmitFormularioCadastro;
@@ -127,26 +105,42 @@
             button2.Location=new Point(269, 401);
             button2.Name="button2";
             button2.Size=new Size(75, 23);
-            button2.TabIndex=9;
+            button2.TabIndex=6;
             button2.Text="Cancelar";
             button2.UseVisualStyleBackColor=true;
             button2.Click+=CancelarFormularioCadastro;
+            // 
+            // mtb_telefone
+            // 
+            mtb_telefone.Location=new Point(26, 167);
+            mtb_telefone.Mask="(99) 00000-0000";
+            mtb_telefone.Name="mtb_telefone";
+            mtb_telefone.Size=new Size(319, 23);
+            mtb_telefone.TabIndex=3;
+            // 
+            // mtb_cpf
+            // 
+            mtb_cpf.Location=new Point(26, 108);
+            mtb_cpf.Mask="000.000.000-00";
+            mtb_cpf.Name="mtb_cpf";
+            mtb_cpf.Size=new Size(318, 23);
+            mtb_cpf.TabIndex=2;
             // 
             // TelaCadastro
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
             ClientSize=new Size(371, 450);
+            Controls.Add(mtb_cpf);
+            Controls.Add(mtb_telefone);
             Controls.Add(button2);
             Controls.Add(btn_cadastrar_aluno);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(dtp_data_nascimento);
+            Controls.Add(tb_nome_aluno);
+            Controls.Add(lbl_data_nascimento);
+            Controls.Add(lbl_telefone);
+            Controls.Add(lbl_cpf);
+            Controls.Add(lbl_nome);
             Name="TelaCadastro";
             StartPosition=FormStartPosition.CenterScreen;
             Text="Form2";
@@ -157,15 +151,15 @@
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private DateTimePicker dateTimePicker1;
+        private Label lbl_nome;
+        private Label lbl_cpf;
+        private Label lbl_telefone;
+        private Label lbl_data_nascimento;
+        private TextBox tb_nome_aluno;
+        private DateTimePicker dtp_data_nascimento;
         private Button btn_cadastrar_aluno;
         private Button button2;
+        private MaskedTextBox mtb_telefone;
+        private MaskedTextBox mtb_cpf;
     }
 }

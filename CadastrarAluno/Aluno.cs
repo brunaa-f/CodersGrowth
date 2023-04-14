@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CadastrarAluno
 {
-    internal class Aluno
+    public class Aluno
     {
         public string NomeAluno { get; set; }
 
@@ -15,6 +15,7 @@ namespace CadastrarAluno
 
         public DateTime DataNascimento { get; set; }
 
+        
     }
 
 }

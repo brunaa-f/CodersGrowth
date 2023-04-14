@@ -22,17 +22,17 @@ namespace CadastrarAluno
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void lbl_nome(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void tb_cpf(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void tb_telefone(object sender, EventArgs e)
         {
 
         }
@@ -43,6 +43,31 @@ namespace CadastrarAluno
         }
 
         private void CancelarFormularioCadastro(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_cpf(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_telefone(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_data_nascimento(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_nome(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtp_data_nascimento(object sender, EventArgs e)
         {
 
         }

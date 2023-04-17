@@ -14,8 +14,6 @@ namespace CadastrarAluno
         public string Telefone { get; set; }
         public DateTime DataNascimento { get; set; }
 
-        
-        /*
         public Aluno(int id, string nomeAluno, string cpf, string telefone, DateTime dataNascimento)
         {
             Id = id;
@@ -24,8 +22,7 @@ namespace CadastrarAluno
             Telefone=telefone;
             DataNascimento=dataNascimento;
         }
-        */
-       
+        
     }
 
 }

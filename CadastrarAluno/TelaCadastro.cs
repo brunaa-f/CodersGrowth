@@ -13,7 +13,7 @@ namespace CadastrarAluno
     public partial class TelaCadastro : Form
     {
 
-        Aluno aluno = new Aluno();
+        Aluno aluno = new Aluno(1, "bruna", "70416149138", "62992820061", DateTime.Now);
 
         public TelaCadastro()
         {
@@ -32,6 +32,8 @@ namespace CadastrarAluno
             aluno.Cpf = mtb_cpf.Text;
             aluno.Telefone = mtb_telefone.Text;
             aluno.DataNascimento = Convert.ToDateTime(mtb_data_nascimento.Text);
+              
+         
             DialogResult = DialogResult.OK;
         }
         private void CancelarFormularioCadastro(object sender, EventArgs e)

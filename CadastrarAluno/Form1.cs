@@ -4,15 +4,23 @@ namespace CadastrarAluno
     {
         List<Aluno> lista = new List<Aluno>();
 
-
-        Aluno Aluno = new Aluno();
-        
-
         public TelaInicial()
         {
             InitializeComponent();
-            lista = new List<Aluno>();
-            AtualizarALista();
+
+            var aluno = new Aluno(1, "bruna", "70416149138", "62992820064", DateTime.Now);
+            Aluno aluno1 = new Aluno(2, "julia", "70416149127", "62992820077", DateTime.Now);
+            Aluno aluno2 = new Aluno(3, "ana", "70416149176", "62992820078", DateTime.Now);
+
+
+            lista.Add(aluno);
+            lista.Add(aluno1);
+            lista.Add(aluno2);
+
+            dataGridLista.DataSource = lista;
+
+
+            //AtualizarALista();
         }
 
         private void aoClicarCadastrar(object sender, EventArgs e)
@@ -20,7 +28,6 @@ namespace CadastrarAluno
             TelaCadastro cadastro = new TelaCadastro();
             cadastro.ShowDialog();
              
-
         }
 
         private void aoClicarRemover(object sender, EventArgs e)
@@ -43,12 +50,10 @@ namespace CadastrarAluno
 
         }
 
-        private void AtualizarALista()
-        {
-            dataGridLista.DataSource = lista.ToList();
-        }
-
-        
+        //private void AtualizarALista()
+        //{
+        //    dataGridLista.DataSource = lista;
+        //}
 
     }
 }

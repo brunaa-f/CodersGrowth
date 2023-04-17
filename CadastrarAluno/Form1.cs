@@ -27,7 +27,7 @@ namespace CadastrarAluno
         {
             TelaCadastro cadastro = new TelaCadastro();
             cadastro.ShowDialog();
-             
+
         }
 
         private void aoClicarRemover(object sender, EventArgs e)
@@ -39,21 +39,6 @@ namespace CadastrarAluno
         {
 
         }
-
-        private void TelaInicial_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        //private void AtualizarALista()
-        //{
-        //    dataGridLista.DataSource = lista;
-        //}
 
     }
 }

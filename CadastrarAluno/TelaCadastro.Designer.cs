@@ -33,11 +33,11 @@
             lbl_telefone=new Label();
             lbl_data_nascimento=new Label();
             tb_nome_aluno=new TextBox();
-            dtp_data_nascimento=new DateTimePicker();
             btn_cadastrar_aluno=new Button();
             button2=new Button();
             mtb_telefone=new MaskedTextBox();
             mtb_cpf=new MaskedTextBox();
+            mtb_data_nascimento=new MaskedTextBox();
             SuspendLayout();
             // 
             // lbl_nome
@@ -82,13 +82,7 @@
             tb_nome_aluno.Name="tb_nome_aluno";
             tb_nome_aluno.Size=new Size(318, 23);
             tb_nome_aluno.TabIndex=1;
-            // 
-            // dtp_data_nascimento
-            // 
-            dtp_data_nascimento.Location=new Point(26, 221);
-            dtp_data_nascimento.Name="dtp_data_nascimento";
-            dtp_data_nascimento.Size=new Size(318, 23);
-            dtp_data_nascimento.TabIndex=4;
+            tb_nome_aluno.TextChanged+=tb_nome_aluno_TextChanged;
             // 
             // btn_cadastrar_aluno
             // 
@@ -125,17 +119,28 @@
             mtb_cpf.Name="mtb_cpf";
             mtb_cpf.Size=new Size(318, 23);
             mtb_cpf.TabIndex=2;
+            mtb_cpf.MaskInputRejected+=mtb_cpf_MaskInputRejected;
+            // 
+            // mtb_data_nascimento
+            // 
+            mtb_data_nascimento.Location=new Point(26, 231);
+            mtb_data_nascimento.Mask="00/00/0000";
+            mtb_data_nascimento.Name="mtb_data_nascimento";
+            mtb_data_nascimento.Size=new Size(318, 23);
+            mtb_data_nascimento.TabIndex=7;
+            mtb_data_nascimento.ValidatingType=typeof(DateTime);
+            mtb_data_nascimento.MaskInputRejected+=mtb_data_nascimento_MaskInputRejected;
             // 
             // TelaCadastro
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
             ClientSize=new Size(371, 450);
+            Controls.Add(mtb_data_nascimento);
             Controls.Add(mtb_cpf);
             Controls.Add(mtb_telefone);
             Controls.Add(button2);
             Controls.Add(btn_cadastrar_aluno);
-            Controls.Add(dtp_data_nascimento);
             Controls.Add(tb_nome_aluno);
             Controls.Add(lbl_data_nascimento);
             Controls.Add(lbl_telefone);
@@ -156,10 +161,10 @@
         private Label lbl_telefone;
         private Label lbl_data_nascimento;
         private TextBox tb_nome_aluno;
-        private DateTimePicker dtp_data_nascimento;
         private Button btn_cadastrar_aluno;
         private Button button2;
         private MaskedTextBox mtb_telefone;
         private MaskedTextBox mtb_cpf;
+        private MaskedTextBox mtb_data_nascimento;
     }
 }

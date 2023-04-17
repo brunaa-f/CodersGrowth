@@ -82,7 +82,6 @@
             tb_nome_aluno.Name="tb_nome_aluno";
             tb_nome_aluno.Size=new Size(318, 23);
             tb_nome_aluno.TabIndex=1;
-            tb_nome_aluno.TextChanged+=tb_nome_aluno_TextChanged;
             // 
             // btn_cadastrar_aluno
             // 
@@ -119,7 +118,7 @@
             mtb_cpf.Name="mtb_cpf";
             mtb_cpf.Size=new Size(318, 23);
             mtb_cpf.TabIndex=2;
-            mtb_cpf.MaskInputRejected+=mtb_cpf_MaskInputRejected;
+         
             // 
             // mtb_data_nascimento
             // 
@@ -129,7 +128,6 @@
             mtb_data_nascimento.Size=new Size(318, 23);
             mtb_data_nascimento.TabIndex=7;
             mtb_data_nascimento.ValidatingType=typeof(DateTime);
-            mtb_data_nascimento.MaskInputRejected+=mtb_data_nascimento_MaskInputRejected;
             // 
             // TelaCadastro
             // 

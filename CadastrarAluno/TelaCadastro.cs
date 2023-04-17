@@ -40,20 +40,5 @@ namespace CadastrarAluno
         {
 
         }
-
-        private void tb_nome_aluno_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mtb_data_nascimento_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void mtb_cpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
     }
 }

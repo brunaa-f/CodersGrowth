@@ -31,8 +31,8 @@
             btn_cadastrar=new Button();
             btn_editar=new Button();
             btn_deletar=new Button();
-            dataGridView1=new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            dataGridLista=new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridLista).BeginInit();
             SuspendLayout();
             // 
             // btn_cadastrar
@@ -65,21 +65,22 @@
             btn_deletar.UseVisualStyleBackColor=true;
             btn_deletar.Click+=aoClicarRemover;
             // 
-            // dataGridView1
+            // dataGridLista
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode=DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location=new Point(1, 2);
-            dataGridView1.Name="dataGridView1";
-            dataGridView1.RowTemplate.Height=25;
-            dataGridView1.Size=new Size(662, 299);
-            dataGridView1.TabIndex=3;
+            dataGridLista.ColumnHeadersHeightSizeMode=DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridLista.Location=new Point(1, 2);
+            dataGridLista.Name="dataGridLista";
+            dataGridLista.RowTemplate.Height=25;
+            dataGridLista.Size=new Size(662, 299);
+            dataGridLista.TabIndex=3;
+            dataGridLista.CellContentClick+=dataGridView1_CellContentClick;
             // 
             // TelaInicial
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
             ClientSize=new Size(665, 340);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridLista);
             Controls.Add(btn_deletar);
             Controls.Add(btn_editar);
             Controls.Add(btn_cadastrar);
@@ -87,7 +88,7 @@
             StartPosition=FormStartPosition.CenterScreen;
             Text="Form1";
             Load+=TelaInicial_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridLista).EndInit();
             ResumeLayout(false);
         }
 
@@ -96,6 +97,6 @@
         private Button btn_cadastrar;
         private Button btn_editar;
         private Button btn_deletar;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridLista;
     }
 }

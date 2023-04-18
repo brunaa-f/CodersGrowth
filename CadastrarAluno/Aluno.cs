@@ -22,7 +22,7 @@ namespace CadastrarAluno
             Telefone=telefone;
             DataNascimento=dataNascimento;
         }
-        
+        public Aluno() { }  
     }
 
 }

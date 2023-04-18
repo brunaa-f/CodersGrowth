@@ -73,7 +73,7 @@
             dataGridLista.RowTemplate.Height=25;
             dataGridLista.Size=new Size(662, 299);
             dataGridLista.TabIndex=3;
-           
+            dataGridLista.CellContentClick+=dataGridLista_CellContentClick;
             // 
             // TelaInicial
             // 

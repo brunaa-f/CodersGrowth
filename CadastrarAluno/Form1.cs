@@ -18,15 +18,13 @@ namespace CadastrarAluno
             lista.Add(aluno2);
 
             dataGridLista.DataSource = lista;
-
-
-            //AtualizarALista();
         }
 
         private void aoClicarCadastrar(object sender, EventArgs e)
         {
-            TelaCadastro cadastro = new TelaCadastro();
+            TelaCadastro cadastro = new TelaCadastro(lista);
             cadastro.ShowDialog();
+            AtualizarALista();
 
         }
 
@@ -40,5 +38,16 @@ namespace CadastrarAluno
 
         }
 
+        private void dataGridLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        private void AtualizarALista()
+        {
+            dataGridLista.DataSource = null;
+            dataGridLista.DataSource = lista; 
+
+
+        }
     }
 }

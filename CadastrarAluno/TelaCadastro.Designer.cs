@@ -119,7 +119,6 @@
             mtb_cpf.Name = "mtb_cpf";
             mtb_cpf.Size = new Size(318, 23);
             mtb_cpf.TabIndex = 2;
-            mtb_cpf.MaskInputRejected += mtb_cpf_MaskInputRejected;
             // 
             // dtp_data_nascimento
             // 
@@ -128,7 +127,7 @@
             dtp_data_nascimento.Name = "dtp_data_nascimento";
             dtp_data_nascimento.Size = new Size(318, 23);
             dtp_data_nascimento.TabIndex = 4;
-            dtp_data_nascimento.ValueChanged += dateTimePicker1_ValueChanged;
+           
             // 
             // TelaCadastro
             // 

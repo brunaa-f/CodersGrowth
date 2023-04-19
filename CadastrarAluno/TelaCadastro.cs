@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace CadastrarAluno
+﻿namespace CadastrarAluno
 {
     public partial class TelaCadastro : Form
     {
-
-        private List<Aluno> Alunos;
-        public TelaCadastro(List<Aluno> alunos)
+        private int idIncremental;
+        public Aluno _novoAluno;
+        
+        public TelaCadastro(Aluno alunos, int id)
         {
             InitializeComponent();
-            Alunos = alunos;
+
+            //criar um novo aluno
+            if (alunos == null)
+            {
+                _novoAluno = new Aluno();
+                idIncremental = id;
+            }
         }
 
         private void TelaCadastro_Load(object sender, EventArgs e)
@@ -30,14 +27,15 @@ namespace CadastrarAluno
         {
             if (ValidarForm())
             {
-                Aluno novoAluno = new Aluno();
-                novoAluno.NomeAluno = tb_nome_aluno.Text;
-                novoAluno.Cpf = mtb_cpf.Text;
-                novoAluno.Telefone = mtb_telefone.Text;
-                novoAluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
-                Alunos.Add(novoAluno);
-                Close();    
-                MessageBox.Show("Usuário Cadastrado com sucesso!");   
+                
+                _novoAluno.Id = NovoId();
+                _novoAluno.NomeAluno = tb_nome_aluno.Text;
+                _novoAluno.Cpf = mtb_cpf.Text;
+                _novoAluno.Telefone = mtb_telefone.Text;
+                _novoAluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
+                
+                MessageBox.Show("Usuário Cadastrado com sucesso!");
+                Close();
             } 
         }
 
@@ -76,14 +74,9 @@ namespace CadastrarAluno
             this.Close();
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private int NovoId()
         {
-
-        }
-
-        private void mtb_cpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
+            return ++idIncremental;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace CadastrarAluno
 {
     public class Aluno
     {
-        public int Id { get; private set; }
+        public int Id { get; set; }
         public string NomeAluno { get; set; }
         public string Cpf { get; set; }
         public string Telefone { get; set; }

@@ -3,6 +3,7 @@ namespace CadastrarAluno
     public partial class TelaInicial : Form
     {
         List<Aluno> lista = new List<Aluno>();
+        public int _id { get; set; }
 
         public TelaInicial()
         {
@@ -13,10 +14,15 @@ namespace CadastrarAluno
 
         private void aoClicarCadastrar(object sender, EventArgs e)
         {
-            TelaCadastro cadastro = new TelaCadastro(lista);
+            TelaCadastro cadastro = new TelaCadastro(null, _id);
             cadastro.ShowDialog();
-            AtualizarALista();
 
+
+            var alunoParaCadastrar = cadastro._novoAluno;
+            _id = alunoParaCadastrar.Id;
+                
+            lista.Add(alunoParaCadastrar);
+            AtualizarALista();
         }
         private void aoClicarRemover(object sender, EventArgs e)
         {

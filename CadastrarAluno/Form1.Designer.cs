@@ -28,65 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btn_cadastrar=new Button();
-            btn_editar=new Button();
-            btn_deletar=new Button();
-            dataGridLista=new DataGridView();
+            btn_cadastrar = new Button();
+            btn_editar = new Button();
+            btn_deletar = new Button();
+            dataGridLista = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridLista).BeginInit();
             SuspendLayout();
             // 
             // btn_cadastrar
             // 
-            btn_cadastrar.Location=new Point(413, 307);
-            btn_cadastrar.Name="btn_cadastrar";
-            btn_cadastrar.Size=new Size(75, 23);
-            btn_cadastrar.TabIndex=0;
-            btn_cadastrar.Text="Cadastrar";
-            btn_cadastrar.UseVisualStyleBackColor=true;
-            btn_cadastrar.Click+=aoClicarCadastrar;
+            btn_cadastrar.Location = new Point(413, 307);
+            btn_cadastrar.Name = "btn_cadastrar";
+            btn_cadastrar.Size = new Size(75, 23);
+            btn_cadastrar.TabIndex = 0;
+            btn_cadastrar.Text = "Cadastrar";
+            btn_cadastrar.UseVisualStyleBackColor = true;
+            btn_cadastrar.Click += aoClicarCadastrar;
             // 
             // btn_editar
             // 
-            btn_editar.Location=new Point(494, 307);
-            btn_editar.Name="btn_editar";
-            btn_editar.Size=new Size(75, 23);
-            btn_editar.TabIndex=1;
-            btn_editar.Text="Editar";
-            btn_editar.UseVisualStyleBackColor=true;
-            btn_editar.Click+=aoClicarEditar;
+            btn_editar.Location = new Point(494, 307);
+            btn_editar.Name = "btn_editar";
+            btn_editar.Size = new Size(75, 23);
+            btn_editar.TabIndex = 1;
+            btn_editar.Text = "Editar";
+            btn_editar.UseVisualStyleBackColor = true;
+            btn_editar.Click += aoClicarEditar;
             // 
             // btn_deletar
             // 
-            btn_deletar.Location=new Point(575, 307);
-            btn_deletar.Name="btn_deletar";
-            btn_deletar.Size=new Size(75, 23);
-            btn_deletar.TabIndex=2;
-            btn_deletar.Text="Remover";
-            btn_deletar.UseVisualStyleBackColor=true;
-            btn_deletar.Click+=aoClicarRemover;
+            btn_deletar.Location = new Point(575, 307);
+            btn_deletar.Name = "btn_deletar";
+            btn_deletar.Size = new Size(75, 23);
+            btn_deletar.TabIndex = 2;
+            btn_deletar.Text = "Remover";
+            btn_deletar.UseVisualStyleBackColor = true;
+            btn_deletar.Click += aoClicarRemover;
             // 
             // dataGridLista
             // 
-            dataGridLista.ColumnHeadersHeightSizeMode=DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridLista.Location=new Point(1, 2);
-            dataGridLista.Name="dataGridLista";
-            dataGridLista.RowTemplate.Height=25;
-            dataGridLista.Size=new Size(662, 299);
-            dataGridLista.TabIndex=3;
-            dataGridLista.CellContentClick+=dataGridLista_CellContentClick;
+            dataGridLista.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridLista.Location = new Point(1, 2);
+            dataGridLista.Name = "dataGridLista";
+            dataGridLista.RowTemplate.Height = 25;
+            dataGridLista.Size = new Size(662, 299);
+            dataGridLista.TabIndex = 3;
+            dataGridLista.CellContentClick += dataGridLista_CellContentClick;
             // 
             // TelaInicial
             // 
-            AutoScaleDimensions=new SizeF(7F, 15F);
-            AutoScaleMode=AutoScaleMode.Font;
-            ClientSize=new Size(665, 340);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(665, 340);
             Controls.Add(dataGridLista);
             Controls.Add(btn_deletar);
             Controls.Add(btn_editar);
             Controls.Add(btn_cadastrar);
-            Name="TelaInicial";
-            StartPosition=FormStartPosition.CenterScreen;
-            Text="Form1";
+            Name = "TelaInicial";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Form1";
+            Load += TelaInicial_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridLista).EndInit();
             ResumeLayout(false);
         }

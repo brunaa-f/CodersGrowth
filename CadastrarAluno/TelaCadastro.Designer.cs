@@ -111,6 +111,7 @@
             mtb_telefone.Name = "mtb_telefone";
             mtb_telefone.Size = new Size(319, 23);
             mtb_telefone.TabIndex = 3;
+            mtb_telefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             // 
             // mtb_cpf
             // 
@@ -119,6 +120,7 @@
             mtb_cpf.Name = "mtb_cpf";
             mtb_cpf.Size = new Size(318, 23);
             mtb_cpf.TabIndex = 2;
+            mtb_cpf.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             // 
             // dtp_data_nascimento
             // 
@@ -127,7 +129,6 @@
             dtp_data_nascimento.Name = "dtp_data_nascimento";
             dtp_data_nascimento.Size = new Size(318, 23);
             dtp_data_nascimento.TabIndex = 4;
-           
             // 
             // TelaCadastro
             // 

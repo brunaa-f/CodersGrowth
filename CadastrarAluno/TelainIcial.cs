@@ -11,7 +11,12 @@ namespace CadastrarAluno
             dataGridLista.DataSource = lista;
             AtualizarALista();
         }
-
+         
+        static int id = 0;
+        public int gerarId()
+        {
+            ++id; return id;    
+        }
         private void aoClicarAbreTelaDeCadastro(object sender, EventArgs e)
         {
             TelaCadastro cadastro = new TelaCadastro(null, _id);

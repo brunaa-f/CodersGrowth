@@ -60,7 +60,6 @@
             return true;
 
         }
-
         private void CancelarFormularioCadastro(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;

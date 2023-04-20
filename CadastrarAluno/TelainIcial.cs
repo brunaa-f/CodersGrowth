@@ -15,12 +15,14 @@ namespace CadastrarAluno
         private void aoClicarCadastrar(object sender, EventArgs e)
         {
             TelaCadastro cadastro = new TelaCadastro(null, _id);
-            cadastro.ShowDialog();
 
-            var alunoParaCadastrar = cadastro._novoAluno;
-            _id = alunoParaCadastrar.Id;
-            lista.Add(alunoParaCadastrar);
-            AtualizarALista();
+            if (cadastro.ShowDialog() == DialogResult.OK)
+            {
+                var alunoParaCadastrar = cadastro._novoAluno;
+                _id = alunoParaCadastrar.Id;
+                lista.Add(alunoParaCadastrar);
+                AtualizarALista();
+            }
         }
         private void aoClicarRemover(object sender, EventArgs e)
         {

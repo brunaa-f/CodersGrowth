@@ -16,8 +16,6 @@
                 idIncremental = id;
             }
         }
-
-
         private void SubmitFormularioCadastro(object sender, EventArgs e)
 
         {
@@ -28,8 +26,8 @@
                 _novoAluno.Cpf = mtb_cpf.Text;
                 _novoAluno.Telefone = mtb_telefone.Text;
                 _novoAluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
-                
                 MessageBox.Show("Usuário Cadastrado com sucesso!");
+                DialogResult = DialogResult.OK;
             } 
         }
 
@@ -65,7 +63,7 @@
 
         private void CancelarFormularioCadastro(object sender, EventArgs e)
         {
-            this.Hide();
+            DialogResult = DialogResult.Cancel;
         }
 
         private int NovoId()

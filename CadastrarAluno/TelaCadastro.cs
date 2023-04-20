@@ -17,17 +17,12 @@
             }
         }
 
-        private void TelaCadastro_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void SubmitFormularioCadastro(object sender, EventArgs e)
 
         {
             if (ValidarForm())
             {
-                
                 _novoAluno.Id = NovoId();
                 _novoAluno.NomeAluno = tb_nome_aluno.Text;
                 _novoAluno.Cpf = mtb_cpf.Text;
@@ -35,7 +30,6 @@
                 _novoAluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
                 
                 MessageBox.Show("Usuário Cadastrado com sucesso!");
-                Close();
             } 
         }
 
@@ -71,11 +65,11 @@
 
         private void CancelarFormularioCadastro(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         private int NovoId()
-        {
+        { 
             return ++idIncremental;
         }
     }

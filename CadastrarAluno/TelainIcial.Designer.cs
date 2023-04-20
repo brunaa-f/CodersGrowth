@@ -73,7 +73,6 @@
             dataGridLista.RowTemplate.Height = 25;
             dataGridLista.Size = new Size(662, 299);
             dataGridLista.TabIndex = 3;
-            dataGridLista.CellContentClick += dataGridLista_CellContentClick;
             // 
             // TelaInicial
             // 
@@ -87,7 +86,6 @@
             Name = "TelaInicial";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
-            Load += TelaInicial_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridLista).EndInit();
             ResumeLayout(false);
         }

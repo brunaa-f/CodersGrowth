@@ -17,10 +17,8 @@ namespace CadastrarAluno
             TelaCadastro cadastro = new TelaCadastro(null, _id);
             cadastro.ShowDialog();
 
-
             var alunoParaCadastrar = cadastro._novoAluno;
             _id = alunoParaCadastrar.Id;
-                
             lista.Add(alunoParaCadastrar);
             AtualizarALista();
         }
@@ -33,20 +31,10 @@ namespace CadastrarAluno
         {
 
         }
-
-        private void dataGridLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        private void AtualizarALista()
+        public void AtualizarALista()
         {
             dataGridLista.DataSource = null;
             dataGridLista.DataSource = lista;
-        }
-
-        private void TelaInicial_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

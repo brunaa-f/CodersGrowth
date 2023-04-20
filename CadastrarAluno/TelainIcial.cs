@@ -12,7 +12,7 @@ namespace CadastrarAluno
             AtualizarALista();
         }
 
-        private void aoClicarCadastrar(object sender, EventArgs e)
+        private void aoClicarAbreTelaDeCadastro(object sender, EventArgs e)
         {
             TelaCadastro cadastro = new TelaCadastro(null, _id);
 

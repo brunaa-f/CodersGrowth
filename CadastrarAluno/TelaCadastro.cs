@@ -16,7 +16,7 @@
                 idIncremental = id;
             }
         }
-        private void SubmitFormularioCadastro(object sender, EventArgs e)
+        private void aoClicarCadastrarNovoAluno(object sender, EventArgs e)
 
         {
             if (ValidarForm())

@@ -92,7 +92,7 @@
             btn_cadastrar_aluno.TabIndex = 5;
             btn_cadastrar_aluno.Text = "Cadastrar Aluno";
             btn_cadastrar_aluno.UseVisualStyleBackColor = true;
-            btn_cadastrar_aluno.Click += SubmitFormularioCadastro;
+            btn_cadastrar_aluno.Click += aoClicarCadastrarNovoAluno;
             // 
             // button2
             // 

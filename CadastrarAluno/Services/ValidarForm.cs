@@ -33,6 +33,9 @@ namespace CadastrarAluno.Services
             {
                 erros += "CPF inválido \n";
             }
+            if (ValidacaoDoCampoTelefone(aluno.Telefone)) {
+                erros += "Telefone inválido \n";
+            }
             if (erros.Length > 0)
             {
                 throw new Exception(erros);
@@ -73,6 +76,13 @@ namespace CadastrarAluno.Services
                 return true;
             }
 
+            return false;
+        }
+        private static bool ValidacaoDoCampoTelefone(string telefone) {
+            Regex regex = new Regex(@"^\(\d{2}\) \d{5}-\d{4}$");
+            if (!regex.IsMatch(telefone)) {
+                return true;
+            }
             return false;
         }
 

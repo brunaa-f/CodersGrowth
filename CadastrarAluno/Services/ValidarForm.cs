@@ -36,6 +36,9 @@ namespace CadastrarAluno.Services
             if (ValidacaoDoCampoTelefone(aluno.Telefone)) {
                 erros += "Telefone inválido \n";
             }
+            if (ValidacaoDoCampoDataNascimento(aluno.DataNascimento)) {
+                erros += "Verifique a data de nascimento \n";
+            }
             if (erros.Length > 0)
             {
                 throw new Exception(erros);
@@ -79,8 +82,17 @@ namespace CadastrarAluno.Services
             return false;
         }
         private static bool ValidacaoDoCampoTelefone(string telefone) {
-            Regex regex = new Regex(@"^\(\d{2}\) \d{5}-\d{4}$");
+            Regex regex = new Regex("^(?:\\(\\d{2}\\)|\\d{2})[- ]?\\d{4,5}[- ]?\\d{4}$");
             if (!regex.IsMatch(telefone)) {
+                return true;
+            }
+            return false;
+        }
+        private static bool ValidacaoDoCampoDataNascimento(DateTime dataNascimento) {
+
+            int idade = DateTime.Now.Year - dataNascimento.Year;
+
+            if (dataNascimento > DateTime.Now || idade < 11 || idade > 120) {
                 return true;
             }
             return false;

@@ -1,13 +1,13 @@
 ﻿using CadastrarAluno.Services;
+using static CadastrarAluno.Services.ValidarForm;
 
 namespace CadastrarAluno
 {
     public partial class TelaCadastro : Form
     {
-        private int idIncremental;
         public Aluno _novoAluno;
 
-        public TelaCadastro(Aluno alunos, int id)
+        public TelaCadastro(Aluno alunos)
         {
             InitializeComponent();
 
@@ -15,7 +15,6 @@ namespace CadastrarAluno
             if (alunos == null)
             {
                 _novoAluno = new Aluno();
-                idIncremental = id;
             }
         }
         private void aoClicarCadastrarNovoAluno(object sender, EventArgs e)
@@ -23,11 +22,11 @@ namespace CadastrarAluno
         {
             try
             {
-                _novoAluno.Id = NovoId();
                 _novoAluno.NomeAluno = tb_nome_aluno.Text;
                 _novoAluno.Cpf = mtb_cpf.Text;
                 _novoAluno.Telefone = mtb_telefone.Text;
                 _novoAluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
+                _novoAluno.Id = GeradorDeIds.NovoId();
 
                 ValidarForm.Valida(_novoAluno);
                 DialogResult = DialogResult.OK;
@@ -38,16 +37,9 @@ namespace CadastrarAluno
                 MessageBox.Show(ex.Message);
             }
         }
-
-
         private void CancelarFormularioCadastro(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-        }
-
-        private int NovoId()
-        {
-            return ++idIncremental;
         }
 
     }

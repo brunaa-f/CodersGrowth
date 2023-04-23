@@ -3,28 +3,19 @@ namespace CadastrarAluno
     public partial class TelaInicial : Form
     {
         List<Aluno> lista = new List<Aluno>();
-        public int _id { get; set; }
-
         public TelaInicial()
         {
             InitializeComponent();
             dataGridLista.DataSource = lista;
             AtualizarALista();
         }
-         
-        static int id = 0;
-        public int gerarId()
-        {
-            ++id; return id;    
-        }
         private void aoClicarAbreTelaDeCadastro(object sender, EventArgs e)
         {
-            TelaCadastro cadastro = new TelaCadastro(null, _id);
+            TelaCadastro cadastro = new TelaCadastro(null);
 
             if (cadastro.ShowDialog() == DialogResult.OK)
             {
                 var alunoParaCadastrar = cadastro._novoAluno;
-                _id = alunoParaCadastrar.Id;
                 lista.Add(alunoParaCadastrar);
                 AtualizarALista();
             }

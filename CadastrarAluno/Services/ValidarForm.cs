@@ -98,6 +98,14 @@ namespace CadastrarAluno.Services
             return false;
         }
 
+        public static class GeradorDeIds {
+            private static int _ultimoId = 0;
+
+            public static int NovoId() {
+                return ++_ultimoId;
+            }
+        }
+
     }
 }
 

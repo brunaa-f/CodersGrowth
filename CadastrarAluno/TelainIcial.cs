@@ -15,11 +15,12 @@ namespace CadastrarAluno
         static int id = 0;
         public int gerarId()
         {
-            ++id; return id;    
+            id++;
+            return _id;    
         }
         private void aoClicarAbreTelaDeCadastro(object sender, EventArgs e)
         {
-            TelaCadastro cadastro = new TelaCadastro(null, _id);
+            TelaCadastro cadastro = new TelaCadastro(null, gerarId());
 
             if (cadastro.ShowDialog() == DialogResult.OK)
             {

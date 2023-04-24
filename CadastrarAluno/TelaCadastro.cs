@@ -15,7 +15,7 @@ namespace CadastrarAluno
             if (alunos == null)
             {
                 _novoAluno = new Aluno();
-                idIncremental = id;
+                NovoId = id;
             }
         }
         private void aoClicarCadastrarNovoAluno(object sender, EventArgs e)

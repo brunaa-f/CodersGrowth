@@ -11,7 +11,6 @@ namespace CadastrarAluno
         {
             InitializeComponent();
 
-            //criar um novo aluno
             if (alunos == null)
             {
                 _novoAluno = new Aluno();
@@ -26,9 +25,9 @@ namespace CadastrarAluno
                 _novoAluno.Cpf = mtb_cpf.Text;
                 _novoAluno.Telefone = mtb_telefone.Text;
                 _novoAluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
-                _novoAluno.Id = GeradorDeIds.NovoId();
 
                 ValidarForm.Valida(_novoAluno);
+                _novoAluno.Id = GeradorDeIds.NovoId();
                 DialogResult = DialogResult.OK;
                 MessageBox.Show("Usuário Cadastrado com sucesso!");
             }

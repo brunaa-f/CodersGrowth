@@ -41,6 +41,5 @@ namespace CadastrarAluno
         {
             DialogResult = DialogResult.Cancel;
         }
-
     }
 }

@@ -12,22 +12,15 @@ namespace CadastrarAluno
             InitializeComponent();
             AtualizarALista();
         }
-         
-        static int id = 0;
-        public int gerarId()
-        {
-            id++;
-            return _id;    
-        }
         private void aoClicarAbreTelaDeCadastro(object sender, EventArgs e)
         {
-            TelaCadastro cadastro = new TelaCadastro(null, gerarId());
+            TelaCadastro cadastro = new TelaCadastro(null);
 
             if (cadastro.ShowDialog() == DialogResult.OK)
             {
                 var alunoParaCadastrar = cadastro._novoAluno;
-                _id = alunoParaCadastrar.Id;
                 lista.Add(alunoParaCadastrar);
+                _id = alunoParaCadastrar.Id;
                 AtualizarALista();
             }
         }

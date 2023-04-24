@@ -75,9 +75,6 @@ namespace CadastrarAluno.Services
 
             return false;
         }
-<<<<<<< Updated upstream
-
-=======
         private static bool ValidacaoDoCampoTelefone(string telefone) {
             Regex regex = new Regex("^(?:\\(\\d{2}\\)|\\d{2})[- ]?\\d{4,5}[- ]?\\d{4}$");
             if (!regex.IsMatch(telefone)) {
@@ -102,7 +99,6 @@ namespace CadastrarAluno.Services
                 return ++_ultimoId;
             }
         }
->>>>>>> Stashed changes
     }
 }
 

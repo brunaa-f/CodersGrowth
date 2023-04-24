@@ -16,3 +16,21 @@ C:\Users\Usuario\Documents\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\
 C:\Users\Usuario\Documents\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\CadastrarAluno.genruntimeconfig.cache
 C:\Users\Usuario\Documents\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\ref\CadastrarAluno.dll
 C:\Users\Usuario\Documents\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\CadastrarAluno.TelaCadastro.resources
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\bin\Debug\net7.0-windows\CadastrarAluno.exe
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\bin\Debug\net7.0-windows\CadastrarAluno.deps.json
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\bin\Debug\net7.0-windows\CadastrarAluno.runtimeconfig.json
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\bin\Debug\net7.0-windows\CadastrarAluno.dll
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\bin\Debug\net7.0-windows\CadastrarAluno.pdb
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\CadastrarAluno.csproj.AssemblyReference.cache
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\CadastrarAluno.TelaCadastro.resources
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\CadastrarAluno.TelaInicial.resources
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\CadastrarAluno.csproj.GenerateResource.cache
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\CadastrarAluno.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\CadastrarAluno.AssemblyInfoInputs.cache
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\CadastrarAluno.AssemblyInfo.cs
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\CadastrarAluno.csproj.CoreCompileInputs.cache
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\CadastrarAluno.dll
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\refint\CadastrarAluno.dll
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\CadastrarAluno.pdb
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\CadastrarAluno.genruntimeconfig.cache
+C:\Users\mizak\OneDrive\Área de Trabalho\CodersGrowth\CadastrarAluno\obj\Debug\net7.0-windows\ref\CadastrarAluno.dll

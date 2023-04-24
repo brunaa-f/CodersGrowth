@@ -43,7 +43,7 @@
             btn_cadastrar.TabIndex = 0;
             btn_cadastrar.Text = "Cadastrar";
             btn_cadastrar.UseVisualStyleBackColor = true;
-            btn_cadastrar.Click += aoClicarCadastrar;
+            btn_cadastrar.Click += aoClicarAbreTelaDeCadastro;
             // 
             // btn_editar
             // 

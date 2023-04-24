@@ -1,4 +1,4 @@
-﻿using CadastrarAluno.Services;
+﻿using CadastrarAluno.Servicos;
 
 namespace CadastrarAluno
 {

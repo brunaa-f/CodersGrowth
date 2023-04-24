@@ -45,10 +45,20 @@ namespace CadastrarAluno
             DialogResult = DialogResult.Cancel;
         }
 
+<<<<<<< Updated upstream
         private int NovoId()
         {
             return ++idIncremental;
         }
 
+=======
+        public void preencher()
+        {
+            _novoAluno.NomeAluno = tb_nome_aluno.Text;
+            _novoAluno.Cpf = mtb_cpf.Text;
+            _novoAluno.Telefone = mtb_telefone.Text;
+            _novoAluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
+        }
+>>>>>>> Stashed changes
     }
 }

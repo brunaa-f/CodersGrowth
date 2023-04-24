@@ -75,7 +75,34 @@ namespace CadastrarAluno.Services
 
             return false;
         }
+<<<<<<< Updated upstream
 
+=======
+        private static bool ValidacaoDoCampoTelefone(string telefone) {
+            Regex regex = new Regex("^(?:\\(\\d{2}\\)|\\d{2})[- ]?\\d{4,5}[- ]?\\d{4}$");
+            if (!regex.IsMatch(telefone)) {
+                return true;
+            }
+            return false;
+        }
+        private static bool ValidacaoDoCampoDataNascimento(DateTime dataNascimento) {
+
+            int idade = DateTime.Now.Year - dataNascimento.Year;
+
+            if (dataNascimento > DateTime.Now || idade < 11 || idade > 120) {
+                return true;
+            }
+            return false;
+        }
+
+        public static class GeradorDeIds {
+            private static int _ultimoId = 0;
+
+            public static int NovoId() {
+                return ++_ultimoId;
+            }
+        }
+>>>>>>> Stashed changes
     }
 }
 

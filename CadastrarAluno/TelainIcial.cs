@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace CadastrarAluno
 {
     public partial class TelaInicial : Form
@@ -8,7 +10,6 @@ namespace CadastrarAluno
         public TelaInicial()
         {
             InitializeComponent();
-            dataGridLista.DataSource = lista;
             AtualizarALista();
         }
          
@@ -32,17 +33,21 @@ namespace CadastrarAluno
         }
         private void aoClicarRemover(object sender, EventArgs e)
         {
-
-        }
+           var id = (int) dataGridLista.SelectedRows[0].Cells[0].Value;
+           var alunoParaRemover = lista.Find(x => x.Id == id);
+           lista.Remove(alunoParaRemover);
+           AtualizarALista();
+        } 
 
         private void aoClicarEditar(object sender, EventArgs e)
         {
-
+            DataGridViewRow linha = new DataGridViewRow();
+            linha = dataGridLista.CurrentRow;
         }
         public void AtualizarALista()
         {
             dataGridLista.DataSource = null;
-            dataGridLista.DataSource = lista;
+            dataGridLista.DataSource = lista.ToList();
         }
     }
 }

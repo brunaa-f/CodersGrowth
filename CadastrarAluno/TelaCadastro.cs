@@ -21,13 +21,13 @@ namespace CadastrarAluno
         {
             try
             {
-                _novoAluno.Id = NovoId();
                 _novoAluno.NomeAluno = tb_nome_aluno.Text;
                 _novoAluno.Cpf = mtb_cpf.Text;
                 _novoAluno.Telefone = mtb_telefone.Text;
                 _novoAluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
 
                 ValidarForm.Valida(_novoAluno);
+                _novoAluno.Id = NovoId();
                 DialogResult = DialogResult.OK;
                 MessageBox.Show("Usuário Cadastrado com sucesso!");
             }

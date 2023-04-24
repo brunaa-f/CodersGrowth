@@ -1,26 +1,19 @@
-﻿using CadastrarAluno.Servicos;
+using CadastrarAluno.Servicos;
 
-namespace CadastrarAluno
-{
-    public partial class TelaCadastro : Form
-    {
+namespace CadastrarAluno {
+    public partial class TelaCadastro : Form {
         private int idIncremental;
         public Aluno _novoAluno;
 
-        public TelaCadastro(Aluno alunos)
-        {
+        public TelaCadastro(Aluno alunos) {
             InitializeComponent();
 
-            if (alunos == null)
-            {
+            if (alunos == null) {
                 _novoAluno = new Aluno();
             }
         }
-        private void aoClicarCadastrarNovoAluno(object sender, EventArgs e)
-
-        {
-            try
-            {
+        private void aoClicarCadastrarNovoAluno(object sender, EventArgs e) {
+            try {
                 _novoAluno.NomeAluno = tb_nome_aluno.Text;
                 _novoAluno.Cpf = mtb_cpf.Text;
                 _novoAluno.Telefone = mtb_telefone.Text;
@@ -31,17 +24,14 @@ namespace CadastrarAluno
                 DialogResult = DialogResult.OK;
                 MessageBox.Show("Usuário Cadastrado com sucesso!");
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
-        private void CancelarFormularioCadastro(object sender, EventArgs e)
-        {
+        private void CancelarFormularioCadastro(object sender, EventArgs e) {
             DialogResult = DialogResult.Cancel;
         }
-        private int NovoId()
-        {
+        private int NovoId() {
             return ++idIncremental;
         }
     }

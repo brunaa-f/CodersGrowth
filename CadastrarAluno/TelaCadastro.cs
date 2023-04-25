@@ -16,6 +16,9 @@ namespace CadastrarAluno
             if (alunos == null)
             {
                 _novoAluno = new Aluno();
+            } else
+            {
+                ExibirDadosParaEditar();
             }
         }
         private void aoClicarCadastrarNovoAluno(object sender, EventArgs e)
@@ -34,7 +37,8 @@ namespace CadastrarAluno
                     DialogResult = DialogResult.OK;
                     MessageBox.Show("Usuário Editado com sucesso!");
 
-                }else
+                }
+                else
                 {
                     _novoAluno.NomeAluno = tb_nome_aluno.Text;
                     _novoAluno.Cpf = mtb_cpf.Text;
@@ -61,6 +65,13 @@ namespace CadastrarAluno
             return ++idIncremental;
         }
 
+        private void ExibirDadosParaEditar()
+        {
+            tb_nome_aluno.Text = _aluno.NomeAluno;
+            mtb_cpf.Text = _aluno.Cpf;
+            mtb_telefone.Text = _aluno.Telefone;
+            dtp_data_nascimento.Text = _aluno.DataNascimento.ToString();
+        }
     }
 
 

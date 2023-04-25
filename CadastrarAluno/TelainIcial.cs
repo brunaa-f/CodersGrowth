@@ -5,7 +5,7 @@ namespace CadastrarAluno
     public partial class TelaInicial : Form
     {
         List<Aluno> lista = new List<Aluno>();
-        
+
         public int _id { get; set; }
         public TelaInicial()
         {
@@ -26,11 +26,11 @@ namespace CadastrarAluno
         }
         private void aoClicarRemover(object sender, EventArgs e)
         {
-           var id = (int) dataGridLista.SelectedRows[0].Cells[0].Value;
-           var alunoParaRemover = lista.Find(x => x.Id == id);
-           lista.Remove(alunoParaRemover);
-           AtualizarALista();
-        } 
+            var id = (int)dataGridLista.SelectedRows[0].Cells[0].Value;
+            var alunoParaRemover = lista.Find(x => x.Id == id);
+            lista.Remove(alunoParaRemover);
+            AtualizarALista();
+        }
 
         private void aoClicarEditar(object sender, EventArgs e)
         {

@@ -94,7 +94,6 @@ namespace CadastrarAluno.Servicos
         }
         private static bool ValidacaoDoCampoDataNascimento(DateTime dataNascimento)
         {
-
             int idade = DateTime.Now.Year - dataNascimento.Year;
 
             if (dataNascimento > DateTime.Now || idade < 11 || idade > 120)
@@ -107,12 +106,10 @@ namespace CadastrarAluno.Servicos
         public static class GeradorDeIds
         {
             private static int _ultimoId = 0;
-
             public static int NovoId()
             {
                 return ++_ultimoId;
             }
         }
-
     }
 }

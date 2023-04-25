@@ -1,5 +1,4 @@
-﻿using CadastrarAluno.Services;
-using static CadastrarAluno.Services.ValidarForm;
+﻿using CadastrarAluno.Servicos;
 
 namespace CadastrarAluno
 {
@@ -27,7 +26,7 @@ namespace CadastrarAluno
                 _novoAluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
 
                 ValidarForm.Valida(_novoAluno);
-                _novoAluno.Id = GeradorDeIds.NovoId();
+                _novoAluno.Id = NovoId();
                 DialogResult = DialogResult.OK;
                 MessageBox.Show("Usuário Cadastrado com sucesso!");
             }
@@ -39,6 +38,10 @@ namespace CadastrarAluno
         private void CancelarFormularioCadastro(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+        }
+        private int NovoId()
+        {
+            return ++idIncremental;
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace CadastrarAluno.Services
+namespace CadastrarAluno.Servicos
 {
     public class ValidarForm
     {
@@ -33,10 +33,12 @@ namespace CadastrarAluno.Services
             {
                 erros += "CPF inválido \n";
             }
-            if (ValidacaoDoCampoTelefone(aluno.Telefone)) {
+            if (ValidacaoDoCampoTelefone(aluno.Telefone))
+            {
                 erros += "Telefone inválido \n";
             }
-            if (ValidacaoDoCampoDataNascimento(aluno.DataNascimento)) {
+            if (ValidacaoDoCampoDataNascimento(aluno.DataNascimento))
+            {
                 erros += "Verifique a data de nascimento \n";
             }
             if (erros.Length > 0)
@@ -81,32 +83,36 @@ namespace CadastrarAluno.Services
 
             return false;
         }
-        private static bool ValidacaoDoCampoTelefone(string telefone) {
+        private static bool ValidacaoDoCampoTelefone(string telefone)
+        {
             Regex regex = new Regex("^(?:\\(\\d{2}\\)|\\d{2})[- ]?\\d{4,5}[- ]?\\d{4}$");
-            if (!regex.IsMatch(telefone)) {
+            if (!regex.IsMatch(telefone))
+            {
                 return true;
             }
             return false;
         }
-        private static bool ValidacaoDoCampoDataNascimento(DateTime dataNascimento) {
+        private static bool ValidacaoDoCampoDataNascimento(DateTime dataNascimento)
+        {
 
             int idade = DateTime.Now.Year - dataNascimento.Year;
 
-            if (dataNascimento > DateTime.Now || idade < 11 || idade > 120) {
+            if (dataNascimento > DateTime.Now || idade < 11 || idade > 120)
+            {
                 return true;
             }
             return false;
         }
 
-        public static class GeradorDeIds {
+        public static class GeradorDeIds
+        {
             private static int _ultimoId = 0;
 
-            public static int NovoId() {
+            public static int NovoId()
+            {
                 return ++_ultimoId;
             }
         }
 
     }
 }
-
-

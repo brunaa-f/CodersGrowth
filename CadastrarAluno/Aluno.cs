@@ -1,4 +1,4 @@
-﻿using CadastrarAluno.Services;
+﻿using CadastrarAluno.Servicos;
 using System;
 using System.Collections.Generic;
 using System.Linq;

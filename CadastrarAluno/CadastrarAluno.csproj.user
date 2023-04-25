@@ -4,8 +4,5 @@
     <Compile Update="TelainIcial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="TelaCadastro.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
 </Project>

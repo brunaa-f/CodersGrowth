@@ -116,7 +116,7 @@
             // mtb_cpf
             // 
             mtb_cpf.Location = new Point(26, 108);
-            mtb_cpf.Mask = "000.000.000-00";
+            mtb_cpf.Mask = "000,000,000-00";
             mtb_cpf.Name = "mtb_cpf";
             mtb_cpf.Size = new Size(318, 23);
             mtb_cpf.TabIndex = 2;

@@ -5,7 +5,7 @@ namespace CadastrarAluno
     public partial class TelaCadastro : Form
     {
         public Aluno _novoAluno;
-
+        private int idIncremental;
         public TelaCadastro(Aluno alunos)
         {
             InitializeComponent();

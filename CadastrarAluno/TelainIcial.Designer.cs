@@ -53,7 +53,7 @@
             btn_editar.TabIndex = 1;
             btn_editar.Text = "Editar";
             btn_editar.UseVisualStyleBackColor = true;
-            btn_editar.Click += aoClicarEditar;
+            btn_editar.Click += AoClicarEditar;
             // 
             // btn_deletar
             // 
@@ -69,8 +69,12 @@
             // 
             dataGridLista.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridLista.Location = new Point(1, 2);
+            dataGridLista.MultiSelect = false;
             dataGridLista.Name = "dataGridLista";
             dataGridLista.RowTemplate.Height = 25;
+            dataGridLista.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridLista.ShowCellErrors = false;
+            dataGridLista.ShowRowErrors = false;
             dataGridLista.Size = new Size(662, 299);
             dataGridLista.TabIndex = 3;
             // 

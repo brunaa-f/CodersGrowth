@@ -6,7 +6,7 @@ namespace CadastrarAluno
     {
         public Aluno _aluno;
         public Aluno _novoAluno;
-        private int idIncremental;
+        private static int idIncremental;
 
         public TelaCadastro(List<Aluno> alunos, Aluno aluno = null)
         {
@@ -16,11 +16,13 @@ namespace CadastrarAluno
             if (alunos == null)
             {
                 _novoAluno = new Aluno();
-            } else
+            }
+            else
             {
                 ExibirDadosParaEditar();
             }
         }
+
         private void aoClicarCadastrarNovoAluno(object sender, EventArgs e)
 
         {
@@ -56,10 +58,12 @@ namespace CadastrarAluno
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void CancelarFormularioCadastro(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
         }
+
         private int NovoId()
         {
             return ++idIncremental;

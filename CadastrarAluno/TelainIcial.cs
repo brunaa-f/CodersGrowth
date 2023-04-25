@@ -4,7 +4,7 @@ namespace CadastrarAluno
 {
     public partial class TelaInicial : Form
     {
-        List<Aluno> lista = new List<Aluno>();
+        List<Aluno> lista = new();
 
         public int _id { get; set; }
         public TelaInicial()
@@ -12,18 +12,29 @@ namespace CadastrarAluno
             InitializeComponent();
             AtualizarALista();
         }
+
         private void aoClicarAbreTelaDeCadastro(object sender, EventArgs e)
         {
-            TelaCadastro cadastro = new TelaCadastro(null);
-
-            if (cadastro.ShowDialog() == DialogResult.OK)
+            try
             {
-                var alunoParaCadastrar = cadastro._novoAluno;
-                lista.Add(alunoParaCadastrar);
-                _id = alunoParaCadastrar.Id;
-                AtualizarALista();
+                TelaCadastro cadastro = new TelaCadastro(null);
+
+                if (cadastro.ShowDialog() == DialogResult.OK)
+                {
+                    var alunoParaCadastrar = cadastro._novoAluno;
+                    lista.Add(alunoParaCadastrar);
+                    _id = alunoParaCadastrar.Id;
+                    AtualizarALista();
+                }
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
+
         private void aoClicarRemover(object sender, EventArgs e)
         {
             var id = (int)dataGridLista.SelectedRows[0].Cells[0].Value;
@@ -32,7 +43,7 @@ namespace CadastrarAluno
             AtualizarALista();
         }
 
-        private void aoClicarEditar(object sender, EventArgs e)
+        private void AoClicarEditar(object sender, EventArgs e)
         {
             var id = (int)dataGridLista.SelectedRows[0].Cells[0].Value;
             var alunoParaEditar = lista.Find(x => x.Id == id);
@@ -45,6 +56,7 @@ namespace CadastrarAluno
                 AtualizarALista();
             }
         }
+
         public void AtualizarALista()
         {
             dataGridLista.DataSource = null;

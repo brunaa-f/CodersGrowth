@@ -29,7 +29,6 @@ namespace CadastrarAluno
             }
             catch (Exception)
             {
-
                 throw;
             }
 
@@ -37,23 +36,42 @@ namespace CadastrarAluno
 
         private void aoClicarRemover(object sender, EventArgs e)
         {
-            var id = (int)dataGridLista.SelectedRows[0].Cells[0].Value;
-            var alunoParaRemover = lista.Find(x => x.Id == id);
-            lista.Remove(alunoParaRemover);
-            AtualizarALista();
+            int linhaSelecionada = dataGridLista.SelectedRows.Count;
+            try
+            {
+                VarificarLinhasSelecionadas(linhaSelecionada);
+                var id = (int)dataGridLista.SelectedRows[0].Cells[0].Value;
+                var alunoParaRemover = lista.Find(x => x.Id == id);
+                lista.Remove(alunoParaRemover);
+                AtualizarALista();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void AoClicarEditar(object sender, EventArgs e)
-        {
-            var id = (int)dataGridLista.SelectedRows[0].Cells[0].Value;
-            var alunoParaEditar = lista.Find(x => x.Id == id);
-            TelaCadastro cadastro = new TelaCadastro(lista, alunoParaEditar);
 
-            if (cadastro.ShowDialog() == DialogResult.OK)
+        {
+            int linhaSelecionada = dataGridLista.SelectedRows.Count;
+            try
             {
-                Aluno alunoEditado = lista.Find(x => x.Id == cadastro._aluno.Id);
-                lista[lista.IndexOf(alunoEditado)] = cadastro._aluno;
-                AtualizarALista();
+                VarificarLinhasSelecionadas(linhaSelecionada);
+                var id = (int)dataGridLista.SelectedRows[0].Cells[0].Value;
+                var alunoParaEditar = lista.Find(x => x.Id == id);
+                TelaCadastro cadastro = new TelaCadastro(lista, alunoParaEditar);
+
+                if (cadastro.ShowDialog() == DialogResult.OK)
+                {
+                    Aluno alunoEditado = lista.Find(x => x.Id == cadastro._aluno.Id);
+                    lista[lista.IndexOf(alunoEditado)] = cadastro._aluno;
+                    AtualizarALista();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -61,6 +79,20 @@ namespace CadastrarAluno
         {
             dataGridLista.DataSource = null;
             dataGridLista.DataSource = lista.ToList();
+        }
+
+        private void VarificarLinhasSelecionadas(int linhaSelecionada)
+        {
+            const int unicaLinhaSelecionada = 1;
+            if (linhaSelecionada > unicaLinhaSelecionada)
+            {
+                throw new Exception("Selecione apenas uma linha para efetuar a edição");
+            }
+
+            if (linhaSelecionada < unicaLinhaSelecionada)
+            {
+                throw new Exception("Selecione pelo menos uma linha para efetuar a edição");
+            }
         }
     }
 }

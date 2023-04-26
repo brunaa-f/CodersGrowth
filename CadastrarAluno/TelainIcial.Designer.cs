@@ -72,12 +72,10 @@
             dataGridLista.MultiSelect = false;
             dataGridLista.Name = "dataGridLista";
             dataGridLista.RowTemplate.Height = 25;
-            //dataGridLista.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridLista.ShowCellErrors = false;
             dataGridLista.ShowRowErrors = false;
             dataGridLista.Size = new Size(662, 299);
             dataGridLista.TabIndex = 3;
-
             // 
             // TelaInicial
             // 
@@ -90,7 +88,7 @@
             Controls.Add(btn_cadastrar);
             Name = "TelaInicial";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Alunos";
             ((System.ComponentModel.ISupportInitialize)dataGridLista).EndInit();
             ResumeLayout(false);
         }

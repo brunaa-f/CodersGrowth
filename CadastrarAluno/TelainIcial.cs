@@ -23,7 +23,6 @@ namespace CadastrarAluno
                 {
                     var alunoParaCadastrar = cadastro.ObterAlunoParaCadastrar();
                     lista.Add(alunoParaCadastrar);
-                    //_id = alunoParaCadastrar.Id;
                     AtualizarALista();
                 }
             }
@@ -33,7 +32,6 @@ namespace CadastrarAluno
             }
 
         }
-
 
         private void AoClicarEditar(object sender, EventArgs e)
 
@@ -68,7 +66,7 @@ namespace CadastrarAluno
                 VerificarLinhasSelecionadas(linhaSelecionada);
                 var id = (int)dataGridLista.SelectedRows[0].Cells[0].Value;
                 var alunoParaRemover = lista.Find(x => x.Id == id);
-                if (MessageBox.Show("Deseja remover esse usuário?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Deseja remover esse aluno?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     lista.Remove(alunoParaRemover);
                 }
@@ -85,12 +83,12 @@ namespace CadastrarAluno
             const int unicaLinhaSelecionada = 1;
             if (linhaSelecionada > unicaLinhaSelecionada)
             {
-                throw new Exception("Selecione um aluno para editar");
+                throw new Exception("Selecione um aluno");
             }
 
             if (linhaSelecionada < unicaLinhaSelecionada)
             {
-                throw new Exception("Selecione pelo menos um aluno para editar");
+                throw new Exception("Selecione pelo menos um aluno");
             }
         }
         public void AtualizarALista()

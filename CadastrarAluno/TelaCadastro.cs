@@ -48,15 +48,13 @@ namespace CadastrarAluno
             return ++idIncremental;
         }
 
-        private Aluno RecebeDadosAluno(Aluno aluno)
+        private void PreencherFormulario(Aluno aluno)
         {
 
-            aluno.NomeAluno = tb_nome_aluno.Text;
-            aluno.Cpf = mtb_cpf.Text;
-            aluno.Telefone = mtb_telefone.Text;
-            aluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
-
-            return aluno;
+            tb_nome_aluno.Text = aluno?.NomeAluno;
+            mtb_cpf.Text = aluno?.Cpf;
+            mtb_telefone.Text = aluno?.Telefone;
+            dtp_data_nascimento.Text = aluno?.DataNascimento.ToString();
         }
 
         private Aluno ObterDadosDoFormulario()
@@ -74,6 +72,11 @@ namespace CadastrarAluno
             return aluno;
         }
 
+        public Aluno ObterAlunoParaCadastrar()
+        {
+            return AlunoParaCadastrar;
+        }
+
         private void CriarAluno()
         {
             var aluno = ObterDadosDoFormulario();
@@ -85,23 +88,12 @@ namespace CadastrarAluno
         private void AtualizarAluno(Aluno alunoParaSerAtualizado)
         {
             var alunoAtualizado = ObterDadosDoFormulario();
+            ValidarForm.Valida(alunoAtualizado);
             alunoAtualizado.Id = alunoParaSerAtualizado.Id;
             AlunoParaCadastrar = alunoAtualizado;
 
         }
-        public Aluno ObterAlunoParaCadastrar()
-        {
-            return AlunoParaCadastrar;
-        }
-
-        private void PreencherFormulario(Aluno aluno)
-        { 
-            
-            tb_nome_aluno.Text = aluno?.NomeAluno;
-            mtb_cpf.Text = aluno?.Cpf;
-            mtb_telefone.Text = aluno?.Telefone;
-            dtp_data_nascimento.Text = aluno?.DataNascimento.ToString();
-        }  
+     
     }
 
 

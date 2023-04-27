@@ -5,8 +5,6 @@ namespace CadastrarAluno
     public partial class TelaInicial : Form
     {
         List<Aluno> lista = new();
-
-        public int _id { get; set; }
         public TelaInicial()
         {
             InitializeComponent();
@@ -21,9 +19,8 @@ namespace CadastrarAluno
 
                 if (cadastro.ShowDialog() == DialogResult.OK)
                 {
-                    var alunoParaCadastrar = cadastro._novoAluno;
+                    var alunoParaCadastrar = cadastro.ObterAlunoParaCadastrar();
                     lista.Add(alunoParaCadastrar);
-                    _id = alunoParaCadastrar.Id;
                     AtualizarALista();
                 }
             }
@@ -33,8 +30,6 @@ namespace CadastrarAluno
             }
 
         }
-
-
         private void AoClicarEditar(object sender, EventArgs e)
 
         {
@@ -50,8 +45,8 @@ namespace CadastrarAluno
 
                 if (cadastro.ShowDialog() == DialogResult.OK)
                 {
-                    Aluno alunoEditado = lista.Find(x => x.Id == cadastro._aluno.Id);
-                    lista[lista.IndexOf(alunoEditado)] = cadastro._aluno;
+                    Aluno alunoEditado = lista.Find(x => x.Id == cadastro.alunoParaAtualizar.Id);
+                    lista[lista.IndexOf(alunoEditado)] = cadastro.ObterAlunoParaCadastrar();
                     AtualizarALista();
                 }
             }
@@ -68,7 +63,7 @@ namespace CadastrarAluno
                 VerificarLinhasSelecionadas(linhaSelecionada);
                 var id = (int)dataGridLista.SelectedRows[0].Cells[0].Value;
                 var alunoParaRemover = lista.Find(x => x.Id == id);
-                if (MessageBox.Show("Deseja remover esse usuário?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Deseja remover esse aluno?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     lista.Remove(alunoParaRemover);
                 }
@@ -85,14 +80,20 @@ namespace CadastrarAluno
             const int unicaLinhaSelecionada = 1;
             if (linhaSelecionada > unicaLinhaSelecionada)
             {
-                throw new Exception("Selecione um aluno para editar");
+                throw new Exception("Selecione um aluno");
             }
 
             if (linhaSelecionada < unicaLinhaSelecionada)
             {
-                throw new Exception("Selecione pelo menos um aluno para editar");
+                throw new Exception("Selecione pelo menos um aluno");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
+
         public void AtualizarALista()
         {
             dataGridLista.DataSource = null;

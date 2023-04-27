@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CadastrarAluno.Servicos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace CadastrarAluno
 {
     public class Aluno
     {
-        public int Id { get; private set; }
+        public int Id { get; set; }
         public string NomeAluno { get; set; }
         public string Cpf { get; set; }
         public string Telefone { get; set; }
@@ -22,6 +23,10 @@ namespace CadastrarAluno
             Telefone=telefone;
             DataNascimento=dataNascimento;
         }
+        public Aluno() {
+           
+        }  
+
         
     }
 

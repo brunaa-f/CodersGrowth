@@ -72,7 +72,6 @@
             dataGridLista.MultiSelect = false;
             dataGridLista.Name = "dataGridLista";
             dataGridLista.RowTemplate.Height = 25;
-            dataGridLista.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridLista.ShowCellErrors = false;
             dataGridLista.ShowRowErrors = false;
             dataGridLista.Size = new Size(662, 299);

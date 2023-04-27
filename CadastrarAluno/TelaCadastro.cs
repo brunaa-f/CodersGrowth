@@ -23,7 +23,7 @@ namespace CadastrarAluno
             }
         }
 
-        private void aoClicarCadastrarNovoAluno(object sender, EventArgs e)
+        private void AoClicarSalvar(object sender, EventArgs e)
 
         {
             try

@@ -4,16 +4,16 @@ namespace CadastrarAluno
 {
     public partial class TelaCadastro : Form
     {
+        private static int idIncremental;
         public Aluno alunoParaAtualizar;
         public static Aluno AlunoParaCadastrar;
 
-        private static int idIncremental;
 
-        public TelaCadastro(List<Aluno> alunos, Aluno aluno = null)
+        public TelaCadastro(List<Aluno> _alunos, Aluno aluno = null)
         {
             InitializeComponent();
             alunoParaAtualizar = aluno;
-            if (alunos != null) PreencherFormulario(aluno);
+            if (_alunos != null) PreencherFormulario(aluno);
         }
 
         private void aoClicarSalvar(object sender, EventArgs e)
@@ -39,7 +39,10 @@ namespace CadastrarAluno
 
         private void CancelarFormularioCadastro(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
+            if (MessageBox.Show("Deseja Cancelar? Você pode perder esses dados", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+            DialogResult = DialogResult.Cancel;   
+            }
         }
 
         private int NovoId()
@@ -91,6 +94,5 @@ namespace CadastrarAluno
             alunoAtualizado.Id = alunoParaSerAtualizado.Id;
             AlunoParaCadastrar = alunoAtualizado;
         }
-     
     }
 }

@@ -5,8 +5,6 @@ namespace CadastrarAluno
     public partial class TelaInicial : Form
     {
         List<Aluno> lista = new();
-
-        public int _id { get; set; }
         public TelaInicial()
         {
             InitializeComponent();

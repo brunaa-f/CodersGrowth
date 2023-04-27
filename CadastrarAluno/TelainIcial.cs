@@ -30,6 +30,7 @@ namespace CadastrarAluno
             }
 
         }
+
         private void AoClicarEditar(object sender, EventArgs e)
 
         {
@@ -86,14 +87,8 @@ namespace CadastrarAluno
             if (linhaSelecionada < unicaLinhaSelecionada)
             {
                 throw new Exception("Selecione pelo menos um aluno");
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
-
         public void AtualizarALista()
         {
             dataGridLista.DataSource = null;

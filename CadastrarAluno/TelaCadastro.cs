@@ -18,7 +18,6 @@ namespace CadastrarAluno
 
         private void aoClicarSalvar(object sender, EventArgs e)
 
-
         {
             try
             {
@@ -42,7 +41,7 @@ namespace CadastrarAluno
         {
             if (MessageBox.Show("Deseja Cancelar? Você pode perder esses dados", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-            DialogResult = DialogResult.Cancel;   
+                DialogResult = DialogResult.Cancel;
             }
         }
 

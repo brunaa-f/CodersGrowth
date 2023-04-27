@@ -4,48 +4,33 @@ namespace CadastrarAluno
 {
     public partial class TelaCadastro : Form
     {
-        public Aluno _aluno;
-        public Aluno _novoAluno;
+        public Aluno alunoParaAtualizar;
+        public static Aluno AlunoParaCadastrar;
+
         private static int idIncremental;
 
         public TelaCadastro(List<Aluno> alunos, Aluno aluno = null)
         {
             InitializeComponent();
-
-            _aluno = aluno;
-            if (alunos == null)
-            {
-                _novoAluno = new Aluno();
-            }
-            else
-            {
-                ExibirDadosParaEditar();
-            }
+            alunoParaAtualizar = aluno;
+            if (alunos != null) PreencherFormulario(aluno);
         }
+
 
         private void aoClicarSalvar(object sender, EventArgs e)
 
         {
             try
             {
-                if (_aluno != null)
+                if (alunoParaAtualizar != null)
                 {
-                    RecebeDadosAluno(_aluno);
-
-                    ValidarForm.Valida(_aluno);
-                    DialogResult = DialogResult.OK;
-                    MessageBox.Show("Usuário Editado com sucesso!");
-
+                    AtualizarAluno(alunoParaAtualizar);
                 }
                 else
                 {
-                    RecebeDadosAluno(_novoAluno);
-
-                    ValidarForm.Valida(_novoAluno);
-                    _novoAluno.Id = NovoId();
-                    DialogResult = DialogResult.OK;
-                    MessageBox.Show("Usuário Cadastrado com sucesso!");
+                    CriarAluno();
                 }
+                DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
@@ -63,22 +48,60 @@ namespace CadastrarAluno
             return ++idIncremental;
         }
 
-        private void RecebeDadosAluno(Aluno aluno)
+        private Aluno RecebeDadosAluno(Aluno aluno)
         {
+
             aluno.NomeAluno = tb_nome_aluno.Text;
             aluno.Cpf = mtb_cpf.Text;
             aluno.Telefone = mtb_telefone.Text;
             aluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
 
+            return aluno;
         }
 
-        private void ExibirDadosParaEditar()
+        private Aluno ObterDadosDoFormulario()
         {
-            tb_nome_aluno.Text = _aluno.NomeAluno;
-            mtb_cpf.Text = _aluno.Cpf;
-            mtb_telefone.Text = _aluno.Telefone;
-            dtp_data_nascimento.Text = _aluno.DataNascimento.ToString();
+            var date = dtp_data_nascimento.Value;
+
+            var aluno = new Aluno()
+            {
+                NomeAluno = tb_nome_aluno.Text,
+                Cpf = mtb_cpf.Text,
+                Telefone = mtb_telefone.Text,
+                DataNascimento = new DateTime(date.Year, date.Month, date.Day)
+            };
+
+            return aluno;
         }
+
+        private void CriarAluno()
+        {
+            var aluno = ObterDadosDoFormulario();
+            ValidarForm.Valida(aluno);
+            aluno.Id = NovoId();
+            AlunoParaCadastrar = aluno;
+        }
+
+        private void AtualizarAluno(Aluno alunoParaSerAtualizado)
+        {
+            var alunoAtualizado = ObterDadosDoFormulario();
+            alunoAtualizado.Id = alunoParaSerAtualizado.Id;
+            AlunoParaCadastrar = alunoAtualizado;
+
+        }
+        public Aluno ObterAlunoParaCadastrar()
+        {
+            return AlunoParaCadastrar;
+        }
+
+        private void PreencherFormulario(Aluno aluno)
+        { 
+            
+            tb_nome_aluno.Text = aluno?.NomeAluno;
+            mtb_cpf.Text = aluno?.Cpf;
+            mtb_telefone.Text = aluno?.Telefone;
+            dtp_data_nascimento.Text = aluno?.DataNascimento.ToString();
+        }  
     }
 
 

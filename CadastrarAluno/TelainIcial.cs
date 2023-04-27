@@ -21,9 +21,9 @@ namespace CadastrarAluno
 
                 if (cadastro.ShowDialog() == DialogResult.OK)
                 {
-                    var alunoParaCadastrar = cadastro._novoAluno;
+                    var alunoParaCadastrar = cadastro.ObterAlunoParaCadastrar();
                     lista.Add(alunoParaCadastrar);
-                    _id = alunoParaCadastrar.Id;
+                    //_id = alunoParaCadastrar.Id;
                     AtualizarALista();
                 }
             }
@@ -50,8 +50,8 @@ namespace CadastrarAluno
 
                 if (cadastro.ShowDialog() == DialogResult.OK)
                 {
-                    Aluno alunoEditado = lista.Find(x => x.Id == cadastro._aluno.Id);
-                    lista[lista.IndexOf(alunoEditado)] = cadastro._aluno;
+                    Aluno alunoEditado = lista.Find(x => x.Id == cadastro.alunoParaAtualizar.Id);
+                    lista[lista.IndexOf(alunoEditado)] = cadastro.ObterAlunoParaCadastrar();
                     AtualizarALista();
                 }
             }

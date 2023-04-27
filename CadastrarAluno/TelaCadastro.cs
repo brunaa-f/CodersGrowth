@@ -23,17 +23,14 @@ namespace CadastrarAluno
             }
         }
 
-        private void aoClicarCadastrarNovoAluno(object sender, EventArgs e)
+        private void aoClicarSalvar(object sender, EventArgs e)
 
         {
             try
             {
                 if (_aluno != null)
                 {
-                    _aluno.NomeAluno = tb_nome_aluno.Text;
-                    _aluno.Cpf = mtb_cpf.Text;
-                    _aluno.Telefone = mtb_telefone.Text;
-                    _aluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
+                    RecebeDadosAluno(_aluno);
 
                     ValidarForm.Valida(_aluno);
                     DialogResult = DialogResult.OK;
@@ -42,10 +39,7 @@ namespace CadastrarAluno
                 }
                 else
                 {
-                    _novoAluno.NomeAluno = tb_nome_aluno.Text;
-                    _novoAluno.Cpf = mtb_cpf.Text;
-                    _novoAluno.Telefone = mtb_telefone.Text;
-                    _novoAluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
+                    RecebeDadosAluno(_novoAluno);
 
                     ValidarForm.Valida(_novoAluno);
                     _novoAluno.Id = NovoId();
@@ -67,6 +61,15 @@ namespace CadastrarAluno
         private int NovoId()
         {
             return ++idIncremental;
+        }
+
+        private void RecebeDadosAluno(Aluno aluno)
+        {
+            aluno.NomeAluno = tb_nome_aluno.Text;
+            aluno.Cpf = mtb_cpf.Text;
+            aluno.Telefone = mtb_telefone.Text;
+            aluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
+
         }
 
         private void ExibirDadosParaEditar()

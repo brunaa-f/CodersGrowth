@@ -88,7 +88,7 @@
             Controls.Add(btn_cadastrar);
             Name = "TelaInicial";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Alunos";
             ((System.ComponentModel.ISupportInitialize)dataGridLista).EndInit();
             ResumeLayout(false);
         }

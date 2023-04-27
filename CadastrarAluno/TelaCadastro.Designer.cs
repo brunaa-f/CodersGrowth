@@ -88,11 +88,11 @@
             // 
             btn_cadastrar_aluno.Location = new Point(26, 401);
             btn_cadastrar_aluno.Name = "btn_cadastrar_aluno";
-            btn_cadastrar_aluno.Size = new Size(114, 23);
+            btn_cadastrar_aluno.Size = new Size(75, 23);
             btn_cadastrar_aluno.TabIndex = 5;
-            btn_cadastrar_aluno.Text = "Cadastrar Aluno";
+            btn_cadastrar_aluno.Text = "Salvar";
             btn_cadastrar_aluno.UseVisualStyleBackColor = true;
-            btn_cadastrar_aluno.Click += aoClicarCadastrarNovoAluno;
+            btn_cadastrar_aluno.Click += aoClicarSalvar;
             // 
             // button2
             // 
@@ -147,7 +147,7 @@
             Controls.Add(lbl_nome);
             Name = "TelaCadastro";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form2";
+            Text = "Cadastro";
             ResumeLayout(false);
             PerformLayout();
         }

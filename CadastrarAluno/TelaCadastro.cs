@@ -19,7 +19,7 @@ namespace CadastrarAluno
             }
             else
             {
-                ExibirDadosParaEditar();
+                EditarDadosCadastro(_aluno);
             }
         }
 
@@ -30,11 +30,7 @@ namespace CadastrarAluno
             {
                 if (_aluno != null)
                 {
-                    _aluno.NomeAluno = tb_nome_aluno.Text;
-                    _aluno.Cpf = mtb_cpf.Text;
-                    _aluno.Telefone = mtb_telefone.Text;
-                    _aluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
-
+                    PegarDadosFormulario(_aluno);
                     ValidarForm.Valida(_aluno);
                     DialogResult = DialogResult.OK;
                     MessageBox.Show("Usuário Editado com sucesso!");
@@ -42,11 +38,7 @@ namespace CadastrarAluno
                 }
                 else
                 {
-                    _novoAluno.NomeAluno = tb_nome_aluno.Text;
-                    _novoAluno.Cpf = mtb_cpf.Text;
-                    _novoAluno.Telefone = mtb_telefone.Text;
-                    _novoAluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
-
+                    PegarDadosFormulario(_novoAluno);
                     ValidarForm.Valida(_novoAluno);
                     _novoAluno.Id = NovoId();
                     DialogResult = DialogResult.OK;
@@ -59,6 +51,21 @@ namespace CadastrarAluno
             }
         }
 
+        private void PegarDadosFormulario(Aluno aluno)
+        {
+            aluno.NomeAluno = tb_nome_aluno.Text;
+            aluno.Cpf = mtb_cpf.Text;
+            aluno.Telefone = mtb_telefone.Text;
+            aluno.DataNascimento = Convert.ToDateTime(dtp_data_nascimento.Text);
+        }
+
+        private void EditarDadosCadastro(Aluno aluno)
+        {
+            tb_nome_aluno.Text = aluno.NomeAluno;
+            mtb_cpf.Text = aluno.Cpf;
+            mtb_telefone.Text = aluno.Telefone;
+            dtp_data_nascimento.Text = aluno.DataNascimento.ToString();
+        }
         private void CancelarFormularioCadastro(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
@@ -67,14 +74,6 @@ namespace CadastrarAluno
         private int NovoId()
         {
             return ++idIncremental;
-        }
-
-        private void ExibirDadosParaEditar()
-        {
-            tb_nome_aluno.Text = _aluno.NomeAluno;
-            mtb_cpf.Text = _aluno.Cpf;
-            mtb_telefone.Text = _aluno.Telefone;
-            dtp_data_nascimento.Text = _aluno.DataNascimento.ToString();
         }
     }
 

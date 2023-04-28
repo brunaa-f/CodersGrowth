@@ -4,7 +4,7 @@ namespace CadastrarAluno
 {
     public partial class TelaInicial : Form
     {
-        List<Aluno> lista = ListaSingleton.obterInstancia();
+        List<Aluno> lista = ListaSingleton.obterInstancia() ;
 
         public TelaInicial()
         {

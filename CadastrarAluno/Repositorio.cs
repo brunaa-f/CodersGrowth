@@ -3,48 +3,34 @@ namespace CadastrarAluno
 {
     public class Repositorio : IRepositorio
     {
-        protected List<Aluno> listaAlunos = ListaSingleton.obterInstancia();
+        protected List<Aluno> _listaAlunos = ListaSingleton.obterInstancia();
 
         public List<Aluno> ObterTodos()
         {
-            return listaAlunos;
+            return _listaAlunos.ToList();
         }
 
         public void Criar(Aluno novoAluno)
         {
-            ListaSingleton.obterInstancia().Add(novoAluno);
-            ListaSingleton.NovoId();
+            _listaAlunos.Add(novoAluno);
         }
+
         public void Remover(int id)
         {
             var alunoARemover = ObterPorId(id);
-            ListaSingleton.obterInstancia().Remove(alunoARemover);
+            _listaAlunos.Remove(alunoARemover);
         }
 
-        public void Atualizar(Aluno alunoASerAtualizado)
+        public void Atualizar(int IdAluno, Aluno alunoASerAtualizado)
         {
-            foreach (Aluno aluno in ListaSingleton.obterInstancia())
-            {
-                if (aluno.Id == alunoASerAtualizado.Id)
-                {
-                    aluno.NomeAluno = alunoASerAtualizado.NomeAluno;
-                    aluno.Cpf = alunoASerAtualizado.Cpf;
-                    aluno.Telefone = alunoASerAtualizado.Telefone;
-                    aluno.DataNascimento = alunoASerAtualizado.DataNascimento;
-                }
-            }
+            var index = _listaAlunos.FindIndex(x => x.Id == IdAluno);
+            _listaAlunos[index] = alunoASerAtualizado;
         }
 
         public Aluno ObterPorId(int id)
         {
-            foreach (Aluno aluno in ListaSingleton.obterInstancia())
-            {
-                if (aluno.Id == id)
-                {
-                    return aluno;
-                }
-            }
-            return null;
+            var alunoBuscado = _listaAlunos.FirstOrDefault(x => x.Id == id);
+            return alunoBuscado;
         }
     }
 }

@@ -5,7 +5,7 @@ namespace CadastrarAluno
     {
         public List<Aluno> ObterTodos();
         public void Criar(Aluno novoAluno);
-        public void Atualizar(Aluno alunoASerAtualizado);
+        public void Atualizar(int id, Aluno alunoASerAtualizado);
         public void Remover(int id);
         public Aluno ObterPorId(int id);
     }

@@ -21,6 +21,7 @@ namespace CadastrarAluno
                     var alunoParaCadastrar = cadastro.ObterAlunoParaCadastrar();
                     _repositorio.Criar(alunoParaCadastrar);
                     AtualizarALista();
+                    MessageBox.Show("Aluno cadastrado com sucesso!");
                 }
             }
             catch (Exception ex)
@@ -46,6 +47,7 @@ namespace CadastrarAluno
                 {
                     _repositorio.Atualizar(idAluno, cadastro.ObterAlunoParaCadastrar());
                     AtualizarALista();
+                    MessageBox.Show("Aluno atualizado!");
                 }
             }
             catch (Exception ex)
@@ -65,6 +67,7 @@ namespace CadastrarAluno
                 if (MessageBox.Show("Deseja remover esse aluno?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     _repositorio.Remover(id);
+                    MessageBox.Show("Aluno removido com sucesso!");
                 }
 
                 AtualizarALista();

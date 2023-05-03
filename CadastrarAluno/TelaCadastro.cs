@@ -4,10 +4,8 @@ namespace CadastrarAluno
 {
     public partial class TelaCadastro : Form
     {
-        private static int idIncremental;
         public Aluno alunoParaAtualizar;
         public static Aluno AlunoParaCadastrar;
-
 
         public TelaCadastro(List<Aluno> _alunos, Aluno aluno = null)
         {
@@ -45,11 +43,6 @@ namespace CadastrarAluno
             }
         }
 
-        private int NovoId()
-        {
-            return ++idIncremental;
-        }
-
         private void PreencherFormulario(Aluno aluno)
         {
 
@@ -83,7 +76,7 @@ namespace CadastrarAluno
         {
             var aluno = ObterDadosDoFormulario();
             ValidarForm.Valida(aluno);
-            aluno.Id = NovoId();
+            aluno.Id = ListaSingleton.NovoId();
             AlunoParaCadastrar = aluno;
         }
 

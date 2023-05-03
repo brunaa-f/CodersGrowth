@@ -1,6 +1,5 @@
 ﻿using CadastrarAluno.Servicos;
 
-
 namespace CadastrarAluno
 {
     public partial class TelaCadastro : Form

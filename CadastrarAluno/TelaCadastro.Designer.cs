@@ -92,7 +92,7 @@
             btn_cadastrar_aluno.TabIndex = 5;
             btn_cadastrar_aluno.Text = "Salvar";
             btn_cadastrar_aluno.UseVisualStyleBackColor = true;
-            btn_cadastrar_aluno.Click += aoClicarSalvar;
+            btn_cadastrar_aluno.Click += AoClicarSalvar;
             // 
             // button2
             // 

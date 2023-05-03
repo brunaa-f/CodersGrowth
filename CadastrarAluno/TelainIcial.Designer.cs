@@ -43,7 +43,7 @@
             btn_cadastrar.TabIndex = 0;
             btn_cadastrar.Text = "Cadastrar";
             btn_cadastrar.UseVisualStyleBackColor = true;
-            btn_cadastrar.Click += aoClicarAbreTelaDeCadastro;
+            btn_cadastrar.Click += AoClicarAbreTelaDeCadastro;
             // 
             // btn_editar
             // 
@@ -63,7 +63,7 @@
             btn_deletar.TabIndex = 2;
             btn_deletar.Text = "Remover";
             btn_deletar.UseVisualStyleBackColor = true;
-            btn_deletar.Click += aoClicarRemover;
+            btn_deletar.Click += AoClicarRemover;
             // 
             // dataGridLista
             // 

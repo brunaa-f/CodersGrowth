@@ -1,10 +1,4 @@
-﻿using CadastrarAluno.Servicos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace CadastrarAluno
 {
     public class Aluno
@@ -26,8 +20,5 @@ namespace CadastrarAluno
         public Aluno() {
            
         }  
-
-        
     }
-
 }

@@ -5,17 +5,26 @@ namespace CadastrarAluno
     public partial class TelaCadastro : Form
     {
         public Aluno alunoParaAtualizar;
+        public Aluno novoAluno = new Aluno();
         public static Aluno AlunoParaCadastrar;
+        public static Repositorio _repositorio = new Repositorio();
 
-        public TelaCadastro(List<Aluno> _alunos, Aluno aluno = null)
+        public TelaCadastro(Aluno? aluno)
         {
             InitializeComponent();
-            alunoParaAtualizar = aluno;
-            if (_alunos != null) PreencherFormulario(aluno);
+
+            if (aluno != null)
+            {
+                alunoParaAtualizar = aluno;
+                PreencherFormulario(alunoParaAtualizar);
+            }
+            else
+            {
+                AlunoParaCadastrar = new Aluno();
+            }
         }
 
-        private void aoClicarSalvar(object sender, EventArgs e)
-
+        private void AoClicarSalvar(object sender, EventArgs e)
         {
             try
             {
@@ -45,7 +54,6 @@ namespace CadastrarAluno
 
         private void PreencherFormulario(Aluno aluno)
         {
-
             tb_nome_aluno.Text = aluno?.NomeAluno;
             mtb_cpf.Text = aluno?.Cpf;
             mtb_telefone.Text = aluno?.Telefone;

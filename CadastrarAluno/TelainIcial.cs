@@ -1,10 +1,8 @@
-using System.Windows.Forms;
-
 namespace CadastrarAluno
 {
     public partial class TelaInicial : Form
     {
-        List<Aluno> lista = ListaSingleton.obterInstancia() ;
+        public static Repositorio _repositorio = new();
 
         public TelaInicial()
         {
@@ -12,44 +10,18 @@ namespace CadastrarAluno
             AtualizarALista();
         }
 
-        private void aoClicarAbreTelaDeCadastro(object sender, EventArgs e)
+        private void AoClicarAbreTelaDeCadastro(object sender, EventArgs e)
         {
             try
             {
-                TelaCadastro cadastro = new TelaCadastro(null);
+                TelaCadastro cadastro = new(null);
 
                 if (cadastro.ShowDialog() == DialogResult.OK)
                 {
                     var alunoParaCadastrar = cadastro.ObterAlunoParaCadastrar();
-                    lista.Add(alunoParaCadastrar);
+                    _repositorio.Criar(alunoParaCadastrar);
                     AtualizarALista();
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-        }
-
-        private void AoClicarEditar(object sender, EventArgs e)
-
-        {
-            int linhaSelecionada = dataGridLista.SelectedRows.Count;
-            try
-            {
-                VerificarLinhasSelecionadas(linhaSelecionada);
-
-                var id = (int)dataGridLista.SelectedRows[0].Cells[0].Value;
-                var alunoParaEditar = lista.Find(x => x.Id == id);
-
-                TelaCadastro cadastro = new TelaCadastro(lista, alunoParaEditar);
-
-                if (cadastro.ShowDialog() == DialogResult.OK)
-                {
-                    Aluno alunoEditado = lista.Find(x => x.Id == cadastro.alunoParaAtualizar.Id);
-                    lista[lista.IndexOf(alunoEditado)] = cadastro.ObterAlunoParaCadastrar();
-                    AtualizarALista();
+                    MessageBox.Show("Aluno cadastrado com sucesso!");
                 }
             }
             catch (Exception ex)
@@ -57,18 +29,47 @@ namespace CadastrarAluno
                 MessageBox.Show(ex.Message);
             }
         }
-        private void aoClicarRemover(object sender, EventArgs e)
+
+        private void AoClicarEditar(object sender, EventArgs e)
+        {
+            int linhaSelecionada = dataGridLista.SelectedRows.Count;
+            try
+            {
+                VerificarLinhasSelecionadas(linhaSelecionada);
+
+                var idAluno = (int)dataGridLista.SelectedRows[0].Cells[0].Value;
+                var index = dataGridLista.CurrentCell.RowIndex;
+                var alunoParaEditar = dataGridLista.Rows[index].DataBoundItem as Aluno;
+
+                TelaCadastro cadastro = new(alunoParaEditar);
+
+                if (cadastro.ShowDialog() == DialogResult.OK)
+                {
+                    _repositorio.Atualizar(idAluno, cadastro.ObterAlunoParaCadastrar());
+                    AtualizarALista();
+                    MessageBox.Show("Aluno atualizado!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void AoClicarRemover(object sender, EventArgs e)
         {
             int linhaSelecionada = dataGridLista.SelectedRows.Count;
             try
             {
                 VerificarLinhasSelecionadas(linhaSelecionada);
                 var id = (int)dataGridLista.SelectedRows[0].Cells[0].Value;
-                var alunoParaRemover = lista.Find(x => x.Id == id);
+                
                 if (MessageBox.Show("Deseja remover esse aluno?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    lista.Remove(alunoParaRemover);
+                    _repositorio.Remover(id);
+                    MessageBox.Show("Aluno removido com sucesso!");
                 }
+
                 AtualizarALista();
             }
             catch (Exception ex)
@@ -77,7 +78,7 @@ namespace CadastrarAluno
             }
         }
 
-        private void VerificarLinhasSelecionadas(int linhaSelecionada)
+        private static void VerificarLinhasSelecionadas(int linhaSelecionada)
         {
             const int unicaLinhaSelecionada = 1;
             if (linhaSelecionada > unicaLinhaSelecionada)
@@ -90,11 +91,11 @@ namespace CadastrarAluno
                 throw new Exception("Selecione pelo menos um aluno");
             }
         }
+
         public void AtualizarALista()
         {
             dataGridLista.DataSource = null;
-            dataGridLista.DataSource = lista.ToList();
+            dataGridLista.DataSource = _repositorio.ObterTodos();
         }
-
     }
 }

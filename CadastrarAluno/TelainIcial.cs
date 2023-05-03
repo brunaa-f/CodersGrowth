@@ -4,7 +4,9 @@ namespace CadastrarAluno
 {
     public partial class TelaInicial : Form
     {
-        List<Aluno> lista = ListaSingleton.obterInstancia() ;
+        List<Aluno> lista = ListaSingleton.obterInstancia();
+
+        public static Repositorio _repositorio = new Repositorio();
 
         public TelaInicial()
         {
@@ -96,5 +98,9 @@ namespace CadastrarAluno
             dataGridLista.DataSource = lista.ToList();
         }
 
+        private void TelaInicial_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

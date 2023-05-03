@@ -7,6 +7,7 @@ namespace CadastrarAluno
     {
         public Aluno alunoParaAtualizar;
         public static Aluno AlunoParaCadastrar;
+        public static Repositorio _repositorio = new Repositorio();
 
         public TelaCadastro(List<Aluno> _alunos, Aluno aluno = null)
         {

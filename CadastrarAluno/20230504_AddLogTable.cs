@@ -10,10 +10,10 @@ namespace CadastrarAluno
         {
             Create.Table("tb_aluno")
                 .WithColumn("Id").AsInt64().PrimaryKey().Identity()
-                .WithColumn("Nome Aluno").AsString()
-                .WithColumn("CPF").AsString()
-                .WithColumn("Telefone").AsString()
-                .WithColumn("Data de Nascimento").AsDateTime();
+                .WithColumn("Nome Aluno").AsString().NotNullable()
+                .WithColumn("CPF").AsString().Unique().NotNullable()
+                .WithColumn("Telefone").AsString().NotNullable()
+                .WithColumn("Data de Nascimento").AsDateTime().NotNullable();
         }
 
         public override void Down()

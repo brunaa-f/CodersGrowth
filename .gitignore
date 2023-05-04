@@ -29,7 +29,6 @@ build/
 */resharper*/**/cache/
 
 # Local configuration files
-*.config
 *.config.user
 
 # Other generated files

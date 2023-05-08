@@ -3,6 +3,7 @@ namespace CadastrarAluno
     public partial class TelaInicial : Form
     {
         public static Repositorio _repositorio = new();
+        public static RepositorioBd repo_bd = new();
 
         public TelaInicial()
         {
@@ -19,7 +20,7 @@ namespace CadastrarAluno
                 if (cadastro.ShowDialog() == DialogResult.OK)
                 {
                     var alunoParaCadastrar = cadastro.ObterAlunoParaCadastrar();
-                    _repositorio.Criar(alunoParaCadastrar);
+                    repo_bd.Criar(alunoParaCadastrar);
                     AtualizarALista();
                     MessageBox.Show("Aluno cadastrado com sucesso!");
                 }

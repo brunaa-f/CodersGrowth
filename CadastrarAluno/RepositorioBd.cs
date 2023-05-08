@@ -1,50 +1,49 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Configuration;
+using System.Data;
 using System.Drawing;
+using System.Runtime.ConstrainedExecution;
 
 namespace CadastrarAluno
 {
     public class RepositorioBd : IRepositorio
-    {
 
+    {
         private static string conectionString = ConfigurationManager.ConnectionStrings["BancoDeAlunos"].ConnectionString;
         SqlConnection con = new SqlConnection(conectionString);
         SqlCommand cmd = new SqlCommand();
 
-        private SqlConnection conectar()
+        public void Criar(Aluno novoAluno)
         {
-            if (con.State == System.Data.ConnectionState.Closed)
+
+            try
             {
-                con.Open();
+                conectar();
+                string sql = "INSERT INTO tb_aluno (Nome, Cpf, Telefone, Data_de_Nascimento) VALUES (@Nome,@Cpf,@Telefone,@Data_de_Nascimento)";
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                cmd.Parameters.AddWithValue("@Nome", novoAluno.NomeAluno);
+                cmd.Parameters.AddWithValue("@Cpf", novoAluno.Cpf);
+                cmd.Parameters.AddWithValue("@Telefone", novoAluno.Telefone);
+                cmd.Parameters.AddWithValue("@Data_de_Nascimento", novoAluno.DataNascimento);
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();  
+
             }
-            return con;
+            catch (SqlException e)
+            {
+            }
+            finally
+            {
+                desconectar();
+            }
         }
 
-        private SqlConnection desconectar()
-        {
-            if (con.State == System.Data.ConnectionState.Open)
-            {
-                con.Close();
-            }
-            return con;
-        }
 
         public List<Aluno> ObterTodos()
         {
             throw new NotImplementedException();
         }
-
-        public void Criar(Aluno novoAluno)
-        {
-            var conexao = conectar();
-            List<Aluno> alunos = new List<Aluno>();
-            var sql = "INSERT INTO tb_aluno (Nome Aluno, CPF, Telefone, Data de Nascimento)";
-            SqlCommand cmd = new SqlCommand(sql, conexao);
-            cmd.Parameters.AddWithValue("@Nome Aluno", );
-            cmd.ExecuteNonQuery();
-            cmd.Connection = desconectar();
-        }
-
 
         public void Atualizar(int id, Aluno alunoASerAtualizado)
         {
@@ -62,6 +61,23 @@ namespace CadastrarAluno
         public void Remover(int id)
         {
             throw new NotImplementedException();
+        }
+
+        private SqlConnection conectar()
+        {
+            if (con.State == System.Data.ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            return con;
+        }
+
+        public void desconectar()
+        {
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+                con.Close();
+            }
         }
     }
 }

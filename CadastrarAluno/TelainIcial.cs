@@ -46,7 +46,7 @@ namespace CadastrarAluno
 
                 if (cadastro.ShowDialog() == DialogResult.OK)
                 {
-                    _repositorio.Atualizar(idAluno, cadastro.ObterAlunoParaCadastrar());
+                    repo_bd.Atualizar(idAluno, cadastro.ObterAlunoParaCadastrar());
                     AtualizarALista();
                     MessageBox.Show("Aluno atualizado!");
                 }
@@ -67,7 +67,7 @@ namespace CadastrarAluno
                 
                 if (MessageBox.Show("Deseja remover esse aluno?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    _repositorio.Remover(id);
+                    repo_bd.Remover(id);
                     MessageBox.Show("Aluno removido com sucesso!");
                 }
 

@@ -96,7 +96,7 @@ namespace CadastrarAluno
         public void AtualizarALista()
         {
             dataGridLista.DataSource = null;
-            dataGridLista.DataSource = _repositorio.ObterTodos();
+            dataGridLista.DataSource = repo_bd.ObterTodos();
         }
     }
 }

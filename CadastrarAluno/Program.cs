@@ -1,5 +1,6 @@
 using FluentMigrator.Runner;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System.Configuration;
 
 
@@ -11,14 +12,18 @@ namespace CadastrarAluno
         [STAThread]
         static void Main()
         {
-            ApplicationConfiguration.Initialize();
-            Application.Run(new TelaInicial());
+
+            var builder = CriaHostBuilder();
+            var servicesProvider = builder.Build().Services;
+            var repositorio = servicesProvider.GetService<IRepositorio>();
 
             using (var serviceProvider = CreateServices())
             using (var scope = serviceProvider.CreateScope())
             {
                 UpdateDatabase(scope.ServiceProvider);
             }
+            ApplicationConfiguration.Initialize();
+            Application.Run(new TelaInicial(repositorio));
         }
         private static void UpdateDatabase(IServiceProvider serviceProvider)
         {
@@ -35,6 +40,14 @@ namespace CadastrarAluno
             .ScanIn(typeof(AddLogTable).Assembly).For.Migrations())
             .AddLogging(lb => lb.AddFluentMigratorConsole())
             .BuildServiceProvider(false);
+        }
+
+        static IHostBuilder CriaHostBuilder()
+        {
+            return Host.CreateDefaultBuilder()
+                .ConfigureServices((context, services) => {
+                    services.AddScoped<IRepositorio, RepositorioBd>();
+                });
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Configuration;
 using System.Data;
-using System.Drawing;
 
 namespace CadastrarAluno
 {
@@ -13,39 +12,21 @@ namespace CadastrarAluno
 
         public List<Aluno> ObterTodos()
         {
-            if (lista.Count != decimal.Zero)
-            {
-                lista = new List<Aluno>();
-            }
-
             using (var conexao = conectar())
             {
                 try
                 {
+                    Conversor conversor = new Conversor();
                     string sql = "SELECT * FROM tb_aluno";
                     SqlCommand cmd = new SqlCommand(sql, conexao);
-                    cmd.CommandType = CommandType.Text;
-                    SqlDataReader dataReader = cmd.ExecuteReader();
-
-                    while (dataReader.Read())
-                    {
-                        lista.Add(new Aluno()
-                        {
-                            Id = Convert.ToInt32(dataReader["id"]),
-                            NomeAluno = dataReader["Nome"].ToString(),
-                            Cpf = dataReader["Cpf"].ToString(),
-                            Telefone = dataReader["Telefone"].ToString(),
-                            DataNascimento = Convert.ToDateTime(dataReader["Data_de_Nascimento"].ToString()),
-                        });
-                    }
-                    dataReader.Close();
+                    SqlDataReader leitor = cmd.ExecuteReader();
+                    lista = conversor.Converter(leitor);
                     return lista;
                 }
                 catch (Exception e)
                 {
                     throw e;
                 }
-                return lista;
             }
         }
 
@@ -71,7 +52,6 @@ namespace CadastrarAluno
                     throw e;
                 }
             }
-
         }
 
         public void Atualizar(int id, Aluno alunoASerAtualizado)
@@ -109,31 +89,22 @@ namespace CadastrarAluno
             {
                 try
                 {
+                    Conversor conversor = new Conversor();
                     string sql = $"SELECT FROM tb_aluno Where Id= {id}";
                     SqlCommand cmd = new SqlCommand(sql, conexao);
                     cmd.CommandType = CommandType.Text;
-                    SqlDataReader dataReader = cmd.ExecuteReader();
-                    while (dataReader.Read())
-                    {
-                        buscarAluno = new Aluno()
-                        {
-                            Id = Convert.ToInt32(dataReader["id"]),
-                            NomeAluno = dataReader["Nome"].ToString(),
-                            Cpf = dataReader["Cpf"].ToString(),
-                            Telefone = dataReader["Telefone"].ToString(),
-                            DataNascimento = Convert.ToDateTime(dataReader["Data_de_Nascimento"].ToString()),
-                        };
-                    }
-                    dataReader.Close();
+                    SqlDataReader leitor = cmd.ExecuteReader();
+                    buscarAluno = conversor.BuscarPorId(leitor);
+                    return buscarAluno;
                 }
                 catch (Exception e)
                 {
                     throw e;
                 }
-                return buscarAluno;
             }
 
         }
+
         public void Remover(int id)
         {
             using (var conexao = conectar())
@@ -155,17 +126,17 @@ namespace CadastrarAluno
 
         private SqlConnection conectar()
         {
-            string conectionString = ConfigurationManager.ConnectionStrings["BancoDeAlunos"].ConnectionString;
-            SqlConnection con = new SqlConnection(conectionString);
             try
             {
-                con.Open();
+            string conectionString = ConfigurationManager.ConnectionStrings["BancoDeAlunos"].ConnectionString;
+            SqlConnection conexao = new SqlConnection(conectionString);
+            conexao.Open();
+            return conexao;
             }
             catch (Exception e)
             {
                 throw e;
             }
-            return con;
         }
     }
 }

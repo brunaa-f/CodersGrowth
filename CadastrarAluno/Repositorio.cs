@@ -5,6 +5,7 @@ namespace CadastrarAluno
     {
         protected List<Aluno> _listaAlunos = ListaSingleton.obterInstancia();
 
+
         public List<Aluno> ObterTodos()
         {
             return _listaAlunos.ToList();

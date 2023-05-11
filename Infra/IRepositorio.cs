@@ -1,5 +1,7 @@
 ﻿
-namespace CadastrarAluno
+using Dominio;
+
+namespace Infra
 {
     public interface IRepositorio
     {

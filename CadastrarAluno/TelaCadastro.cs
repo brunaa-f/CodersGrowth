@@ -1,6 +1,8 @@
 ﻿using CadastrarAluno.Servicos;
+using Dominio;
+using Infra;
 
-namespace CadastrarAluno
+namespace UI
 {
     public partial class TelaCadastro : Form
     {

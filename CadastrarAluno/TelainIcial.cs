@@ -1,4 +1,7 @@
-namespace CadastrarAluno
+using Dominio;
+using Infra;
+
+namespace UI
 {
     public partial class TelaInicial : Form
     {

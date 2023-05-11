@@ -2,6 +2,10 @@
 .vs/
 bin/
 obj/
+Dominio\bin
+Dominio\obj
+Infra\bin
+Infra\obj
 *.user
 *.suo
 *.cache

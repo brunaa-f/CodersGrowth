@@ -1,4 +1,4 @@
-﻿namespace CadastrarAluno
+﻿namespace UI
 {
     partial class TelaCadastro
     {

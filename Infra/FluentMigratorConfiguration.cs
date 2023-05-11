@@ -1,4 +1,4 @@
-﻿namespace CadastrarAluno
+﻿namespace Infra
 {
     internal class FluentMigratorConfiguration
     {

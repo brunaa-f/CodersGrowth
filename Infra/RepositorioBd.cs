@@ -1,8 +1,9 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Dominio;
+using Microsoft.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
-namespace CadastrarAluno
+namespace Infra
 {
     public class RepositorioBd : IRepositorio
 

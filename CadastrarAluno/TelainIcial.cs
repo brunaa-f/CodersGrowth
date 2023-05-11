@@ -2,11 +2,13 @@ namespace CadastrarAluno
 {
     public partial class TelaInicial : Form
     {
-        public static Repositorio _repositorio = new();
+        public IRepositorio _repositorioAluno;
 
-        public TelaInicial()
+        public TelaInicial(IRepositorio repositorioAluno)
         {
             InitializeComponent();
+            _repositorioAluno = repositorioAluno;
+
             AtualizarALista();
         }
 
@@ -19,7 +21,7 @@ namespace CadastrarAluno
                 if (cadastro.ShowDialog() == DialogResult.OK)
                 {
                     var alunoParaCadastrar = cadastro.ObterAlunoParaCadastrar();
-                    _repositorio.Criar(alunoParaCadastrar);
+                    _repositorioAluno.Criar(alunoParaCadastrar);
                     AtualizarALista();
                     MessageBox.Show("Aluno cadastrado com sucesso!");
                 }
@@ -45,7 +47,7 @@ namespace CadastrarAluno
 
                 if (cadastro.ShowDialog() == DialogResult.OK)
                 {
-                    _repositorio.Atualizar(idAluno, cadastro.ObterAlunoParaCadastrar());
+                    _repositorioAluno.Atualizar(idAluno, cadastro.ObterAlunoParaCadastrar());
                     AtualizarALista();
                     MessageBox.Show("Aluno atualizado!");
                 }
@@ -66,7 +68,7 @@ namespace CadastrarAluno
                 
                 if (MessageBox.Show("Deseja remover esse aluno?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    _repositorio.Remover(id);
+                    _repositorioAluno.Remover(id);
                     MessageBox.Show("Aluno removido com sucesso!");
                 }
 
@@ -95,7 +97,7 @@ namespace CadastrarAluno
         public void AtualizarALista()
         {
             dataGridLista.DataSource = null;
-            dataGridLista.DataSource = _repositorio.ObterTodos();
+            dataGridLista.DataSource = _repositorioAluno.ObterTodos();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-namespace CadastrarAluno
+﻿namespace CadastrarAluno
 {
     public class Aluno
     {
@@ -18,7 +17,6 @@ namespace CadastrarAluno
             DataNascimento=dataNascimento;
         }
         public Aluno() {
-           
         }  
     }
 }

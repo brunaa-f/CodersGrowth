@@ -4,10 +4,9 @@ namespace CadastrarAluno
 {
     public partial class TelaCadastro : Form
     {
-        public Aluno alunoParaAtualizar;
         public Aluno novoAluno = new Aluno();
+        public Aluno alunoParaAtualizar;
         public static Aluno AlunoParaCadastrar;
-        public static Repositorio _repositorio = new Repositorio();
 
         public TelaCadastro(Aluno? aluno)
         {

@@ -8,6 +8,7 @@ namespace CadastrarAluno
         {
             InitializeComponent();
             _repositorioAluno = repositorioAluno;
+
             AtualizarALista();
         }
 

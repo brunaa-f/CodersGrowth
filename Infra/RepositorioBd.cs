@@ -18,7 +18,7 @@ namespace Infra
                 try
                 {
                     Conversor conversor = new Conversor();
-                    string sql = "SELECT * FROM tb_aluno";
+                    string sql = "SELECT * FROM Aluno";
                     SqlCommand cmd = new SqlCommand(sql, conexao);
                     SqlDataReader leitor = cmd.ExecuteReader();
                     lista = conversor.Converter(leitor);
@@ -37,13 +37,13 @@ namespace Infra
             {
                 try
                 {
-                    string sql = "INSERT INTO tb_aluno (Nome, Cpf, Telefone, Data_de_Nascimento) VALUES (@Nome,@Cpf,@Telefone,@Data_de_Nascimento)";
+                    string sql = "INSERT INTO Aluno (Nome, Cpf, Telefone, Nascimento) VALUES (@Nome,@Cpf,@Telefone,@Nascimento)";
                     SqlCommand cmd = new SqlCommand(sql, conexao);
 
-                    cmd.Parameters.AddWithValue("@Nome", novoAluno.NomeAluno);
+                    cmd.Parameters.AddWithValue("@Nome", novoAluno.Nome);
                     cmd.Parameters.AddWithValue("@Cpf", novoAluno.Cpf);
                     cmd.Parameters.AddWithValue("@Telefone", novoAluno.Telefone);
-                    cmd.Parameters.AddWithValue("@Data_de_Nascimento", novoAluno.DataNascimento);
+                    cmd.Parameters.AddWithValue("@Nascimento", novoAluno.Nascimento);
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
 
@@ -62,14 +62,14 @@ namespace Infra
                 try
                 {
                     conectar();
-                    string sql = "UPDATE tb_aluno SET Nome = @Nome, Cpf = @Cpf, Telefone = @Telefone, Data_de_Nascimento = @Data_de_Nascimento WHERE ID = @ID";
+                    string sql = "UPDATE Aluno SET Nome = @Nome, Cpf = @Cpf, Telefone = @Telefone, Nascimento = @Nascimento WHERE ID = @ID";
                     SqlCommand cmd = new SqlCommand(sql, conexao);
 
                     cmd.Parameters.AddWithValue("@ID", alunoASerAtualizado.Id);
-                    cmd.Parameters.AddWithValue("@Nome", alunoASerAtualizado.NomeAluno);
+                    cmd.Parameters.AddWithValue("@Nome", alunoASerAtualizado.Nome);
                     cmd.Parameters.AddWithValue("@Cpf", alunoASerAtualizado.Cpf);
                     cmd.Parameters.AddWithValue("@Telefone", alunoASerAtualizado.Telefone);
-                    cmd.Parameters.AddWithValue("@Data_de_Nascimento", alunoASerAtualizado.DataNascimento);
+                    cmd.Parameters.AddWithValue("@Nascimento", alunoASerAtualizado.Nascimento);
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
 
@@ -91,7 +91,7 @@ namespace Infra
                 try
                 {
                     Conversor conversor = new Conversor();
-                    string sql = $"SELECT FROM tb_aluno Where Id= {id}";
+                    string sql = $"SELECT FROM Aluno Where Id= {id}";
                     SqlCommand cmd = new SqlCommand(sql, conexao);
                     cmd.CommandType = CommandType.Text;
                     SqlDataReader leitor = cmd.ExecuteReader();
@@ -112,7 +112,7 @@ namespace Infra
             {
                 try
                 {
-                    string sql = $"DELETE FROM tb_aluno Where Id= {id}";
+                    string sql = $"DELETE FROM Aluno Where Id= {id}";
                     SqlCommand cmd = new SqlCommand(sql, conexao);
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();

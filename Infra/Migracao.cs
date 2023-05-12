@@ -5,7 +5,7 @@ using System.Configuration;
 
 namespace Infra
 {
-    internal class Migracao
+    public class Migracao
     {
         public static string conectionString = ConfigurationManager.ConnectionStrings["BancoDeAlunos"].ConnectionString;
         public Migracao()

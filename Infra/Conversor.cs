@@ -16,10 +16,10 @@ namespace Infra
                 Aluno aluno = new Aluno()
                 {
                     Id = Convert.ToInt32(leitor["id"]),
-                    NomeAluno = leitor["Nome"].ToString(),
+                    Nome = leitor["Nome"].ToString(),
                     Cpf = leitor["Cpf"].ToString(),
                     Telefone = leitor["Telefone"].ToString(),
-                    DataNascimento = Convert.ToDateTime(leitor["Data_de_Nascimento"].ToString())
+                    Nascimento = Convert.ToDateTime(leitor["Nascimento"].ToString())
                 };
                 alunos.Add(aluno);
             }
@@ -33,10 +33,10 @@ namespace Infra
                 Aluno buscarAluno = new Aluno()
                 {
                     Id = Convert.ToInt32(leitor["id"]),
-                    NomeAluno = leitor["Nome"].ToString(),
+                    Nome= leitor["Nome"].ToString(),
                     Cpf = leitor["Cpf"].ToString(),
                     Telefone = leitor["Telefone"].ToString(),
-                    DataNascimento = Convert.ToDateTime(leitor["Data_de_Nascimento"].ToString()),
+                    Nascimento = Convert.ToDateTime(leitor["Nascimento"].ToString()),
                 };
                 return buscarAluno;
             }

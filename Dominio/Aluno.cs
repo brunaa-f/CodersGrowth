@@ -3,18 +3,18 @@
     public class Aluno
     {
         public int Id { get; set; }
-        public string NomeAluno { get; set; }
+        public string Nome { get; set; }
         public string Cpf { get; set; }
         public string Telefone { get; set; }
-        public DateTime DataNascimento { get; set; }
+        public DateTime Nascimento { get; set; }
 
-        public Aluno(int id, string nomeAluno, string cpf, string telefone, DateTime dataNascimento)
+        public Aluno(int id, string nome, string cpf, string telefone, DateTime nascimento)
         {
             Id = id;
-            NomeAluno=nomeAluno;
+            Nome=nome;
             Cpf=cpf;
             Telefone=telefone;
-            DataNascimento=dataNascimento;
+            Nascimento=nascimento;
         }
         public Aluno() {
         }  

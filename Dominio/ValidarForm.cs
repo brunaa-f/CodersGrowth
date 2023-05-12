@@ -10,7 +10,7 @@ namespace CadastrarAluno.Servicos
         {
             string erros = "";
 
-            if (OCampoNaoPodeSerVazio(aluno.NomeAluno))
+            if (OCampoNaoPodeSerVazio(aluno.Nome))
             {
                 erros += "O campo NOME deve ser preenchido!\n";
             }
@@ -22,7 +22,7 @@ namespace CadastrarAluno.Servicos
             {
                 erros += "O campo TELEFONE deve ser preenchido!\n";
             }
-            if (ValidacaoDoCampoNome(aluno.NomeAluno))
+            if (ValidacaoDoCampoNome(aluno.Nome))
             {
                 erros += "Digite um nome válido\n";
             }
@@ -34,7 +34,7 @@ namespace CadastrarAluno.Servicos
             {
                 erros += "Telefone inválido \n";
             }
-            if (ValidacaoDoCampoDataNascimento(aluno.DataNascimento))
+            if (ValidacaoDoCampoDataNascimento(aluno.Nascimento))
             {
                 erros += "Verifique a data de nascimento \n";
             }

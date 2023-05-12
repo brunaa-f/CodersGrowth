@@ -1,8 +1,9 @@
 
+using Infra;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace CadastrarAluno
+namespace UI
 {
     internal static class Program
     {

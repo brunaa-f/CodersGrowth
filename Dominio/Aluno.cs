@@ -1,4 +1,4 @@
-﻿namespace CadastrarAluno
+﻿namespace Dominio
 {
     public class Aluno
     {

@@ -1,6 +1,6 @@
 ﻿using FluentMigrator;
 
-namespace CadastrarAluno
+namespace Infra
 {
 
     [Migration(20230504114300)]

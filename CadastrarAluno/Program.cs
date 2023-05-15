@@ -1,4 +1,3 @@
-
 using FluentMigrator;
 using Infra;
 using Microsoft.Extensions.DependencyInjection;

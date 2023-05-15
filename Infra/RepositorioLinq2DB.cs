@@ -49,9 +49,9 @@ namespace Infra
                 {
                     conexaoLinq2Db.Insert(novoAluno);
                 }
-                catch (NotImplementedException)
+                catch (Exception e)
                 {
-
+                    throw e;
                 }
             }
         }
@@ -98,9 +98,9 @@ namespace Infra
                 {
                     conexaoLinq2Db.GetTable<Aluno>().Where(t => t.Id == id).Delete();
                 }
-                catch (NotImplementedException)
+                catch (Exception e)
                 {
-
+                    throw e;
                 }
             }
         }

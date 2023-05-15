@@ -76,6 +76,8 @@
             dataGridLista.ShowRowErrors = false;
             dataGridLista.Size = new Size(662, 299);
             dataGridLista.TabIndex = 3;
+            //dataGridLista.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+      
             // 
             // TelaInicial
             // 

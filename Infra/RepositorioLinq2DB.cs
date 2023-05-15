@@ -1,42 +1,108 @@
 ﻿using Dominio;
-using LinqToDB.Data;
 using LinqToDB;
-using Microsoft.Data.SqlClient;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using LinqToDB.Data;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LinqToDB.DataProvider.SqlServer;
+
 
 namespace Infra
 {
-    internal class RepositorioLinq2DB : IRepositorio
+    public class RepositorioLinq2DB : IRepositorio
     {
+        private DataConnection CriarConexao()
+        {
+            try
+            {
+                string conectionString = ConfigurationManager.ConnectionStrings["BancoDeAlunos"].ConnectionString;
+                var conexao = SqlServerTools.CreateDataConnection(conectionString);
+                return conexao;
+               
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
         public void Atualizar(int id, Aluno alunoASerAtualizado)
         {
+
+            using (var conexaoLinq2Db = CriarConexao())
+            {
+                try
+                {
+                    conexaoLinq2Db.Update(alunoASerAtualizado);
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
+            }
+
         }
 
         public void Criar(Aluno novoAluno)
         {
-            throw new NotImplementedException();
+            using (var conexaoLinq2Db = CriarConexao())
+            {
+                try
+                {
+                    conexaoLinq2Db.Insert(novoAluno);
+                }
+                catch (NotImplementedException)
+                {
+
+                }
+            }
         }
 
         public Aluno ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            using (var conexaoLinq2Db = CriarConexao())
+            {
+                try
+                {
+                    var ObterAlunoPorId = conexaoLinq2Db.GetTable<Aluno>().FirstOrDefault(a => a.Id == id);
+                    return ObterAlunoPorId;
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
+            }
+
         }
 
         public List<Aluno> ObterTodos()
         {
-            throw new NotImplementedException();
+            using (var conexaoLinq2Db = CriarConexao())
+            {
+                try
+                {
+                    var obterAlunos = conexaoLinq2Db.GetTable<Aluno>().ToList();
+                    return obterAlunos;
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
+            }
+
         }
 
         public void Remover(int id)
         {
-            throw new NotImplementedException();
+            using (var conexaoLinq2Db = CriarConexao())
+            {
+                try
+                {
+                    conexaoLinq2Db.GetTable<Aluno>().Where(t => t.Id == id).Delete();
+                }
+                catch (NotImplementedException)
+                {
+
+                }
+            }
         }
     }
 }

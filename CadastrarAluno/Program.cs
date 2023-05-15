@@ -24,7 +24,7 @@ namespace UI
             return Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) =>
                 {
-                    services.AddScoped<IRepositorio, RepositorioBd>();
+                    services.AddScoped<IRepositorio, RepositorioLinq2DB>();
                 });
         }
     }

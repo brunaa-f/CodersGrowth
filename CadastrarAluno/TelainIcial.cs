@@ -68,7 +68,7 @@ namespace UI
             {
                 VerificarLinhasSelecionadas(linhaSelecionada);
                 var id = (int)dataGridLista.SelectedRows[0].Cells[0].Value;
-                
+
                 if (MessageBox.Show("Deseja remover esse aluno?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     _repositorioAluno.Remover(id);

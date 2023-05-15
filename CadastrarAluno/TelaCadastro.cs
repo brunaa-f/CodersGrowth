@@ -55,10 +55,10 @@ namespace UI
 
         private void PreencherFormulario(Aluno aluno)
         {
-            tb_nome_aluno.Text = aluno?.NomeAluno;
+            tb_nome_aluno.Text = aluno?.Nome;
             mtb_cpf.Text = aluno?.Cpf;
             mtb_telefone.Text = aluno?.Telefone;
-            dtp_data_nascimento.Text = aluno?.DataNascimento.ToString();
+            dtp_data_nascimento.Text = aluno?.Nascimento.ToString();
         }
 
         private Aluno ObterDadosDoFormulario()
@@ -67,10 +67,10 @@ namespace UI
 
             var aluno = new Aluno()
             {
-                NomeAluno = tb_nome_aluno.Text,
+                Nome = tb_nome_aluno.Text,
                 Cpf = mtb_cpf.Text,
                 Telefone = mtb_telefone.Text,
-                DataNascimento = new DateTime(date.Year, date.Month, date.Day)
+                Nascimento = new DateTime(date.Year, date.Month, date.Day)
             };
 
             return aluno;

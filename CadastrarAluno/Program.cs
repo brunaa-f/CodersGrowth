@@ -1,4 +1,4 @@
-
+using FluentMigrator;
 using Infra;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,7 +11,7 @@ namespace UI
         {
             var builder = CriaHostBuilder();
             var servicesProvider = builder.Build().Services;
-
+            Migracao M = new();
             var repositorio = servicesProvider.GetService<IRepositorio>();
 
             ApplicationConfiguration.Initialize();
@@ -23,7 +23,7 @@ namespace UI
             return Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) =>
                 {
-                    services.AddScoped<IRepositorio, RepositorioBd>();
+                    services.AddScoped<IRepositorio, RepositorioLinq2DB>();
                 });
         }
     }

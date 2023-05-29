@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (UIComponent, JSONModel) {
 	"use strict";
 
-	return UIComponent.extend("sap.ui.demo.walkthrough.Component", {
+	return UIComponent.extend("sap.ui.demo.ui5.Component", {
 
 		metadata: {
 			interfaces: ["sap.ui.core.IAsyncContentCreation"],

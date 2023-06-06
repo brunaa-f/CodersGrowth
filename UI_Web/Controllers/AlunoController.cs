@@ -11,7 +11,6 @@ namespace UI_Web.Controllers
     public class AlunoController : ControllerBase
     {
         private IRepositorio _aluno;
-
         public AlunoController(IRepositorio aluno)
         {
             _aluno = aluno;

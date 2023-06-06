@@ -17,4 +17,9 @@
     <Folder Include="wwwroot\view\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Dominio\Dominio.csproj" />
+    <ProjectReference Include="..\Infra\Infra.csproj" />
+  </ItemGroup>
+
 </Project>

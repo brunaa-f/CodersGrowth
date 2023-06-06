@@ -6,7 +6,6 @@ namespace Dominio
     public class Aluno
     {
         [PrimaryKey, Identity] public int Id { get; set; }
-
         [NotNull] public string Nome { get; set; }
         [NotNull] public string Cpf { get; set; }
         [NotNull] public string Telefone { get; set; }

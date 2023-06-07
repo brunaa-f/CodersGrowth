@@ -4,9 +4,11 @@ sap.ui.define([
     "use strict";
 
     XMLView.create({
-        viewName: "sap.ui.demo.ui5.view.App"
+        viewName: "sap.ui.demo.walkthrough.view.App"
     }).then(function (oView) {
         oView.placeAt("conteudo");
     });
 
 });
+
+

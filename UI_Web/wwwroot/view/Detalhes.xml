@@ -1,0 +1,15 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.alunos.controller.Detalhes" xmlns="sap.m">
+    <Page showHeader="true" title="Detalhes" showFooter="true" showNavButton="false">
+        <content/>
+        <footer/>
+        <headerContent/>
+        <subHeader>
+            <OverflowToolbar visible="true" enabled="true" width="auto" design="Transparent">
+                <content>
+                    <Button text="" type="Default" icon="sap-icon://nav-back" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+                </content>
+            </OverflowToolbar>
+        </subHeader>
+        <customHeader/>
+    </Page>
+</mvc:View>

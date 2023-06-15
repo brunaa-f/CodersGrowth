@@ -9,7 +9,7 @@
 			<pages>
 				<Page showHeader="true" title="" showFooter="true">
 					<content>
-							<Table width="auto" noDataText="No data" mode="SingleSelectMaster" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin" itemPress="_onTableItemPress" items="{path:'/O_AlunoSet', templateShareable:true}">
+							<Table width="auto" noDataText="Sem dados" mode="SingleSelectMaster" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin" itemPress="_onTableItemPress" items="{path:'/O_AlunoSet', templateShareable:true}">
 								<infoToolbar>
 									<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
 										<content>
@@ -21,8 +21,8 @@
 									<OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
 										<content>
 											<ToolbarSpacer width=""/>
-											<SearchField placeholder="Search" showSearchButton="true" visible="true" width="30em"/>
-											<Button text="Novo Aluno" type="Emphasized" icon="sap-icon://add" iconFirst="false" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+											<SearchField placeholder="Buscar" showSearchButton="true" visible="true" width="30em"/>
+											<Button  text="{i18n>btn_Add}" type="Emphasized" icon="sap-icon://add" iconFirst="false" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
 										</content>
 									</OverflowToolbar>
 								</headerToolbar>

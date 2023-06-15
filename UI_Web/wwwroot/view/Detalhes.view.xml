@@ -1,4 +1,5 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="ControleDeAlunos.controller.Detalhes" xmlns="sap.m">
+   <pages> 
     <Page showHeader="true" title="Detalhes" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress">
         <content/>
         <footer/>
@@ -14,4 +15,5 @@
         </subHeader>
         <customHeader/>
     </Page>
+   </pages>
 </mvc:View>

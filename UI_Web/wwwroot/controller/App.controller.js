@@ -4,7 +4,8 @@ sap.ui.define([
     Controller
 ) {
     "use strict";
-
-    return Controller.extend("sap.ui.demo.walkthrough.controller.App", {
+    return Controller.extend("ControleDeAlunos.controller.App", {
     });
 });
+
+

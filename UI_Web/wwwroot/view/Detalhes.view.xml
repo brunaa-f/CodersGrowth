@@ -1,0 +1,17 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="ControleDeAlunos.controller.Detalhes" xmlns="sap.m">
+    <Page showHeader="true" title="Detalhes" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress">
+        <content/>
+        <footer/>
+        <headerContent/>
+        <subHeader>
+            <OverflowToolbar visible="true" enabled="true" width="auto" design="Transparent">
+                <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="Editar" type="Default" icon="sap-icon://user-edit" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+                    <Button text="Excluir" type="Default" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </subHeader>
+        <customHeader/>
+    </Page>
+</mvc:View>

@@ -1,13 +1,15 @@
 sap.ui.define([
-    "sap/ui/core/mvc/XMLView"
-], function (XMLView) {
+    "sap/ui/core/ComponentContainer"
+
+], function (ComponentContainer) {
     "use strict";
+    new ComponentContainer({
 
-    XMLView.create({
-        viewName: "sap.ui.demo.walkthrough.view.App"
-    }).then(function (oView) {
-        oView.placeAt("conteudo");
-    });
+        name: "ControleDeAlunos",
+        settings: {
+            id: "ControleDeAlunos"
+        },
+        async: true
+
+    }).placeAt("conteudo");
 });
-
-

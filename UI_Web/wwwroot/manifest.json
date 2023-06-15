@@ -1,7 +1,7 @@
 {
 	"_version": "1.21.0",
 	"sap.app": {
-		"id": "sap.ui.demo.walkthrough",
+		"id": "alunos",
 		"type": "application",
 		"i18n": {
 			"bundleUrl": "i18n/i18n.properties",
@@ -12,17 +12,11 @@
 		},
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
-		"applicationVersion": {
-			"version": "1.0.0"
-		},
-		"dataSources": {
-			"invoiceRemote": {
-				"uri": "https://services.odata.org/V2/Northwind/Northwind.svc/",
-				"type": "OData",
-				"settings": {
-					"odataVersion": "2.0"
-				}
-			}
+		"ach": "ach",
+		"resources": "resources.json",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.32.0"
 		}
 	},
 	"sap.ui": {
@@ -35,9 +29,9 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "sap.ui.demo.walkthrough.view.App",
+			"viewName": "ControleDeAlunos.view.App",
 			"type": "XML",
-			"id": "app"
+			"id": "table"
 		},
 		"dependencies": {
 			"minUI5Version": "1.98.0",
@@ -50,7 +44,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "sap.ui.demo.walkthrough.i18n.i18n",
+					"bundleName": "ControleDeAlunos.i18n.i18n",
 					"supportedLocales": [
 						""
 					],
@@ -66,30 +60,40 @@
 				"routerClass": "sap.m.routing.Router",
 				"type": "View",
 				"viewType": "XML",
-				"path": "sap.ui.demo.walkthrough.view",
-				"controlId": "app",
+				"path": "ControleDeAlunos.view",
+				"controlId": "App",
 				"controlAggregation": "pages"
 			},
 			"routes": [
 				{
 					"pattern": "",
-					"name": "telaInicial",
-					"target": "telaInicial"
+					"name": "TelaInicial",
+					"target": [
+						"TelaInicial"
+					]
 				},
 				{
-					"pattern": "detail/{invoicePath}",
-					"name": "detail",
-					"target": "detail"
+					"pattern": "Detalhes",
+					"name": "Detalhes",
+					"target": [
+						"Detalhes"
+					]
 				}
 			],
 			"targets": {
-				"telaInicial": {
-					"id": "telaInicial",
-					"name": "telaInicial"
+				"Detalhes": {
+					"controlAggregation": "pages",
+					"viewName": "Detalhes",
+					"viewId": "Detalhes",
+					"viewLevel": 2,
+					"transition": "slide"
 				},
-				"detail": {
-					"id": "detail",
-					"name": "Detail"
+				"TelaInicial": {
+					"controlAggregation": "pages",
+					"viewName": "TelaInicial",
+					"viewId": "TelaInicial",
+					"viewLevel": 1,
+					"transition": "slide"
 				}
 			}
 		}

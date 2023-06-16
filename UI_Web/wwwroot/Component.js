@@ -8,7 +8,6 @@ sap.ui.define([
 
     "use strict";
     return UIComponent.extend("ControleDeAlunos.Component", {
-
         metadata: {
 
             interfaces: ["sap.ui.core.IAsyncContentCreation"],

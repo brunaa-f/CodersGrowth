@@ -9,7 +9,7 @@
 			<pages>
 				<Page showHeader="true" title="" showFooter="true">
 					<content>
-							<Table width="auto" noDataText="Sem dados" mode="SingleSelectMaster" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin" itemPress="_onTableItemPress" items="{path:'/O_AlunoSet', templateShareable:true}">
+							<Table width="auto" noDataText="Sem dados" mode="SingleSelectMaster" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" itemPress="_onTableItemPress" items="{path:'/O_AlunoSet', templateShareable:true}">
 								<infoToolbar>
 									<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
 										<content>

@@ -1,6 +1,7 @@
 {
 	"_version": "1.21.0",
 	"sap.app": {
+		"_version": "1.3.0",
 		"id": "alunos",
 		"type": "application",
 		"i18n": {
@@ -39,6 +40,10 @@
 				"sap.ui.core": {},
 				"sap.m": {}
 			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
 		},
 		"models": {
 			"i18n": {

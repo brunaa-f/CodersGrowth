@@ -7,69 +7,28 @@
 	<Shell>
 		<App>
 			<pages>
-				<Page showHeader="true" title="" showFooter="true">
+				<Page showHeader="true" showFooter="true" title="{i18n>homePageTitle}">
 					<content>
-							<Table width="auto" noDataText="Sem dados" mode="SingleSelectMaster" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" itemPress="_onTableItemPress" items="{path:'/O_AlunoSet', templateShareable:true}">
-								<infoToolbar>
-									<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
-										<content>
-											<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-										</content>
-									</Toolbar>
-								</infoToolbar>
-								<headerToolbar>
-									<OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
-										<content>
-											<ToolbarSpacer width=""/>
-											<SearchField placeholder="Buscar" showSearchButton="true" visible="true" width="30em"/>
-											<Button  text="{i18n>btn_Add}" type="Emphasized" icon="sap-icon://add" iconFirst="false" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
-										</content>
-									</OverflowToolbar>
-								</headerToolbar>
-								<columns>
-									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-										<header>
-											<Text text="ID" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-										</header>
-										<footer/>
-									</Column>
-									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-										<header>
-											<Text text="Nome" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-										</header>
-										<footer/>
-									</Column>
-									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-										<header>
-											<Text text="CPF" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-										</header>
-										<footer/>
-									</Column>
-									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-										<header>
-											<Text text="Telefone" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-										</header>
-										<footer/>
-									</Column>
-									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-										<header>
-											<Text text="Data de Nascimento" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-										</header>
-										<footer/>
-									</Column>
-								</columns>
-								<items>
-									<ColumnListItem type="Active" press="_onRowPress">
-										<cells>
-											<Text text="{ID}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-											<Text text="{Nome}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-											<Text text="{Cpf}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-											<Text text="{Telefone}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-											<Text text="{path: 'Nascimento', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-										</cells>
-									</ColumnListItem>
-								</items>
-							</Table>
+						<OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+							<content>
+								<ToolbarSpacer width=""/>
+								<SearchField placeholder="Search" showSearchButton="true" visible="true" width="30em"/>
+								<Button text="Novo Aluno" type="Emphasized" icon="sap-icon://add" iconFirst="false" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+							</content>
+						</OverflowToolbar>
+						<List mode="SingleSelectMaster" width="100%" headerText="" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" visible="true" itemPress="_onStandardListItemPress" items="{path:'/O_AlunoSet', templateShareable:true}">
+							<infoToolbar>
+								<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+									<content>
+										<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+									</content>
+								</Toolbar>
+							</infoToolbar>
+							<headerToolbar/>
+							<items>
+								<StandardListItem icon="sap-icon://person-placeholder" title="{Nome}" description="{Cpf}" info="" infoState="None" type="Navigation" selected="false" visible="true" press="_onStandardListItemPress1"/>
+							</items>
+						</List>
 					</content>
 				</Page>
 		  	</pages>

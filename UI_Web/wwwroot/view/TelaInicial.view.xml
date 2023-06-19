@@ -16,7 +16,7 @@
 								<Button text="{i18n>btn_add}" type="Emphasized" icon="sap-icon://add" iconFirst="false" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
 							</content>
 						</OverflowToolbar>
-						<List mode="SingleSelectMaster" width="100%" headerText="" footerText="" backgroundDesign="Solid" showSeparators="All" visible="true" itemPress="_onStandardListItemPress" items="{path:'', templateShareable:true}">
+						<List mode="SingleSelectMaster" width="100%" headerText="" footerText="" backgroundDesign="Solid" showSeparators="All" visible="true" itemPress="_onStandardListItemPress" items="{alunos>/}">
 							<infoToolbar>
 								<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
 									<content>
@@ -26,7 +26,7 @@
 							</infoToolbar>
 							<headerToolbar/>
 							<items>
-								<StandardListItem icon="sap-icon://person-placeholder" title="{Nome}" description="{Cpf}" type="Navigation" selected="false" visible="true" press="_onStandardListItemPress1"/>
+								<StandardListItem icon="sap-icon://person-placeholder" title="{alunos>nome}" description="{alunos>cpf}" type="Navigation" selected="false" visible="true" press="_onStandardListItemPress1"/>
 							</items>
 						</List>
 					</content>

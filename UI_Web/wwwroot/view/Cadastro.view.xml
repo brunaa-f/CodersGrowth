@@ -1,6 +1,0 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="CadastroDeAlunos.controller.Cadastro" xmlns="sap.m" xmlns:form="sap.ui.layout.form">
-    <Page showHeader="true" title="Cadastro" showFooter="true" showNavButton="true" navButtonPress="_onPageNavButtonPress">
-        <content>
-        </content>
-    </Page>
-</mvc:View>

@@ -7,16 +7,16 @@
 	<Shell>
 		<App>
 			<pages>
-				<Page showHeader="true" showFooter="true" title="{i18n>homePageTitle}">
+				<Page showHeader="true" title="{i18n>homePageTitle}">
 					<content>
 						<OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
 							<content>
 								<ToolbarSpacer width=""/>
 								<SearchField placeholder="Search" showSearchButton="true" visible="true" width="30em"/>
-								<Button text="Novo Aluno" type="Emphasized" icon="sap-icon://add" iconFirst="false" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+								<Button text="{i18n>btn_add}" type="Emphasized" icon="sap-icon://add" iconFirst="false" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
 							</content>
 						</OverflowToolbar>
-						<List mode="SingleSelectMaster" width="100%" headerText="" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" visible="true" itemPress="_onStandardListItemPress" items="{path:'/O_AlunoSet', templateShareable:true}">
+						<List mode="SingleSelectMaster" width="100%" headerText="" footerText="" backgroundDesign="Solid" showSeparators="All" visible="true" itemPress="_onStandardListItemPress" items="{path:'', templateShareable:true}">
 							<infoToolbar>
 								<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
 									<content>
@@ -26,7 +26,7 @@
 							</infoToolbar>
 							<headerToolbar/>
 							<items>
-								<StandardListItem icon="sap-icon://person-placeholder" title="{Nome}" description="{Cpf}" info="" infoState="None" type="Navigation" selected="false" visible="true" press="_onStandardListItemPress1"/>
+								<StandardListItem icon="sap-icon://person-placeholder" title="{Nome}" description="{Cpf}" type="Navigation" selected="false" visible="true" press="_onStandardListItemPress1"/>
 							</items>
 						</List>
 					</content>

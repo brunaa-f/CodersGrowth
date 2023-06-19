@@ -78,26 +78,34 @@
 					]
 				},
 				{
-					"pattern": "Detalhes",
+					"pattern": "Detalhes/{invoicePath}",
 					"name": "Detalhes",
 					"target": [
 						"Detalhes"
 					]
+				},
+				{
+					"pattern": "Cadastro",
+					"name": "Cadastro",
+					"target": [
+						"Cadastro"
+					]
 				}
 			],
 			"targets": {
-				"Detalhes": {
-					"controlAggregation": "pages",
-					"viewName": "Detalhes",
-					"viewId": "Detalhes",
-					"viewLevel": 2,
+				"TelaInicial": {
+					"name": "TelaInicial",
+					"id": "TelaInicial",
 					"transition": "slide"
 				},
-				"TelaInicial": {
-					"controlAggregation": "pages",
-					"viewName": "TelaInicial",
-					"viewId": "TelaInicial",
-					"viewLevel": 1,
+				"Detalhes": {
+					"name": "Detalhes",
+					"id": "Detalhes",
+					"transition": "slide"
+				},
+				"Cadastro": {
+					"name": "Cadastro",
+					"id": "Cadastro",
 					"transition": "slide"
 				}
 			}

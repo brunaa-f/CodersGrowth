@@ -55,9 +55,6 @@
 					],
 					"fallbackLocale": ""
 				}
-			},
-			"invoice": {
-				"dataSource": "invoiceRemote"
 			}
 		},
 		"routing": {
@@ -78,7 +75,7 @@
 					]
 				},
 				{
-					"pattern": "Detalhes",
+					"pattern": "Detalhes/{id}",
 					"name": "Detalhes",
 					"target": [
 						"Detalhes"

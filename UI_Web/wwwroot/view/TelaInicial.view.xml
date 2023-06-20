@@ -12,7 +12,7 @@
 						<OverflowToolbar width="auto" height="auto">
 							<content>
 								<ToolbarSpacer width=""/>
-								<SearchField placeholder="{i18n>buscar}" showSearchButton="true" visible="true" width="20em"/>
+								<SearchField placeholder="{i18n>buscar}" showSearchButton="true" visible="true" width="30em"/>
 								<Button text="{i18n>btn_add}" type="Emphasized" icon="sap-icon://add" iconFirst="false" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_aoClicarAbreFormCadastro"/>
 							</content>
 						</OverflowToolbar>

@@ -8,23 +8,25 @@ sap.ui.define(
         return Controller.extend("ControleDeAlunos.Controller.TelaInicial", {
             onInit: function () {
                 let oView = this.getView();
+                let localhost = "https://localhost:7082/"
 
                 //retorna buscar todos
-                fetch("/api/Aluno")
+                fetch(localhost + "api/Aluno")
 
                     .then((response) => response.json())
                     .then((data) => {
                         oView.setModel(new JSONModel(data), "alunos");
                     })
                     .catch((error) => {
-                        console.error(error);
+                        // console.error(error);
                     });
             },
 
             _aoClicarAbreFormCadastro: function () {
                 let rota = this.getOwnerComponent().getRouter();
-                rota.navTo("Cadastro");
+                let rotaCadastro = "Cadastro";
+                rota.navTo(rotaCadastro);
             },
-
         })
-    })
+    }
+)

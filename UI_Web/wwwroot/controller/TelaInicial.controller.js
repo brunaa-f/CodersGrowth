@@ -2,17 +2,16 @@ sap.ui.define(
     [
         "sap/ui/core/mvc/Controller",
         "sap/ui/model/json/JSONModel",
-        "sap/ui/model/Filter",
-        "sap/ui/model/FilterOperator",
-        "sap/ui/core/routing/Router",
     ],
-    function (Controller, JSONModel, Filter, FilterOperator) {
+    function (Controller, JSONModel) {
         "use strict";
         return Controller.extend("ControleDeAlunos.Controller.TelaInicial", {
             onInit: function () {
                 let oView = this.getView();
 
+                //retorna buscar todos
                 fetch("/api/Aluno")
+
                     .then((response) => response.json())
                     .then((data) => {
                         oView.setModel(new JSONModel(data), "alunos");
@@ -21,5 +20,11 @@ sap.ui.define(
                         console.error(error);
                     });
             },
+
+            _aoClicarAbreFormCadastro: function () {
+                let rota = this.getOwnerComponent().getRouter();
+                rota.navTo("Cadastro");
+            },
+
         })
     })

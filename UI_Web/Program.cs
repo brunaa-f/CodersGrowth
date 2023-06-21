@@ -1,4 +1,6 @@
 using Infra;
+using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +19,21 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseCors(options => options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader());
 }
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    FileProvider = new PhysicalFileProvider(
+//Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")
+//),
+
+//    ContentTypeProvider = new FileExtensionContentTypeProvider
+//    {
+//        Mappings = { [".properties"] = "application/x-msdownload" }
+//    }
+//});
+
+app.UseDefaultFiles();
 
 app.UseHttpsRedirection();
 

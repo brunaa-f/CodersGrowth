@@ -1,0 +1,37 @@
+<mvc:View
+	controllerName="ControleDeAlunos.controller.TelaInicial"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+>
+	<Shell>
+		<App>
+			<pages>
+				<Page title="{i18n>telaInicialTitulo}">
+					<content>
+						<OverflowToolbar width="auto" height="auto">
+							<content>
+								<ToolbarSpacer width=""/>
+								<SearchField placeholder="{i18n>buscar}" showSearchButton="true" visible="true" width="30em"/>
+								<Button text="{i18n>btn_add}" type="Emphasized" icon="sap-icon://add" iconFirst="false" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_aoClicarAbreFormCadastro"/>
+							</content>
+						</OverflowToolbar>
+						<List mode="SingleSelectMaster" width="100%" backgroundDesign="Solid" showSeparators="All" visible="true" itemPress="_onStandardListItemPress" items="{alunos>/}">
+							<infoToolbar>
+								<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+									<content>
+										<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+									</content>
+								</Toolbar>
+							</infoToolbar>
+							<headerToolbar/>
+							<items>
+								<StandardListItem icon="sap-icon://person-placeholder" title="{alunos>nome}" description="{alunos>cpf}" type="Navigation" selected="false" visible="true" press="_onStandardListItemPress1"/>
+							</items>
+						</List>
+					</content>
+				</Page>
+		  	</pages>
+		</App>
+	</Shell>
+</mvc:View>

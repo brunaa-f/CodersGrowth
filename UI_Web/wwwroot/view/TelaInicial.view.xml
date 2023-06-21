@@ -16,7 +16,7 @@
 									<content>
 										<ToolbarSpacer width=""/>
 										<SearchField placeholder="{i18n>buscar}" width="auto"/>
-										<Button text="{i18n>btn_add}" type="Emphasized" icon="sap-icon://add" iconFirst="false" width="auto"  iconDensityAware="false" press="_aoClicarAbreFormCadastro" tooltip="Adicionar Aluno"/>
+										<Button text="{i18n>btn_add}" icon="sap-icon://add" iconFirst="false" width="auto"  iconDensityAware="false" press="_aoClicarAbreFormCadastro" tooltip="Adicionar Aluno"/>
 									</content>
 								</OverflowToolbar>
 							</headerToolbar>

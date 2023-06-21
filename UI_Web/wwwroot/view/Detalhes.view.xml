@@ -1,0 +1,30 @@
+<mvc:View
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   displayBlock="true">
+
+   <Shell>
+      <Page  title="Detalhes do Aluno" showFooter="false" showNavButton="true" navButtonPress="_onPageNavButtonPress">
+         <content>
+            <ObjectHeader intro="" title="{Nome}" backgroundDesign="Transparent">
+               <attributes>
+                  <ObjectAttribute title="CPF" text="{Cpf}" active="false" />
+                  <ObjectAttribute title="Telefone" text="{Telefone}" active="false" />
+                  <ObjectAttribute title="Data de Nascimento" text="{path: 'Nascimento', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" active="false" />
+               </attributes>
+            </ObjectHeader>
+         </content>
+            <subHeader>
+               <OverflowToolbar width="auto" design="Solid">
+                  <content>
+                     <ToolbarSpacer width=""/>
+                     <Button text="Editar" icon="sap-icon://user-edit"  width="auto"  iconDensityAware="false"/>
+                     <Button text="Excluir" icon="sap-icon://delete"  width="auto"  iconDensityAware="false"/>
+                  </content>
+               </OverflowToolbar>
+            </subHeader>
+         <customHeader/>
+      </Page>
+   </Shell>
+   
+</mvc:View>

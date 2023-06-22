@@ -9,14 +9,14 @@
 			<pages>
 				<Page title="{i18n>telaInicialTitulo}">
 					<content>
-						<Table width="auto" noDataText="{i18n>SemDadosTabela}" class="sapUiResponsiveMargin" mode="SingleSelectMaster" items="{alunos>/}">
+						<Table width="auto" noDataText="{i18n>SemDadosTabela}" class="sapUiResponsiveMargin" itemPress="_onTableItemPress" mode="SingleSelectMaster" items="{alunos>/}" >
 
 							<headerToolbar>
 								<OverflowToolbar width="auto" height="auto" design="Transparent">
 									<content>
 										<ToolbarSpacer width=""/>
 										<SearchField placeholder="{i18n>buscar}" width="auto"/>
-										<Button text="{i18n>btn_add}" icon="sap-icon://add" iconFirst="false" width="auto"  iconDensityAware="false" press="_aoClicarAbreFormCadastro" tooltip="Adicionar Aluno"/>
+										<Button  icon="sap-icon://add" iconFirst="false" width="auto"  iconDensityAware="false" press="aoClicarAbreFormCadastro" tooltip="Adicionar Aluno"/>
 									</content>
 								</OverflowToolbar>
 							</headerToolbar>
@@ -43,7 +43,7 @@
 								</Column>
                 			</columns>
 							<items>
-								<ColumnListItem type="Navigation" press="_aoClicarAbreDetalhes">
+								<ColumnListItem type="Navigation"  press="aoClicarAlunoAbreDetalhes" >
 									<cells>
 										<ObjectIdentifier title="" text="{alunos>nome}"/>
 										<Text text="{alunos>cpf}"/>

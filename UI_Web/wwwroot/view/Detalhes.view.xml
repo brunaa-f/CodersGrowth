@@ -4,13 +4,13 @@
    displayBlock="true">
 
    <Shell>
-      <Page  title="Detalhes do Aluno" showFooter="false" showNavButton="true" navButtonPress="_onPageNavButtonPress">
+      <Page title="{i18n>TituloDetalhes}" showFooter="false" showNavButton="true" navButtonPress="_aoClicarVoltar">
          <content>
-            <ObjectHeader intro="" title="{Nome}" backgroundDesign="Transparent">
+            <ObjectHeader intro="" title="{alunos/nome}" backgroundDesign="Transparent">
                <attributes>
-                  <ObjectAttribute title="CPF" text="{Cpf}" active="false" />
-                  <ObjectAttribute title="Telefone" text="{Telefone}" active="false" />
-                  <ObjectAttribute title="Data de Nascimento" text="{path: 'Nascimento', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" active="false" />
+                  <ObjectAttribute title="CPF" text="{cpf}" active="false" />
+                  <ObjectAttribute title="Telefone" text="{telefone}" active="false" />
+                  <ObjectAttribute title="Data de Nascimento" text="{path: 'nascimento', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" active="false" />
                </attributes>
             </ObjectHeader>
          </content>
@@ -25,6 +25,5 @@
             </subHeader>
          <customHeader/>
       </Page>
-   </Shell>
-   
+   </Shell> 
 </mvc:View>

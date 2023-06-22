@@ -21,17 +21,19 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     app.UseCors(options => options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader());
 }
-//app.UseStaticFiles(new StaticFileOptions
-//{
-//    FileProvider = new PhysicalFileProvider(
-//Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")
-//),
 
-//    ContentTypeProvider = new FileExtensionContentTypeProvider
-//    {
-//        Mappings = { [".properties"] = "application/x-msdownload" }
-//    }
-//});
+app.UseFileServer();
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")
+),
+
+    ContentTypeProvider = new FileExtensionContentTypeProvider
+    {
+        Mappings = { [".properties"] = "application/x-msdownload" }
+    }
+});
 
 app.UseDefaultFiles();
 

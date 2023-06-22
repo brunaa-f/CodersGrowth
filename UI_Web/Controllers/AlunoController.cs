@@ -50,11 +50,11 @@ namespace UI_Web.Controllers
 
 
         [HttpGet("{id}")]
-        public IActionResult ObterPorId([FromRoute] int Id)
+        public IActionResult ObterPorId([FromRoute] int id)
         {
             try
             {
-             Aluno aluno = _aluno.ObterPorId(Id);
+             Aluno aluno = _aluno.ObterPorId(id);
              return Ok(aluno);
 
             }

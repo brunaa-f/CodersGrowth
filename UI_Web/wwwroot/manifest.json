@@ -75,14 +75,14 @@
 					]
 				},
 				{
-					"pattern": "Detalhes/{id}",
+					"pattern": "detalhes/{id}",
 					"name": "Detalhes",
 					"target": [
 						"Detalhes"
 					]
 				},
 				{
-					"pattern": "Cadastro",
+					"pattern": "cadastro",
 					"name": "Cadastro",
 					"target": [
 						"Cadastro"

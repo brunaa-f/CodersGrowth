@@ -31,13 +31,14 @@ sap.ui.define([
         },
 
         aoClicarVoltar: function () {
+            const rotaTelaInicial = "TelaInicial"
 
             var caminhoAnterior = History.getInstance().getPreviousHash();
             if (caminhoAnterior !== undefined) {
                 window.history.go(-1);
             } else {
                 var rota = this.getOwnerComponent().getRouter();
-                rota.navTo("TelaInicial");
+                rota.navTo(rotaTelaInicial);
             }
         }
     });

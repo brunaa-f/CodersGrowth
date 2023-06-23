@@ -29,6 +29,8 @@ sap.ui.define(
             },
 
             aoClicarAbreDetalhes: function (oEvent) {
+                const rotaDetalhes = "Detalhes"
+
                 let item = oEvent.getSource();
                 let lista = item.getBindingContext("alunos");
                 let rota = this.getOwnerComponent().getRouter();

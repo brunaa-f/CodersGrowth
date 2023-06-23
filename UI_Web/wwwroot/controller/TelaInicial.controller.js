@@ -22,18 +22,19 @@ sap.ui.define(
                     });
             },
 
-            aoClicarAbreFormCadastro: function () {
+            aoClicarAbreCadastro: function () {
                 let rota = this.getOwnerComponent().getRouter();
                 let rotaCadastro = "Cadastro";
                 rota.navTo(rotaCadastro);
             },
 
-            aoClicarAlunoAbreDetalhes: function (oEvent) {
-                debugger
-                var item = oEvent.getSource();
-                var oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("Detalhes", {
-                    invoicePath: window.encodeURIComponent(item.getBindingContext("id").getPath().substr(1))
+            aoClicarAbreDetalhes: function (oEvent) {
+                let item = oEvent.getSource();
+                let lista = item.getBindingContext("alunos");
+                let rota = this.getOwnerComponent().getRouter();
+                let idObjetoSelecionado = lista.getProperty("id");
+                rota.navTo("Detalhes", {
+                    id: window.encodeURIComponent(idObjetoSelecionado)
                 });
             }
         })

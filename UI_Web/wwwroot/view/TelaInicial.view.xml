@@ -6,56 +6,53 @@
 >
 	<Shell>
 		<App>
-			<pages>
-				<Page title="{i18n>telaInicialTitulo}">
-					<content>
-						<Table width="auto" noDataText="{i18n>SemDadosTabela}" class="sapUiResponsiveMargin" mode="SingleSelectMaster" items="{alunos>/}">
-
-							<headerToolbar>
-								<OverflowToolbar width="auto" height="auto" design="Transparent">
-									<content>
-										<ToolbarSpacer width=""/>
-										<SearchField placeholder="{i18n>buscar}" width="auto"/>
-										<Button text="{i18n>btn_add}" type="Emphasized" icon="sap-icon://add" iconFirst="false" width="auto"  iconDensityAware="false" press="_aoClicarAbreFormCadastro" tooltip="Adicionar Aluno"/>
-									</content>
-								</OverflowToolbar>
-							</headerToolbar>
-						 	<columns>
-								<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Small" demandPopin="true" popinDisplay="Inline">
-									<header>
-										<Text text="{i18n>ColunaNome}" width="auto"/>
-									</header>
-								</Column>
-								<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Small" demandPopin="true" popinDisplay="Inline">
-									<header>
-										<Text text="{i18n>ColunaCpf}" width="auto"/>
-									</header>
-								</Column>
-								<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Small" demandPopin="true" popinDisplay="Inline">
-									<header>
-										<Text text="{i18n>ColunaTelefone}"  width="auto" />
-									</header>
-								</Column>
-								<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Small" demandPopin="true" popinDisplay="Inline">
-									<header>
-										<Text text="{i18n>ColunaDataNascimento}"  width="auto"/>
-									</header>
-								</Column>
-                			</columns>
+			<Page title="{i18n>telaInicialTitulo}">
+				<content>
+				 	<Table width="auto" noDataText="{i18n>SemDadosTabela}" class="sapUiResponsiveMargin" items="{alunos>/}" >
+						<headerToolbar>
+							<OverflowToolbar width="auto" height="auto" design="Transparent">
+								<content>
+									<ToolbarSpacer width=""/>
+									<SearchField placeholder="{i18n>buscar}" width="auto"/>
+									<Button  icon="sap-icon://add" iconFirst="false" width="auto"  iconDensityAware="false" press="aoClicarAbreCadastro" tooltip="Adicionar Aluno"/>
+								</content>
+							</OverflowToolbar>
+						</headerToolbar>
+						<columns>
+							<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Small" demandPopin="true" popinDisplay="Inline">
+								<header>
+									<Text text="{i18n>ColunaNome}" width="auto"/>
+								</header>
+							</Column>
+							<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Small" demandPopin="true" popinDisplay="Inline">
+								<header>
+									<Text text="{i18n>ColunaCpf}" width="auto"/>
+								</header>
+							</Column>
+							<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Small" demandPopin="true" popinDisplay="Inline">
+								<header>
+									<Text text="{i18n>ColunaTelefone}"  width="auto" />
+								</header>
+							</Column>
+							<Column width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Small" demandPopin="true" popinDisplay="Inline">
+								<header>
+									<Text text="{i18n>ColunaDataNascimento}"  width="auto"/>
+								</header>
+							</Column>
+                		</columns>
 							<items>
-								<ColumnListItem type="Navigation" press="_aoClicarAbreDetalhes">
-									<cells>
-										<ObjectIdentifier title="" text="{alunos>nome}"/>
-										<Text text="{alunos>cpf}"/>
-										<Text text="{alunos>telefone}"/>
-										<Text text="{path: 'alunos>nascimento', type : 'sap.ui.model.type.Date', formatOptions: {style : 'medium', source: {pattern: 'yyyy-MM-ddTHH:mm:ss.mmm'}}}"/>
-									</cells>
-								</ColumnListItem>
-							</items>
-						</Table>
-					</content>
-				</Page>
-		  	</pages>
+								<ColumnListItem type="Navigation" press="aoClicarAbreDetalhes">
+								<cells>
+									<ObjectIdentifier title="" text="{alunos>nome}"/>
+									<Text text="{alunos>cpf}"/>
+									<Text text="{alunos>telefone}"/>
+									<Text text="{path: 'alunos>nascimento', type : 'sap.ui.model.type.Date', formatOptions: {style : 'medium', source: {pattern: 'yyyy-MM-ddTHH:mm:ss.mmm'}}}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
 		</App>
 	</Shell>
 </mvc:View>

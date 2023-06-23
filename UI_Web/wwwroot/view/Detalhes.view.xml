@@ -1,0 +1,30 @@
+<mvc:View
+   controllerName="ControleDeAlunos.controller.Detalhes"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   displayBlock="true">
+
+   <Shell>
+      <Page title="{i18n>TituloDetalhes}" showNavButton="true" navButtonPress="aoClicarVoltar">
+         <content>
+            <ObjectHeader intro="" title="{aluno>/nome}" backgroundDesign="Solid">
+               <attributes>
+                  <ObjectAttribute title="CPF" text="{aluno>/cpf}" active="false" />
+                  <ObjectAttribute title="Telefone" text="{aluno>/telefone}" active="false" />
+                  <ObjectAttribute text="Data de Nascimento: {path: 'aluno>/nascimento', type: 'sap.ui.model.type.Date', formatOptions: {source: {pattern: 'yyyy-MM-ddTHH:mm:ss.mmm'}}}"/>
+               </attributes>
+            </ObjectHeader>
+         </content>
+            <subHeader>
+               <OverflowToolbar width="auto" design="Solid">
+                  <content>
+                     <ToolbarSpacer width=""/>
+                     <Button text="Editar" icon="sap-icon://user-edit"  width="auto"  iconDensityAware="false"/>
+                     <Button text="Excluir" icon="sap-icon://delete"  width="auto"  iconDensityAware="false"/>
+                  </content>
+               </OverflowToolbar>
+            </subHeader>
+         <customHeader/>
+      </Page>
+   </Shell> 
+</mvc:View>

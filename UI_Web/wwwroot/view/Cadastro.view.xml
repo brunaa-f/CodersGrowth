@@ -4,8 +4,7 @@
    displayBlock="true">
 
    <Shell>
-	   <app>
-		   
-	   </app>
-   </Shell>
+      <Page title="{i18n>TituloCadastro}" showFooter="false" showNavButton="true" navButtonPress="aoClicarVoltar">
+      </Page>
+   </Shell> 
 </mvc:View>

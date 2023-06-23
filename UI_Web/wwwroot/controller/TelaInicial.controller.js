@@ -5,12 +5,11 @@ sap.ui.define(
     ],
     function (Controller, JSONModel) {
         "use strict";
-        return Controller.extend("ControleDeAlunos.Controller.TelaInicial", {
+        return Controller.extend("ControleDeAlunos.controller.TelaInicial", {
             onInit: function () {
                 let oView = this.getView();
-                let localhost = "https://localhost:7082/"
+                const localhost = "https://localhost:7082/";
 
-                //retorna buscar todos
                 fetch(localhost + "api/Aluno")
 
                     .then((response) => response.json())
@@ -22,11 +21,24 @@ sap.ui.define(
                     });
             },
 
-            _aoClicarAbreFormCadastro: function () {
+            aoClicarAbreCadastro: function () {
+                const rotaCadastro = "Cadastro";
+
                 let rota = this.getOwnerComponent().getRouter();
-                let rotaCadastro = "Cadastro";
                 rota.navTo(rotaCadastro);
             },
+
+            aoClicarAbreDetalhes: function (oEvent) {
+                const rotaDetalhes = "Detalhes"
+
+                let item = oEvent.getSource();
+                let lista = item.getBindingContext("alunos");
+                let rota = this.getOwnerComponent().getRouter();
+                let idObjSelecionado = lista.getProperty("id");
+                rota.navTo("Detalhes", {
+                    id: idObjSelecionado
+                });
+            }
         })
     }
 )

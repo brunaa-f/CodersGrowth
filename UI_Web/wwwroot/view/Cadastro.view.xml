@@ -4,7 +4,7 @@
    displayBlock="true">
 
    <Shell>
-      <Page title="{i18n>TituloDetalhes}" showFooter="false" showNavButton="true" navButtonPress="_aoClicarVoltar">
+      <Page title="{i18n>TituloCadastro}" showFooter="false" showNavButton="true" navButtonPress="aoClicarVoltar">
       </Page>
    </Shell> 
 </mvc:View>

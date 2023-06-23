@@ -10,7 +10,6 @@ sap.ui.define(
                 let oView = this.getView();
                 const localhost = "https://localhost:7082/";
 
-                //retorna buscar todos
                 fetch(localhost + "api/Aluno")
 
                     .then((response) => response.json())
@@ -23,8 +22,9 @@ sap.ui.define(
             },
 
             aoClicarAbreCadastro: function () {
+                const rotaCadastro = "Cadastro";
+
                 let rota = this.getOwnerComponent().getRouter();
-                let rotaCadastro = "Cadastro";
                 rota.navTo(rotaCadastro);
             },
 
@@ -32,9 +32,9 @@ sap.ui.define(
                 let item = oEvent.getSource();
                 let lista = item.getBindingContext("alunos");
                 let rota = this.getOwnerComponent().getRouter();
-                let idObjetoSelecionado = lista.getProperty("id");
+                let idObjSelecionado = lista.getProperty("id");
                 rota.navTo("Detalhes", {
-                    id: window.encodeURIComponent(idObjetoSelecionado)
+                    id: idObjSelecionado
                 });
             }
         })

@@ -1,16 +1,17 @@
 <mvc:View
+   controllerName="ControleDeAlunos.controller.Detalhes"
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc"
    displayBlock="true">
 
    <Shell>
-      <Page title="{i18n>TituloDetalhes}" showFooter="false" showNavButton="true" navButtonPress="aoClicarVoltar">
+      <Page title="{i18n>TituloDetalhes}" showNavButton="true" navButtonPress="aoClicarVoltar">
          <content>
-            <ObjectHeader intro="" title="{alunos/nome}" backgroundDesign="Transparent">
+            <ObjectHeader intro="" title="{aluno>/nome}" backgroundDesign="Solid">
                <attributes>
-                  <ObjectAttribute title="CPF" text="{cpf}" active="false" />
-                  <ObjectAttribute title="Telefone" text="{telefone}" active="false" />
-                  <ObjectAttribute title="Data de Nascimento" text="{path: 'nascimento', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" active="false" />
+                  <ObjectAttribute title="CPF" text="{aluno>/cpf}" active="false" />
+                  <ObjectAttribute title="Telefone" text="{aluno>/telefone}" active="false" />
+                  <ObjectAttribute text="Data de Nascimento: {path: 'aluno>/nascimento', type: 'sap.ui.model.type.Date', formatOptions: {source: {pattern: 'yyyy-MM-ddTHH:mm:ss.mmm'}}}"/>
                </attributes>
             </ObjectHeader>
          </content>

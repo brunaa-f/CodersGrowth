@@ -5,7 +5,7 @@
    displayBlock="true">
 
    <Shell>
-      <Page title="{i18n>TituloDetalhes}" showNavButton="true" navButtonPress="aoClicarVoltar">
+      <Page title="{i18n>tituloDetalhes}" showNavButton="true" navButtonPress="aoClicarVoltar">
          <content>
             <ObjectHeader intro="" title="{aluno>/nome}" backgroundDesign="Solid">
                <attributes>

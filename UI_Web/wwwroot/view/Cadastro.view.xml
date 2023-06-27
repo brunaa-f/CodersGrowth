@@ -1,41 +1,32 @@
-<core:FragmentDefinition
-	xmlns="sap.m"
+<mvc:View
+    controllerName="ControleDeAlunos.controller.Cadastro"
+    xmlns="sap.m"
 	xmlns:f="sap.ui.layout.form"
-	xmlns:core="sap.ui.core">
-	<Shell>
-		<Page title="{i18n>tituloCadastro}" showNavButton="true" navButtonPress="aoClicarVoltar" titleAlignment="Center" >
-			<content>
-				<FlexBox alignItems="Center" justifyContent="Center">
-					<f:SimpleForm editable="true" layout="ResponsiveGridLayout" singleContainerFullSize="false" backgroundDesign="Solid">
-						<f:content>
-							<Label text="{i18n>labelNome}" />
-							<Input  value="{aluno>nome}"  required="true"/>
-							<Label text="{i18n>labelCpf}"  required="true"/>
-							<Input/>
-							<Label text="{i18n>labelTelefone}" required="true"/>
-							<Input/>
-							<Label text="{i18n>labelDataNascimento}" required="true" labelFor="DataNascimento"/>
-							<DatePicker placeholder="{i18n>placeholderData}" class="sapUiSmallMarginBottom" width="auto"/>
-							<Label></Label>
-						    <FlexBox alignItems="Center" justifyContent="End"  alignContent="End" class="sapUiSmallMarginBottom" backgroundDesign="Translucent">
+	xmlns:mvc="sap.ui.core.mvc">
 
-							   	<Button icon="sap-icon://sys-cancel"
-								activeIcon=""
-								
-								text="cancelar"
-								type="Transparent"
-								width="115px">
-								</Button>
-								<Button icon="sap-icon://save" activeIcon="" 
-								text="Salvar"
-								type="Transparent"
-								width="115px">
-								</Button>
-							</FlexBox>
-						</f:content>
-					</f:SimpleForm>
-				</FlexBox>
-			</content>
-		</Page>
-	</Shell>
-</core:FragmentDefinition>
+	<Page title="{i18n>tituloCadastro}" showNavButton="true" navButtonPress="aoClicarVoltar" titleAlignment="Center" >
+		<FlexBox alignItems="Center" justifyContent="Center">
+			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" singleContainerFullSize="false" class="sapUiLargeMarginTop" backgroundDesign="Solid">
+				<f:content>
+					<Label text="{i18n>labelNome}"/>
+					<Input required="true" placeholder="{i18n>placeholderNome}"/>
+					<Label text="{i18n>labelCpf}"  required="true" />
+					<MaskInput mask="999.999.999-99" placeholder="{i18n>placeholderCpf}">
+					</MaskInput>
+					<Label text="{i18n>labelTelefone}"/>
+					<MaskInput mask="(99)99999-9999" placeholder="{i18n>placeholderTelefone}" required="true">
+					</MaskInput>
+					<Label text="{i18n>labelDataNascimento}"  labelFor="DataNascimento"/>
+					<DatePicker placeholder="{i18n>placeholderData}" class="sapUiSmallMarginBottom" width="auto" required="true"/>
+					<Label></Label>
+					<FlexBox alignItems="Center" justifyContent="End"  alignContent="End" class="sapUiSmallMarginBottom" backgroundDesign="Translucent">
+						<Button icon="sap-icon://sys-cancel" activeIcon="" class="sapUiTinyMarginEnd" text="{i18n>btnCancelar}" width="auto">
+						</Button>
+						<Button icon="sap-icon://save" activeIcon="" text="{i18n>btnSalvar}" type="Emphasized" width="auto" press="aoClicarSalvar">
+						</Button>
+					</FlexBox>
+				</f:content>
+			</f:SimpleForm>
+		</FlexBox>
+	</Page>
+</mvc:View>

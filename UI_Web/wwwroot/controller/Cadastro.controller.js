@@ -9,10 +9,15 @@ sap.ui.define([
 
         onInit: function () {
         },
+        aoClicarSalvar: function () {
+        },
 
+        adicionarAluno: function () {
+
+
+        },
         aoClicarVoltar: function () {
             const rotaTelaInicial = "TelaInicial"
-
             var caminhoAnterior = History.getInstance().getPreviousHash();
             if (caminhoAnterior !== undefined) {
                 window.history.go(-1);
@@ -20,10 +25,6 @@ sap.ui.define([
                 var rota = this.getOwnerComponent().getRouter();
                 rota.navTo(rotaTelaInicial);
             }
-        },
-
-        aoClicarSalvar: function () {
         }
-
     });
 });

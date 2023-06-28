@@ -8,12 +8,13 @@ sap.ui.define([
 
 
         onInit: function () {
+            let view = this.getView();
+            const endpoint = "api/Aluno"
+
+            fetch(endpoint)
+
         },
         aoClicarSalvar: function () {
-        },
-
-        adicionarAluno: function () {
-
 
         },
         aoClicarVoltar: function () {

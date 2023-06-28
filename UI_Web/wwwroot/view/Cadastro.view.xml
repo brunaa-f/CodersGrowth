@@ -3,26 +3,25 @@
     xmlns="sap.m"
 	xmlns:f="sap.ui.layout.form"
 	xmlns:mvc="sap.ui.core.mvc">
-
 	<Page title="{i18n>tituloCadastro}" showNavButton="true" navButtonPress="aoClicarVoltar" titleAlignment="Center" >
 		<FlexBox alignItems="Center" justifyContent="Center">
-			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" singleContainerFullSize="false" class="sapUiLargeMarginTop" backgroundDesign="Solid">
+			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" singleContainerFullSize="false" class="sapUiLargeMarginTop" backgroundDesign="Solid" objectBindings="">
 				<f:content>
 					<Label text="{i18n>labelNome}"/>
-					<Input required="true" placeholder="{i18n>placeholderNome}" />
+					<Input required="true" placeholder="{i18n>placeholderNome}" id="inputNome"/>
 					<Label text="{i18n>labelCpf}"  required="true" />
-					<MaskInput mask="999.999.999-99" placeholder="{i18n>placeholderCpf}">
+					<MaskInput mask="999.999.999-99" placeholder="{i18n>placeholderCpf}" id="inputCpf">
 					</MaskInput>
 					<Label text="{i18n>labelTelefone}"/>
-					<MaskInput mask="(99)99999-9999" placeholder="{i18n>placeholderTelefone}" required="true">
+					<MaskInput mask="(99)99999-9999" placeholder="{i18n>placeholderTelefone}" required="true" id="inputTelefone">
 					</MaskInput>
-					<Label text="{i18n>labelDataNascimento}"  labelFor="DataNascimento"/>
-					<DatePicker placeholder="{i18n>placeholderData}" class="sapUiSmallMarginBottom" width="auto" required="true"/>
+					<Label text="{i18n>labelDataNascimento}"/>
+					<DatePicker placeholder="{i18n>placeholderData}" class="sapUiSmallMarginBottom" width="auto" required="true" id="inputDataNascimento"/>
 					<Label></Label>
 					<FlexBox alignItems="Center" justifyContent="End"  alignContent="End" class="sapUiSmallMarginBottom" backgroundDesign="Translucent">
-						<Button icon="sap-icon://sys-cancel" activeIcon="" class="sapUiTinyMarginEnd" text="{i18n>btnCancelar}" width="auto">
+						<Button icon="sap-icon://sys-cancel" class="sapUiTinyMarginEnd" text="{i18n>btnCancelar}" width="auto">
 						</Button>
-						<Button icon="sap-icon://save" activeIcon="" text="{i18n>btnSalvar}" type="Emphasized" width="auto" press="aoClicarSalvar">
+						<Button icon="sap-icon://save" text="{i18n>btnSalvar}" type="Emphasized" width="auto" press="aoClicarSalvar">
 						</Button>
 					</FlexBox>
 				</f:content>

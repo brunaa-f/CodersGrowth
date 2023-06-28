@@ -7,14 +7,15 @@ sap.ui.define(
         "use strict";
         return Controller.extend("ControleDeAlunos.controller.TelaInicial", {
             onInit: function () {
-                let oView = this.getView();
-                const localhost = "https://localhost:7082/";
+                let view = this.getView();
+                const endpoint = "api/Aluno";
+                const modeloAlunos = "alunos";
 
-                fetch(localhost + "api/Aluno")
+                fetch(endpoint)
 
                     .then((response) => response.json())
                     .then((data) => {
-                        oView.setModel(new JSONModel(data), "alunos");
+                        view.setModel(new JSONModel(data), modeloAlunos);
                     })
                     .catch((error) => {
                         // console.error(error);
@@ -35,7 +36,7 @@ sap.ui.define(
                 let lista = item.getBindingContext("alunos");
                 let rota = this.getOwnerComponent().getRouter();
                 let idObjSelecionado = lista.getProperty("id");
-                rota.navTo("Detalhes", {
+                rota.navTo(rotaDetalhes, {
                     id: idObjSelecionado
                 });
             }

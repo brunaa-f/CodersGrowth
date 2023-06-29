@@ -8,11 +8,12 @@ sap.ui.define([
 
 
         onInit: function () {
-            let view = this.getView();
-            const endpoint = "api/Aluno"
+            const view = this.getView();
 
-            fetch(endpoint)
-
+            var data = {
+            };
+            var modelo = new JSONModel(data);
+            view.setModel(modelo);
         },
         aoClicarSalvar: function () {
 

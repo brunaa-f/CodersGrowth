@@ -18,7 +18,7 @@ sap.ui.define(
                         view.setModel(new JSONModel(data), modeloAlunos);
                     })
                     .catch((error) => {
-                        // console.error(error);
+                        console.error(error);
                     });
             },
 

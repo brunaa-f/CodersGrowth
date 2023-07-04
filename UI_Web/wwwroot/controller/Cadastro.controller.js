@@ -1,23 +1,23 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel",
-    "sap/ui/core/routing/History"
+    "sap/ui/model/json/JSONModel"
 ], function (
     Controller,
-    JSONModel,
-    History) {
+    JSONModel) {
 
     "use strict";
     return Controller.extend("ControleDeAlunos.controller.Cadastro", {
 
         onInit: function () {
             let rota = sap.ui.core.UIComponent.getRouterFor(this);
+
             rota.attachRoutePatternMatched(this.rotaCorrespondida, this);
         },
         rotaCorrespondida: function () {
             const aluno = "aluno";
-            var objetoDeDadosCliente = new JSONModel({});
-            this.getView().setModel(objetoDeDadosCliente, aluno);
+            var dadosAluno = new JSONModel({});
+
+            this.getView().setModel(dadosAluno, aluno);
         },
 
         aoClicarCancelar: function () {
@@ -25,12 +25,12 @@ sap.ui.define([
         },
         aoClicarSalvar: function () {
 
-            const mensagemDeErro = "Erro ao cadastrar aluno";
             const aluno = "aluno";
-            var modeloAlunos = this.getView().getModel(aluno).getData();
+            let modeloAlunos = this.getView().getModel(aluno).getData();
 
             let dataNascimento = modeloAlunos.nascimento.split('/');
             let dataFormatada = new Date(dataNascimento[2], dataNascimento[1], dataNascimento[0]);
+
             var novoAluno = {
                 nome: modeloAlunos.nome,
                 cpf: modeloAlunos.cpf,
@@ -39,6 +39,7 @@ sap.ui.define([
             };
 
             let endpoint = "api/Aluno"
+            const mensagemDeErro = "Erro ao cadastrar aluno";
 
             fetch(endpoint, {
                 method: "POST",
@@ -56,13 +57,8 @@ sap.ui.define([
         },
         aoClicarVoltar: function () {
             const rotaTelaInicial = "TelaInicial"
-            var caminhoAnterior = History.getInstance().getPreviousHash();
-            if (caminhoAnterior !== undefined) {
-                window.history.go(-1);
-            } else {
-                var rota = this.getOwnerComponent().getRouter();
-                rota.navTo(rotaTelaInicial);
-            }
+            var rota = this.getOwnerComponent().getRouter();
+            rota.navTo(rotaTelaInicial);
         },
     });
 });

@@ -53,11 +53,10 @@ sap.ui.define([
                     }
                     return resposta.json();
                 })
-                .then(post => {
-                    var id = post.id;
+                .then(data => {
+                    var idAluno = data.id;
+                    this.navegarPaginaDetalhes(idAluno);
                 });
-
-            console.log(id);
         },
         aoClicarVoltar: function () {
             const rotaTelaInicial = "TelaInicial"
@@ -65,10 +64,11 @@ sap.ui.define([
             rota.navTo(rotaTelaInicial);
         },
 
-        abrirDetalhes: function () {
+        navegarPaginaDetalhes: function (id) {
             const rotaDetalhes = "Detalhes"
+
             let rota = this.getOwnerComponent().getRouter();
-            let idObjSelecionado = lista.getProperty("id");
+            let idObjSelecionado = id;
             rota.navTo(rotaDetalhes, {
                 id: idObjSelecionado
             });

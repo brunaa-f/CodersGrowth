@@ -12,6 +12,7 @@
          <content>
             <ObjectHeader title="{aluno>/nome}" backgroundDesign="Solid" class="sapUiTinyMargin">
                <attributes>
+                  <ObjectAttribute title="Identificador" text="{aluno>/id}" active="false"/>
                   <ObjectAttribute title="CPF" text="{aluno>/cpf}" active="false"/>
                   <ObjectAttribute title="Telefone" text="{aluno>/telefone}" active="false" />
                   <ObjectAttribute text="Data de Nascimento: {path: 'aluno>/nascimento', type: 'sap.ui.model.type.Date', formatOptions: {source: {pattern: 'yyyy-MM-ddTHH:mm:ss.mmm'}}}"/>

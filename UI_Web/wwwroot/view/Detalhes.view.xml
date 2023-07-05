@@ -4,27 +4,20 @@
    xmlns:mvc="sap.ui.core.mvc"
    displayBlock="true">
 
-   <Shell>
-      <Page title="{i18n>TituloDetalhes}" showNavButton="true" navButtonPress="aoClicarVoltar">
+      <Page title="{i18n>tituloDetalhes}" showNavButton="true" navButtonPress="aoClicarVoltar" titleAlignment="Center">
+         <headerContent>
+            <Button text="Editar" icon="sap-icon://user-edit"   iconDensityAware="false"/>
+            <Button text="Excluir" icon="sap-icon://delete" iconDensityAware="false"/>
+         </headerContent>
          <content>
-            <ObjectHeader intro="" title="{aluno>/nome}" backgroundDesign="Solid">
+            <ObjectHeader title="{aluno>/nome}" backgroundDesign="Solid" class="sapUiTinyMargin">
                <attributes>
-                  <ObjectAttribute title="CPF" text="{aluno>/cpf}" active="false" />
+                  <ObjectAttribute title="Identificador" text="{aluno>/id}" active="false"/>
+                  <ObjectAttribute title="CPF" text="{aluno>/cpf}" active="false"/>
                   <ObjectAttribute title="Telefone" text="{aluno>/telefone}" active="false" />
                   <ObjectAttribute text="Data de Nascimento: {path: 'aluno>/nascimento', type: 'sap.ui.model.type.Date', formatOptions: {source: {pattern: 'yyyy-MM-ddTHH:mm:ss.mmm'}}}"/>
                </attributes>
             </ObjectHeader>
          </content>
-            <subHeader>
-               <OverflowToolbar width="auto" design="Solid">
-                  <content>
-                     <ToolbarSpacer width=""/>
-                     <Button text="Editar" icon="sap-icon://user-edit"  width="auto"  iconDensityAware="false"/>
-                     <Button text="Excluir" icon="sap-icon://delete"  width="auto"  iconDensityAware="false"/>
-                  </content>
-               </OverflowToolbar>
-            </subHeader>
-         <customHeader/>
       </Page>
-   </Shell> 
 </mvc:View>

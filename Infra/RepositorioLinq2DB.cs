@@ -46,8 +46,8 @@ namespace Infra
             using (var conexaoLinq2Db = CriarConexao())
             {
                 try
-                {
-                    conexaoLinq2Db.Insert(novoAluno);
+                { 
+                    novoAluno.Id = conexaoLinq2Db.InsertWithInt32Identity(novoAluno);
                 }
                 catch (Exception e)
                 {

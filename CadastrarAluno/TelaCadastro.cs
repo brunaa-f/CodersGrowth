@@ -96,5 +96,10 @@ namespace UI
             alunoAtualizado.Id = alunoParaSerAtualizado.Id;
             AlunoParaCadastrar = alunoAtualizado;
         }
+
+        private void TelaCadastro_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -2,22 +2,30 @@ sap.ui.define(
     [
         "sap/ui/core/mvc/Controller",
         "sap/ui/model/json/JSONModel",
+        "sap/ui/model/Filter",
+        "sap/ui/model/FilterOperator"
     ],
-    function (Controller, JSONModel) {
+    function (
+        Controller,
+        JSONModel,
+        Filter,
+        FilterOperator) {
+
         "use strict";
         return Controller.extend("ControleDeAlunos.controller.TelaInicial", {
             onInit: function () {
-                let oView = this.getView();
-                const localhost = "https://localhost:7082/";
+                let view = this.getView();
+                const endpoint = "api/Aluno";
+                const modeloAlunos = "alunos";
 
-                fetch(localhost + "api/Aluno")
+                fetch(endpoint)
 
                     .then((response) => response.json())
                     .then((data) => {
-                        oView.setModel(new JSONModel(data), "alunos");
+                        view.setModel(new JSONModel(data), modeloAlunos);
                     })
                     .catch((error) => {
-                        // console.error(error);
+                        console.error(error);
                     });
             },
 
@@ -30,14 +38,18 @@ sap.ui.define(
 
             aoClicarAbreDetalhes: function (oEvent) {
                 const rotaDetalhes = "Detalhes"
-
+                let modelo = "alunos"
+                let id = "id"
                 let item = oEvent.getSource();
-                let lista = item.getBindingContext("alunos");
+                let lista = item.getBindingContext(modelo);
                 let rota = this.getOwnerComponent().getRouter();
-                let idObjSelecionado = lista.getProperty("id");
-                rota.navTo("Detalhes", {
+                let idObjSelecionado = lista.getProperty(id);
+                rota.navTo(rotaDetalhes, {
                     id: idObjSelecionado
                 });
+            },
+            aoClicarBucar: function () {
+
             }
         })
     }

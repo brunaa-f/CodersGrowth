@@ -148,6 +148,7 @@
             Name = "TelaCadastro";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro";
+            Load += TelaCadastro_Load;
             ResumeLayout(false);
             PerformLayout();
         }

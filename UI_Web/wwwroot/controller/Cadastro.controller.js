@@ -6,20 +6,23 @@ sap.ui.define([
     "sap/m/library",
     "sap/m/MessageToast",
     "sap/m/Text",
+    "../services/Validacao"
 
 ], function (
     Controller,
     JSONModel,
     Dialog,
     Button,
-    mobileLibrary,
+    library,
     MessageToast,
-    Text) {
+    Text,
+    Validacao,
+) {
 
     "use strict";
 
-    var ButtonType = mobileLibrary.ButtonType;
-    var DialogType = mobileLibrary.DialogType;
+    var ButtonType = library.ButtonType;
+    var DialogType = library.DialogType;
 
     return Controller.extend("ControleDeAlunos.controller.Cadastro", {
 
@@ -64,8 +67,6 @@ sap.ui.define([
             let modeloAlunos = this.getView().getModel(aluno).getData();
             let id = modeloAlunos.id;
             this.cadastrarAluno();
-
-
         },
         aoClicarVoltar: function () {
             const rotaTelaInicial = "TelaInicial"
@@ -124,7 +125,7 @@ sap.ui.define([
                     var msg = 'Aluno Cadastrado com sucesso';
                     MessageToast.show(msg);
                 });
-        }
+        },
 
     });
 });

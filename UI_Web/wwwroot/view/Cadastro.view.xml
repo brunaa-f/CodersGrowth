@@ -4,12 +4,11 @@
 	xmlns:f="sap.ui.layout.form"
 	xmlns:mvc="sap.ui.core.mvc">
 	<Page title="{i18n>tituloCadastro}" showNavButton="true" navButtonPress="aoClicarVoltar" titleAlignment="Center">
-		<VBox id="VBox">
-					<FlexBox alignItems="Center" justifyContent="Center">
-			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" singleContainerFullSize="false" class="sapUiLargeMarginTop" backgroundDesign="Solid" objectBindings="">
+		<FlexBox alignItems="Center" justifyContent="Center">
+			<f:SimpleForm layout="ResponsiveGridLayout" class="sapUiLargeMarginTop" backgroundDesign="Solid" id="formulario">
 				<f:content>
 					<Label text="{i18n>labelNome}"/>
-					<Input  placeholder="{i18n>placeholderNome}" value="{aluno>/nome}" id="name"/>
+					<Input  placeholder="{i18n>placeholderNome}" value="{aluno>/nome}"/>
 					<Label text="{i18n>labelCpf}"   />
 					<MaskInput mask="999.999.999-99" placeholder="{i18n>placeholderCpf}"  value="{aluno>/cpf}" required="true">
 					</MaskInput>
@@ -19,7 +18,7 @@
 					<Label text="{i18n>labelDataNascimento}"/>
 					<DatePicker placeholder="{i18n>placeholderData}" class="sapUiSmallMarginBottom" width="auto" value="{aluno>/nascimento}" required="true"/>
 					<Label></Label>
-					<FlexBox alignItems="Center" justifyContent="End"  alignContent="End" class="sapUiSmallMarginBottom" backgroundDesign="Translucent">
+					<FlexBox alignItems="Center" justifyContent="End">
 						<Button icon="sap-icon://sys-cancel" class="sapUiTinyMarginEnd" text="{i18n>btnCancelar}" width="auto" press="aoClicarCancelar">
 						</Button>
 						<Button icon="sap-icon://save" text="{i18n>btnSalvar}" type="Emphasized" width="auto" press="aoClicarSalvar">
@@ -28,6 +27,5 @@
 				</f:content>
 			</f:SimpleForm>
 		</FlexBox>
-		</VBox>
 	</Page>
 </mvc:View>

@@ -30,35 +30,17 @@ sap.ui.define([
         onInit: function () {
             let rota = sap.ui.core.UIComponent.getRouterFor(this);
             rota.attachRoutePatternMatched(this.rotaCorrespondida, this);
-
-            sap.ui.getCore().attachValidationError(function (oEvent) {
-                debugger;
-                oEvent.getParameter("element").setValueState(ValueState.Error);
-            });
-            sap.ui.getCore().attachValidationSuccess(function (oEvent) {
-                debugger;
-                oEvent.getParameter("element").setValueState(ValueState.None);
-            });
         },
 
         rotaCorrespondida: function () {
             const aluno = "aluno";
             var dadosAluno = new JSONModel({});
-
             this.getView().setModel(dadosAluno, aluno);
         },
-        validarCampos: function () {
-            var oControl = this.getView().byId("VBox");
-            var bValidation = this._validar(oControl);
-            if (!bValidation) {
-                alert("preencha os campos obrigatórios");
-            }
-        },
-
-        _validar: function (oControl) {
+        validar: function (controle) {
             debugger;
             var validacao = new Validacao();
-            if (validacao.validar(oControl)) {
+            if (validacao.validar(controle)) {
                 return true;
             } else {
                 return false;
@@ -66,9 +48,16 @@ sap.ui.define([
         },
 
         aoClicarSalvar: function () {
-            this.validarCampos();
+            const view = this.getView();
             const aluno = "aluno";
-            let modeloAlunos = this.getView().getModel(aluno).getData();
+            let modeloAlunos = view.getModel(aluno).getData();
+            
+            const formulario = "formulario"
+            let controle = view.byId(formulario);
+            let formularioValidado = this.validar(controle);
+            if (!formularioValidado) {
+                alert("preencha os campos obrigatórios");
+            }
             let id = modeloAlunos.id;
             this.cadastrarAluno();
         },

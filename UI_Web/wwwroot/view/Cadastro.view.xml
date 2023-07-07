@@ -9,7 +9,7 @@
 			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" singleContainerFullSize="false" class="sapUiLargeMarginTop" backgroundDesign="Solid" objectBindings="">
 				<f:content>
 					<Label text="{i18n>labelNome}"/>
-					<Input  placeholder="{i18n>placeholderNome}" value="{aluno>/nome}" id="nome"/>
+					<Input  placeholder="{i18n>placeholderNome}" value="{aluno>/nome}" id="name"/>
 					<Label text="{i18n>labelCpf}"   />
 					<MaskInput mask="999.999.999-99" placeholder="{i18n>placeholderCpf}"  value="{aluno>/cpf}" required="true">
 					</MaskInput>

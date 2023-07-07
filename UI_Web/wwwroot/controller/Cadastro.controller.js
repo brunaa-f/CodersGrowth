@@ -30,12 +30,47 @@ sap.ui.define([
         onInit: function () {
             let rota = sap.ui.core.UIComponent.getRouterFor(this);
             rota.attachRoutePatternMatched(this.rotaCorrespondida, this);
+
+            sap.ui.getCore().attachValidationError(function (oEvent) {
+                debugger;
+                oEvent.getParameter("element").setValueState(ValueState.Error);
+            });
+            sap.ui.getCore().attachValidationSuccess(function (oEvent) {
+                debugger;
+                oEvent.getParameter("element").setValueState(ValueState.None);
+            });
         },
+
         rotaCorrespondida: function () {
             const aluno = "aluno";
             var dadosAluno = new JSONModel({});
 
             this.getView().setModel(dadosAluno, aluno);
+        },
+        validarCampos: function () {
+            var oControl = this.getView().byId("VBox");
+            var bValidation = this._validar(oControl);
+            if (!bValidation) {
+                alert("preencha os campos obrigatórios");
+            }
+        },
+
+        _validar: function (oControl) {
+            debugger;
+            var validacao = new Validacao();
+            if (validacao.validar(oControl)) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+
+        aoClicarSalvar: function () {
+            this.validarCampos();
+            const aluno = "aluno";
+            let modeloAlunos = this.getView().getModel(aluno).getData();
+            let id = modeloAlunos.id;
+            this.cadastrarAluno();
         },
         aoClicarCancelar: function () {
 
@@ -61,12 +96,6 @@ sap.ui.define([
                 });
             }
             this.oApproveDialog.open();
-        },
-        aoClicarSalvar: function () {
-            const aluno = "aluno";
-            let modeloAlunos = this.getView().getModel(aluno).getData();
-            let id = modeloAlunos.id;
-            this.cadastrarAluno();
         },
         aoClicarVoltar: function () {
             const rotaTelaInicial = "TelaInicial"
@@ -126,6 +155,10 @@ sap.ui.define([
                     MessageToast.show(msg);
                 });
         },
+
+        editarAluno: function () {
+
+        }
     });
     return PageController;
 });

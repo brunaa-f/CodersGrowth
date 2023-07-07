@@ -6,6 +6,7 @@ sap.ui.define([
     "sap/m/library",
     "sap/m/MessageToast",
     "sap/m/Text",
+    "sap/ui/core/ValueState",
     "../services/Validacao"
 
 ], function (
@@ -16,15 +17,15 @@ sap.ui.define([
     library,
     MessageToast,
     Text,
+    ValueState,
     Validacao,
 ) {
 
     "use strict";
-
     var ButtonType = library.ButtonType;
     var DialogType = library.DialogType;
 
-    return Controller.extend("ControleDeAlunos.controller.Cadastro", {
+    var PageController = Controller.extend("ControleDeAlunos.controller.Cadastro", {
 
         onInit: function () {
             let rota = sap.ui.core.UIComponent.getRouterFor(this);
@@ -36,7 +37,6 @@ sap.ui.define([
 
             this.getView().setModel(dadosAluno, aluno);
         },
-
         aoClicarCancelar: function () {
 
             if (!this.oApproveDialog) {
@@ -126,8 +126,8 @@ sap.ui.define([
                     MessageToast.show(msg);
                 });
         },
-
     });
+    return PageController;
 });
 
 

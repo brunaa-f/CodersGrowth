@@ -48,9 +48,6 @@ sap.ui.define(
                     id: idObjSelecionado
                 });
             },
-            aoClicarBucar: function () {
-
-            }
         })
     }
 )

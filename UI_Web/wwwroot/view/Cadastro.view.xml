@@ -3,12 +3,13 @@
     xmlns="sap.m"
 	xmlns:f="sap.ui.layout.form"
 	xmlns:mvc="sap.ui.core.mvc">
-	<Page title="{i18n>tituloCadastro}" showNavButton="true" navButtonPress="aoClicarVoltar" titleAlignment="Center" >
-		<FlexBox alignItems="Center" justifyContent="Center">
+	<Page title="{i18n>tituloCadastro}" showNavButton="true" navButtonPress="aoClicarVoltar" titleAlignment="Center">
+		<VBox id="VBox">
+					<FlexBox alignItems="Center" justifyContent="Center">
 			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" singleContainerFullSize="false" class="sapUiLargeMarginTop" backgroundDesign="Solid" objectBindings="">
 				<f:content>
-					<Label text="{i18n>labelNome}" required="true" labelFor="idNomeInput"/>
-					<Input  placeholder="{i18n>placeholderNome}" value="{aluno>/nome}" id="idNomeInput"/>
+					<Label text="{i18n>labelNome}"/>
+					<Input  placeholder="{i18n>placeholderNome}" value="{aluno>/nome}" id="nome"/>
 					<Label text="{i18n>labelCpf}"   />
 					<MaskInput mask="999.999.999-99" placeholder="{i18n>placeholderCpf}"  value="{aluno>/cpf}" required="true">
 					</MaskInput>
@@ -27,5 +28,6 @@
 				</f:content>
 			</f:SimpleForm>
 		</FlexBox>
+		</VBox>
 	</Page>
 </mvc:View>

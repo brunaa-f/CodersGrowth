@@ -16,7 +16,6 @@ sap.ui.define(
                 "formContainers",
                 "formElements",
                 "fields",
-
             ];
             this._valor = "value";
         };
@@ -37,14 +36,13 @@ sap.ui.define(
         };
 
 
-        Validacao.prototype.clearValueState = function (oControl) {
+        Validacao.prototype.limparErros = function (oControl) {
 
             if (!oControl) return;
             if (oControl.setValueState) oControl.setValueState(ValueState.None);
-            this._chamadaRecursiva(oControl, this.clearValueState);
+            this._chamadaRecursiva(oControl, this.limparErros);
 
         };
-
 
         Validacao.prototype._validar = function (oControl) {
             var i,
@@ -134,9 +132,9 @@ sap.ui.define(
                     new Message({
                         message: oControl.getValueStateText
                             ? oControl.getValueStateText()
-                            : sMessage, // Get Message from ValueStateText if available
+                            : sMessage,
                         type: eMessageType,
-                        additionalText: sLabel // Get label from the form element
+                        additionalText: sLabel
                     })
                 );
         };

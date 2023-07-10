@@ -36,11 +36,11 @@ sap.ui.define(
                 rota.navTo(rotaCadastro);
             },
 
-            aoClicarAbreDetalhes: function (oEvent) {
+            aoClicarAbreDetalhes: function (evento) {
                 const rotaDetalhes = "Detalhes"
                 let modelo = "alunos"
                 let id = "id"
-                let item = oEvent.getSource();
+                let item = evento.getSource();
                 let lista = item.getBindingContext(modelo);
                 let rota = this.getOwnerComponent().getRouter();
                 let idObjSelecionado = lista.getProperty(id);
@@ -48,6 +48,18 @@ sap.ui.define(
                     id: idObjSelecionado
                 });
             },
+
+            Pesquisa: function (oEvent) {
+                debugger
+                let filtro = [];
+                let consulta = oEvent.getParameter("query");
+                if (consulta) {
+                    filtro.push(new Filter("nome", FilterOperator.Contains, consulta));
+                }
+                let tabela = this.getView().byId("tabela");
+                let items = tabela.getBinding("items");
+                items.filter(filtro);
+            }
         })
     }
 )

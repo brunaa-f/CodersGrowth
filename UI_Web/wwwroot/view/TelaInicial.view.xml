@@ -7,12 +7,12 @@
 		<App>
 			<Page title="{i18n>telaInicialTitulo}" titleAlignment="Center">
 				<content>
-				 	<Table width="auto" noDataText="{i18n>semDadosTabela}"  items="{alunos>/}" backgroundDesign="Translucent"  class="sapUiTinyMargin" id="listaAlunos">
+				 	<Table width="auto" noDataText="{i18n>semDadosTabela}"  items="{alunos>/}"  class="sapUiTinyMargin" id="tabela">
 						<headerToolbar>
 							<OverflowToolbar width="auto" height="auto" design="Transparent">
 								<content>
 									<ToolbarSpacer width=""/>
-									<SearchField placeholder="{i18n>buscar}" width="auto" id="aoClicarBuscar"/>
+									<SearchField placeholder="{i18n>buscar}" width="auto" search="Pesquisa"/>
 									<Button  icon="sap-icon://add" iconFirst="false" width="auto"  iconDensityAware="false" press="aoClicarAbreCadastro" tooltip="Adicionar Aluno"/>
 								</content>
 							</OverflowToolbar>

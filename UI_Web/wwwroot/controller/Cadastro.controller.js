@@ -25,7 +25,7 @@ sap.ui.define([
     var ButtonType = library.ButtonType;
     var DialogType = library.DialogType;
 
-    var PageController = Controller.extend("ControleDeAlunos.controller.Cadastro", {
+    return Controller.extend("ControleDeAlunos.controller.Cadastro", {
 
         onInit: function () {
             let rota = sap.ui.core.UIComponent.getRouterFor(this);
@@ -38,7 +38,6 @@ sap.ui.define([
             this.getView().setModel(dadosAluno, aluno);
         },
         validar: function (controle) {
-            debugger;
             var validacao = new Validacao();
             if (validacao.validar(controle)) {
                 return true;
@@ -51,7 +50,7 @@ sap.ui.define([
             const view = this.getView();
             const aluno = "aluno";
             let modeloAlunos = view.getModel(aluno).getData();
-            
+
             const formulario = "formulario"
             let controle = view.byId(formulario);
             let formularioValidado = this.validar(controle);
@@ -144,12 +143,10 @@ sap.ui.define([
                     MessageToast.show(msg);
                 });
         },
-
         editarAluno: function () {
 
         }
     });
-    return PageController;
 });
 
 

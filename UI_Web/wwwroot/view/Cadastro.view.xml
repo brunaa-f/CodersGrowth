@@ -8,15 +8,15 @@
 			<f:SimpleForm layout="ResponsiveGridLayout" class="sapUiLargeMarginTop" backgroundDesign="Solid" id="formulario">
 				<f:content>
 					<Label text="{i18n>labelNome}"/>
-					<Input  placeholder="{i18n>placeholderNome}" value="{aluno>/nome}" required="true"/>
+					<Input  placeholder="{i18n>placeholderNome}" value="{aluno>/nome}" required="true" id="campoNome"/>
 					<Label text="{i18n>labelCpf}"   />
-					<MaskInput mask="999.999.999-99" placeholder="{i18n>placeholderCpf}"  value="{aluno>/cpf}" required="true">
+					<MaskInput mask="999.999.999-99" placeholder="{i18n>placeholderCpf}"  value="{aluno>/cpf}" required="true" id="campoCPF">
 					</MaskInput>
 					<Label text="{i18n>labelTelefone}"/>
-					<MaskInput mask="(99)99999-9999" placeholder="{i18n>placeholderTelefone}" value="{aluno>/telefone}" required="true">
+					<MaskInput mask="(99)99999-9999" placeholder="{i18n>placeholderTelefone}" value="{aluno>/telefone}" required="true" id ="campoTelefone">
 					</MaskInput>
 					<Label text="{i18n>labelDataNascimento}"/>
-					<DatePicker placeholder="{i18n>placeholderData}" class="sapUiSmallMarginBottom" width="auto" value="{aluno>/nascimento}" required="true"/>
+					<DatePicker placeholder="{i18n>placeholderData}" class="sapUiSmallMarginBottom" width="auto" value="{aluno>/nascimento}" required="true" id="campoNascimento"/>
 					<Label></Label>
 					<FlexBox alignItems="Center" justifyContent="End">
 						<Button icon="sap-icon://sys-cancel" class="sapUiTinyMarginEnd" text="{i18n>btnCancelar}" width="auto" press="aoClicarCancelar">

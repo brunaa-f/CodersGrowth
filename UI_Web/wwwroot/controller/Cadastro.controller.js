@@ -6,7 +6,6 @@ sap.ui.define([
     "sap/m/library",
     "sap/m/MessageToast",
     "sap/m/Text",
-    "sap/ui/core/ValueState",
     "../services/Validacao"
 
 ], function (
@@ -17,7 +16,6 @@ sap.ui.define([
     library,
     MessageToast,
     Text,
-    ValueState,
     Validacao,
 ) {
 
@@ -37,27 +35,15 @@ sap.ui.define([
             var dadosAluno = new JSONModel({});
             this.getView().setModel(dadosAluno, aluno);
         },
-        validar: function (controle) {
-            var validacao = new Validacao();
-            if (validacao.validar(controle)) {
-                return true;
-            } else {
-                return false;
-            }
-        },
 
         aoClicarSalvar: function () {
             const view = this.getView();
             const aluno = "aluno";
             let modeloAlunos = view.getModel(aluno).getData();
 
-            const formulario = "formulario"
-            let controle = view.byId(formulario);
-            let formularioValidado = this.validar(controle);
-            if (!formularioValidado) {
+            if (!Validacao.validarCamposFormulario(view)) {
                 alert("preencha os campos obrigatórios");
             }
-            let id = modeloAlunos.id;
             this.cadastrarAluno();
         },
         aoClicarCancelar: function () {

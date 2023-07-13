@@ -1,8 +1,11 @@
 sap.ui.define(
     [
     ],
-    function () {
+    function (
+
+    ) {
         "use strict";
+
 
         return {
 
@@ -13,7 +16,7 @@ sap.ui.define(
                 const padrao = /[^a-zà-ú]/gi;
 
                 if (nome === '') {
-                    return "Campo Nome é obrigatório.";
+                    return "campo obrigatório";
                 }
                 if (nome.length <= valorMinimodeCaracteres || padrao.test(nome)) {
                     return "valor inválido";
@@ -97,9 +100,12 @@ sap.ui.define(
             },
 
             validarNascimento: function (campo) {
+                const nascimento = campo.getValue();
 
+                if (nascimento === '') {
+                    return "Campo data de nascimento é obrigatório.";
+                }
                 return "";
-
             },
 
             _limparErros: function (campo) {

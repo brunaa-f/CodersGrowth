@@ -7,12 +7,17 @@ sap.ui.define(
         return {
 
             validarNome: function (campo) {
-                const valorMinimodeCaracteres = 2;
+
                 const nome = campo.getValue().trim();
+                const valorMinimodeCaracteres = 2;
+                const padrao = /[^a-zà-ú]/gi;
+
                 if (nome === '') {
                     return "Campo Nome é obrigatório.";
                 }
-
+                if (nome.length <= valorMinimodeCaracteres || padrao.test(nome)) {
+                    return "valor inválido";
+                }
                 return "";
             },
             validarCPF: function (campo) {
@@ -30,11 +35,47 @@ sap.ui.define(
                     '99999999999'
                 ];
 
+                function validaPrimeiroDigito(cpf) {
+                    let soma = 0;
+                    let multiplicador = 10;
+
+                    for (let tamanho = 0; tamanho < 9; tamanho++) {
+                        soma += cpf[tamanho] * multiplicador;
+                        multiplicador--
+                    }
+
+                    soma = (soma * 10) % 11;
+
+                    if (soma == 10 || soma == 11) {
+                        soma = 0;
+                    }
+
+                    return soma != cpf[9];
+                }
+
+                function validaSegundoDigito(cpf) {
+                    let soma = 0;
+                    let multiplicador = 11;
+
+                    for (let tamanho = 0; tamanho < 10; tamanho++) {
+                        soma += cpf[tamanho] * multiplicador;
+                        multiplicador--
+                    }
+
+                    soma = (soma * 10) % 11;
+
+                    if (soma == 10 || soma == 11) {
+                        soma = 0;
+                    }
+
+                    return soma != cpf[10];
+                }
+
                 if (cpf === '') {
                     return "Campo CPF é obrigatório.";
                 }
 
-                if (numerosRepetidos.includes(cpf)) {
+                if (numerosRepetidos.includes(cpf) || validaPrimeiroDigito(cpf) || validaSegundoDigito(cpf)) {
                     return "CPF inválido.";
                 }
 
@@ -56,12 +97,9 @@ sap.ui.define(
             },
 
             validarNascimento: function (campo) {
-                const nascimento = campo.getValue();
 
-                if (nascimento === '') {
-                    return "Campo data de nascimento é obrigatório.";
-                }
                 return "";
+
             },
 
             _limparErros: function (campo) {

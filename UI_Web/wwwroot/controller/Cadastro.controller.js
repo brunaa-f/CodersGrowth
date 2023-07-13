@@ -38,13 +38,11 @@ sap.ui.define([
 
         aoClicarSalvar: function () {
             const view = this.getView();
-            const aluno = "aluno";
-            let modeloAlunos = view.getModel(aluno).getData();
 
             if (!Validacao.validarCamposFormulario(view)) {
-                alert("preencha os campos obrigatórios");
+            } else {
+                this.cadastrarAluno();
             }
-            this.cadastrarAluno();
         },
         aoClicarCancelar: function () {
 
